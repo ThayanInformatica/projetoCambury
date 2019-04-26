@@ -14,6 +14,7 @@
 						$email = trim(strip_tags($_POST['email'])); // atribui login à variavel, com funções contra sql inject
 						
     // confere se as senhas são iguais
+    
     if($senha === $rep_senha) {
       $consulta = $cadastrar->unico($login);
 	  $consultaCPF = $cadastrar->unicoCpf($cpf);
