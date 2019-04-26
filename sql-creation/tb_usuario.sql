@@ -26,18 +26,22 @@ SET time_zone = "+00:00";
 -- Estrutura da tabela `usuario`
 --
 
-CREATE TABLE IF NOT EXISTS `usuario` (
+CREATE TABLE IF NOT EXISTS `tb_usuario` (
 `codUsuario` int(11) NOT NULL,
   `loginUsuario` varchar(30) NOT NULL,
-  `senhaUsuario` varchar(30) NOT NULL
+  `nomeUsuario` varchar(30) NOT NULL,
+  `senhaUsuario` varchar(30) NOT NULL,
+  `cpfUsuario` varchar(30) NOT NULL,
+  `emailUsuario` varchar(30) NOT NULL
+ 
 ) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=latin1;
 
 --
 -- Extraindo dados da tabela `usuario`
 --
 
-INSERT INTO `usuario` (`codUsuario`, `loginUsuario`, `senhaUsuario`) VALUES
-(18, '123', '123');
+INSERT INTO `tb_usuario` (`codUsuario`, `loginUsuario`, `nomeUsuario`,`senhaUsuario`,`cpfUsuario`,`emailUsuario`) VALUES
+(18, '123', '123','123','12','100');
 
 --
 -- Indexes for dumped tables
@@ -46,7 +50,7 @@ INSERT INTO `usuario` (`codUsuario`, `loginUsuario`, `senhaUsuario`) VALUES
 --
 -- Indexes for table `usuario`
 --
-ALTER TABLE `usuario`
+ALTER TABLE `tb_usuario`
  ADD PRIMARY KEY (`codUsuario`);
 
 --
@@ -56,7 +60,7 @@ ALTER TABLE `usuario`
 --
 -- AUTO_INCREMENT for table `usuario`
 --
-ALTER TABLE `usuario`
+ALTER TABLE `tb_usuario`
 MODIFY `codUsuario` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=19;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

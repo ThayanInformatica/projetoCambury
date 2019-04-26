@@ -21,6 +21,7 @@ SET time_zone = "+00:00";
 CREATE TABLE IF NOT EXISTS `tb_projeto` (
 `codProjeto` int(11) NOT NULL,
 	`codUsuario` int(11) NOT NULL,
+	`nomeProjeto` varchar(150) NOT NULL,
   `nomeProfessor` varchar(30) NOT NULL,
   `objetivo` varchar(200) NOT NULL,
     `resumo` varchar(200) NOT NULL,
@@ -32,8 +33,8 @@ CREATE TABLE IF NOT EXISTS `tb_projeto` (
 -- Extraindo dados da tabela `tb_projeto`
 --
 
-INSERT INTO `tb_projeto` (`codProjeto`,`codUsuario`, `nomeProfessor`, `objetivo`,`resumo`,`curso`,`turma`) VALUES
-(18, 24, 'Teste','Teste','Teste','ti','02');
+INSERT INTO `tb_projeto` (`codProjeto`,`codUsuario`, `nomeProjeto`, `nomeProfessor`, `objetivo`,`resumo`,`curso`,`turma`) VALUES
+(18, 24, 'Teste','Teste','teste','Teste','ti','02');
 
 --
 -- Indexes for dumped tables
@@ -58,11 +59,6 @@ MODIFY `codProjeto` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=19;
 --
 -- Relação entre tableas for table `tb_projeto` and tb_usuario
 --
-
-ALTER TABLE `tb_projeto`
- CONSTRAINT PK_CodUsuario_CodProjeto PRIMARY KEY(codProjeto),
- CONSTRAINT FK_CodProjeto_CodUsuario FOREIGN KEY(codUsuario) REFERENCES tb_usuario(codUsuario);
- 
  
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
