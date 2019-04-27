@@ -2,24 +2,21 @@ label .teste {
 color: blueviolet !important;
 }
 
-.tamanho-campoLogin{
-  width: 40%;
-  float: left;
+.background-estilo input {
+  width: 50% !important;
 }
-.tamanho-campoNome{
-  width: 40%;
-  float: right;
-}
-.tamanho-campoSenha{
-  width: 40%;
-}
-.tamanho-campoRepita{
-  width: 40%;
-  float: right;
-}
-.tamanho-campocpf{
-  width: 40%;
-}
-.tamanho-campoEmail{
-  width: 40%;
-}
+/*.tamanho-campoLogin{*/
+/*}*/
+/*.tamanho-campoNome{*/
+/*  float: right;*/
+/*}*/
+/*.tamanho-campoSenha{*/
+/*}*/
+/*.tamanho-campoRepita{*/
+/*  float: right;*/
+/*}*/
+/*.tamanho-campocpf{*/
+/*}*/
+/*.tamanho-campoEmail{*/
+/*  float: right;*/
+/*}*/
