@@ -47,7 +47,7 @@
     <meta charset="UTF-8">
     <title>Login PHP OO</title>
 
-    <link rel="stylesheet" href="../vendor/bootstrap/css/bootstrap.css"/>
+    <link rel="stylesheet" href="css/projeto/projeto.css"/>
     <link rel="stylesheet" href="../dist/css/bootstrapValidator.css"/>
 
     <!-- Include the FontAwesome CSS if you want to use feedback icons provided by FontAwesome -->
@@ -82,46 +82,60 @@
       }
 
     ?>
+   
+   
+   <div class="background-estilo">
     <h2>Cadastro</h2>
-    <hr>
-    <form action="#" method="post">
+      <hr>
+      <form action="#" method="post">
 
-      <div class="form-group">
-        <label for="login">Login</label>
-        <input type="text" class="form-control" id="login" name="login" required autofocus>
+      <div class="tamanho-campoLogin">  
+        <div class="form-group" >
+            <label id="teste" for="login" style="">Login</label>
+            <input type="text" class="form-control" id="login" name="login" required autofocus>
+          </div>
       </div>
-	  
-	  	        <div class="form-group">
-        <label for="nome">Nome: </label>
-        <input type="text" class="form-control" id="nome" name="nome" required>
+       
+      <div class="tamanho-campoNome">
+        <div class="form-group " >
+            <label for="nome">Nome: </label>
+            <input id="nome" type="text" class="form-control" name="nome" required>
+          </div>
+    </div>
+        <div class="tamanho-campoSenha">
+          <div class="campo-senha" class="form-group">
+            <label for="senha">Senha:</label>
+            <input type="password" class="form-control" id="senha" name="senha" required>
+          </div>
       </div>
-
-      <div class="form-group">
-        <label for="senha">Senha:</label>
-        <input type="password" class="form-control" id="senha" name="senha" required>
+        
+      <div class="tamanho-campoRepita">  
+          <div class="form-group">
+              <label for="rep_senha">Repita a Senha:</label>
+              <input type="password" class="form-control" id="rep_senha" name="rep_senha" required>
+            </div>
+        </div>
+        
+        <div class="tamanho-campocpf">
+          <div class="form-group" class="form-horizontal">
+                <label for="cpf">CPF</label>
+                <input type="text" class="form-control" id="cpf" name="cpf" maxlength="11" >
+            </div>
       </div>
-
-      <div class="form-group">
-        <label for="rep_senha">Repita a Senha:</label>
-        <input type="password" class="form-control" id="rep_senha" name="rep_senha" required>
+        
+      <div class="tamanho-campoEmail">
+        <div class="form-group">
+          <label for="email">E-mail</label>
+          <input type="text" class="form-control" id="email" name="email" required>
+        </div>
       </div>
-	  
-			<div class="form-group" class="form-horizontal">
-             <label for="cpf">CPF</label>
-             <input type="text" class="form-control" id="cpf" name="cpf" maxlength="11" >
-         </div>
-	  
-	        <div class="form-group">
-        <label for="email">E-mail</label>
-        <input type="text" class="form-control" id="email" name="email" required>
-      </div>
+        <button type="submit" class="btn btn-primary" name="cadastrar">Cadastrar</button>
 
-      <button type="submit" class="btn btn-primary" name="cadastrar">Cadastrar</button>
+      </form>
+      <hr>
+      <a href="index.php">Voltar</a>
 
-    </form>
-    <hr>
-    <a href="index.php">Voltar</a>
-
+    </div>
   </div>
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.3/jquery.min.js"></script>

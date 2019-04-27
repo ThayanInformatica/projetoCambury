@@ -1,0 +1,25 @@
+label .teste {
+color: blueviolet !important;
+}
+
+.tamanho-campoLogin{
+  width: 40%;
+  float: left;
+}
+.tamanho-campoNome{
+  width: 40%;
+  float: right;
+}
+.tamanho-campoSenha{
+  width: 40%;
+}
+.tamanho-campoRepita{
+  width: 40%;
+  float: right;
+}
+.tamanho-campocpf{
+  width: 40%;
+}
+.tamanho-campoEmail{
+  width: 40%;
+}
