@@ -13,9 +13,9 @@ endif;
     <meta charset="UTF-8">
     <title>Login PHP OO</title>
 
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
-    <!--[if lt IE 9]>
-    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
     <![endif]-->
 </head>
 <body>
@@ -59,7 +59,10 @@ endif;
             <tr>
                 <th scope="col">Nome do Projeto</th>
                 <th scope="col">Nome do Orientador</th>
-                <th scope="col">Endereço</th>
+                <th scope="col">Objetivo do Projeto</th>
+                <th scope="col">Resumo do Projeto</th>
+                <th scope="col">Curso e Turma</th>
+                <th scope="col">Ações</th>
             </tr>
             </thead>
             <tbody>
@@ -67,13 +70,16 @@ endif;
 
             include '../classes/conectdb.php';
             $pdo = conectdb::conectar();
-            $sql = 'SELECT codUsuario,codProjeto,nomeProjeto,nomeProfessor,projetoAceito FROM tb_projeto ';
+            $sql = 'SELECT codUsuario,codProjeto,nomeProjeto,nomeProfessor,objetivo,resumo,curso,turma,projetoAceito FROM tb_projeto ';
 
             foreach ($pdo->query($sql) as $getProjetos) {
                 echo '<tr>';
                 echo '<th scope="row">' . $getProjetos['nomeProjeto'] . '</th>';
                 echo '<th scope="row" style="display: none;">' . $getProjetos['codProjeto'] . '</th>';
                 echo '<td>' . $getProjetos['nomeProfessor'] . '</td>';
+                echo '<td>' . $getProjetos['objetivo'] . '</td>';
+                echo '<td>' . $getProjetos['resumo'] . '</td>';
+                echo '<td>' . $getProjetos['curso'] . ' / ' . $getProjetos['turma'] . '</td>';
                 echo '<td width=450>';
                 echo '<a class="btn btn-primary" href="ler-projeto.php?codProjeto=' . $getProjetos['codProjeto'] . '">Info</a>';
                 echo ' ';
@@ -105,9 +111,6 @@ endif;
         </table>
     </div>
 </div>
-
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.3/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 </body>
 
 </html>
