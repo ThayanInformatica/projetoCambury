@@ -56,6 +56,7 @@ endif;
         </p>
 
         <table class="table table-striped">
+            <h2>Meus Projetos</h2>
             <thead>
             <tr>
                 <th scope="col">Id</th>

@@ -27,7 +27,7 @@ CREATE TABLE IF NOT EXISTS `tb_projeto` (
     `resumo` varchar(200)  NULL,
 	    `curso` varchar(50)  NULL,
 		    `turma` varchar(20)  NULL,
-			`projetoAceito` int(2)  NULL DEFAULT 0
+			`projetoAceito` varchar(2)  NULL DEFAULT 0
 ) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=latin1;
 
 --

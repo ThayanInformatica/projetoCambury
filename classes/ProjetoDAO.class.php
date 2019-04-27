@@ -38,6 +38,20 @@ class ProjetoDAO
         }
     }
 
+    public function aprovarProjeto($aprovarProjeto,$codProjeto)
+    {
+
+        $sql = " UPDATE tb_projeto SET (projetoAceito) = ('$aprovarProjeto') WHERE codProjeto = ('$codProjeto')";
+
+        $executa = mysqli_query($this->conexao->getCon(), $sql);
+
+        if (mysqli_affected_rows($this->conexao->getCon()) > 0) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
 //    public function recuperarProjetosDeUsuario($codUsuario)
 //    {
 //
