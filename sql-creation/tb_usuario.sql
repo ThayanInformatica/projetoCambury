@@ -17,13 +17,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8 */;
 
 --
--- Database: `login`
+-- Database: `projeto`
 --
 
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `usuario`
+-- Estrutura da tabela `tb_usuario`
 --
 
 CREATE TABLE IF NOT EXISTS `tb_usuario` (
@@ -32,12 +32,12 @@ CREATE TABLE IF NOT EXISTS `tb_usuario` (
   `nomeUsuario` varchar(30) NOT NULL,
   `senhaUsuario` varchar(30) NOT NULL,
   `cpfUsuario` varchar(30) NOT NULL,
-  `emailUsuario` varchar(30) NOT NULL
- 
+  `emailUsuario` varchar(30) NOT NULL,
+  `nivelDeUsuario` int(2) NULL DEFAULT 0
 ) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=latin1;
 
 --
--- Extraindo dados da tabela `usuario`
+-- Extraindo dados da tabela `tb_usuario`
 --
 
 INSERT INTO `tb_usuario` (`codUsuario`, `loginUsuario`, `nomeUsuario`,`senhaUsuario`,`cpfUsuario`,`emailUsuario`) VALUES
@@ -48,7 +48,7 @@ INSERT INTO `tb_usuario` (`codUsuario`, `loginUsuario`, `nomeUsuario`,`senhaUsua
 --
 
 --
--- Indexes for table `usuario`
+-- Indexes for table `tb_usuario`
 --
 ALTER TABLE `tb_usuario`
  ADD PRIMARY KEY (`codUsuario`);
@@ -58,7 +58,7 @@ ALTER TABLE `tb_usuario`
 --
 
 --
--- AUTO_INCREMENT for table `usuario`
+-- AUTO_INCREMENT for table `tb_usuario`
 --
 ALTER TABLE `tb_usuario`
 MODIFY `codUsuario` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=19;

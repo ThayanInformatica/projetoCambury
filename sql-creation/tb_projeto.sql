@@ -19,22 +19,23 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE IF NOT EXISTS `tb_projeto` (
-`codProjeto` int(11) NOT NULL,
-	`codUsuario` int(11) NOT NULL,
-	`nomeProjeto` varchar(150) NOT NULL,
-  `nomeProfessor` varchar(30) NOT NULL,
-  `objetivo` varchar(200) NOT NULL,
-    `resumo` varchar(200) NOT NULL,
-	    `curso` varchar(50) NOT NULL,
-		    `turma` varchar(20) NOT NULL
+`codProjeto` int(11)  NULL,
+	`codUsuario` int(11)  NULL,
+	  `nomeProjeto` varchar(100)  NULL,
+  `nomeProfessor` varchar(30)  NULL,
+  `objetivo` varchar(200)  NULL,
+    `resumo` varchar(200)  NULL,
+	    `curso` varchar(50)  NULL,
+		    `turma` varchar(20)  NULL,
+			`projetoAceito` int(2)  NULL DEFAULT 0
 ) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=latin1;
 
 --
 -- Extraindo dados da tabela `tb_projeto`
 --
 
-INSERT INTO `tb_projeto` (`codProjeto`,`codUsuario`, `nomeProjeto`, `nomeProfessor`, `objetivo`,`resumo`,`curso`,`turma`) VALUES
-(18, 24, 'Teste','Teste','teste','Teste','ti','02');
+INSERT INTO `tb_projeto` (`codProjeto`,`codUsuario`,`nomeProjeto`, `nomeProfessor`,`objetivo`,`resumo`,`curso`,`turma`) VALUES
+(18, 24, 'Teste','Teste','Teste','Teste','ti','02');
 
 --
 -- Indexes for dumped tables
@@ -55,10 +56,7 @@ ALTER TABLE `tb_projeto`
 --
 ALTER TABLE `tb_projeto`
 MODIFY `codProjeto` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=19;
-
---
--- Relação entre tableas for table `tb_projeto` and tb_usuario
---
+ 
  
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
