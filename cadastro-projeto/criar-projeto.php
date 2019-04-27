@@ -18,43 +18,20 @@ if (isset($_POST['cadastrar'])) {
     $cursoProjeto = trim(strip_tags($_POST['cursoProjeto']));
     $turmaProjeto = trim(strip_tags($_POST['turmaProjeto']));
 
-    echo "$codUsuario";
-    echo "$nomeProjeto";
-    echo "$nomeProfessor";
-    echo "$objetivoProjeto";
-    echo "$resumoProjeto";
-    echo "$cursoProjeto";
-    echo "$turmaProjeto";
-
-
-//    if ($nomeProjeto != $nomeProfessor) {
-//        $insere = $cadastrarProjeto->cadastraProjeto($codUsuario, $nomeProjeto, $nomeProfessor, $objetivoProjeto, $resumoProjeto, $cursoProjeto, $turmaProjeto);
-//        // caso o usuario seja cadastrado, exibir mensagem de sucesso
-//        if ($insere == true) {
-//            header('location:index.php?successUser=cadastrado');
-//        }
-//    }
 
     if (isset($codUsuario)) {
-        echo "Entro Aqui";
         $consulta = $cadastrar->unicoProjeto($nomeProjeto);
-        echo "Passo Aqui";
         if ($consulta == false) {
-            echo "Criar Erro aqui";
-            header('location:criar-projeto.php?repetido=senha');
-            // caso não haja login parecido, inclui métoro de inserção de dados no banco de dados
+            header('location:criar-projeto.php?error=naoReconheceId');
         } else {
-              $insere = $cadastrar->cadastra($codUsuario, $nomeProjeto, $nomeProfessor, $objetivoProjeto, $resumoProjeto, $cursoProjeto, $turmaProjeto);
-            // caso o usuario seja cadastrado, exibir mensagem de sucesso
+            $insere = $cadastrar->cadastra($codUsuario, $nomeProjeto, $nomeProfessor, $objetivoProjeto, $resumoProjeto, $cursoProjeto, $turmaProjeto);
             if ($insere == true) {
-                echo "Sucesso qui";
-                header('location:criar-projeto.php?successUser=cadastrado');
+                header('location:criar-projeto.php?successprojeto=cadastrado');
             }
         }
 
     } else {
-        echo "Outro erro aqui";
-        header('location:criar-projeto.php?erro=senha');
+        header('location:criar-projeto.php?erro');
     }
 
 }
@@ -77,17 +54,14 @@ if (isset($_POST['cadastrar'])) {
 
 <div class="container">
     <?php
-    // mensagem de erro caso as senhas não sejam iguais
+    if (isset($_GET['error'])) {
+        echo '<div class="alert alert-danger">Algo aconteceu de errado ao criar, tente novamente!</div>';
+    }
     if (isset($_GET['erro'])) {
-        echo '<div class="alert alert-danger">As senhas devem ser iguais!</div>';
+        echo '<div class="alert alert-danger">Tente novamente mais tarde</div>';
     }
-    // mensagem de erro caso o login escolhido já exista no banco de dados
-    if (isset($_GET['repetido'])) {
-        echo '<div class="alert alert-danger">Este Login ou CPF já foi escolhido por outra pessoa!</div>';
-    }
-    // mensagem de sucesso caso o usuario seja cadastrado corretamente
-    if (isset($_GET['successUser'])) {
-        echo '<div class="alert alert-success">Usuario cadastrado!</div>';
+    if (isset($_GET['successprojeto'])) {
+        echo '<div class="alert alert-success">Projeto cadastrado!</div>';
     }
 
     ?>
@@ -128,47 +102,48 @@ if (isset($_POST['cadastrar'])) {
         </div>
 
         <div class="control-group>
-            <label class="control-label">Resumo do Projeto</label>
-            <div class="controls">
+            <label class=" control-label
+        ">Resumo do Projeto</label>
+        <div class="controls">
                             <textarea size="40" class="form-control" name="resumoProjeto" type="text" required=""
-                                     ></textarea>
-            </div>
+                            ></textarea>
         </div>
-
-
-        <div class="col-sm-3">
-            <label>Curso</label>
-            <select class="form-control" name="cursoProjeto">
-                <option value="ti">GESTÃO DA TECNOLOGIA DA INFORMAÇÃO</option>
-                <option value="contabil">CIÊNCIAS CONTÁBEIS</option>
-                <option value="adm">ADMINISTRAÇÃO</option>
-                <option value="estetica">ESTÉTICA E COSMÉTICA</option>
-                <option value="mkt">MARKETING</option>
-                <option value="tpg">TECNOLOGIA EM PROCESSOS GERENCIAIS</option>
-            </select>
-        </div>
-
-        <div class="col-sm-3">
-            <label>Turma</label>
-            <select class="form-control" name="turmaProjeto">
-                <option value="01" >01</option>
-                <option value="02" >02</option>
-                <option value="03" >03</option>
-                <option value="04" >04</option>
-                <option value="05" >05</option>
-            </select>
-        </div>
-
-        <div class="form-actions">
-            <br/>
-
-            <button type="submit" class="btn btn-success" name="cadastrar">Adicionar</button>
-            <a href="index.php" type="btn" class="btn btn-default">Voltar</a>
-
-        </div>
-
-        </form>
     </div>
+
+
+    <div class="col-sm-3">
+        <label>Curso</label>
+        <select class="form-control" name="cursoProjeto">
+            <option value="ti">GESTÃO DA TECNOLOGIA DA INFORMAÇÃO</option>
+            <option value="contabil">CIÊNCIAS CONTÁBEIS</option>
+            <option value="adm">ADMINISTRAÇÃO</option>
+            <option value="estetica">ESTÉTICA E COSMÉTICA</option>
+            <option value="mkt">MARKETING</option>
+            <option value="tpg">TECNOLOGIA EM PROCESSOS GERENCIAIS</option>
+        </select>
+    </div>
+
+    <div class="col-sm-3">
+        <label>Turma</label>
+        <select class="form-control" name="turmaProjeto">
+            <option value="01">01</option>
+            <option value="02">02</option>
+            <option value="03">03</option>
+            <option value="04">04</option>
+            <option value="05">05</option>
+        </select>
+    </div>
+
+    <div class="form-actions">
+        <br/>
+
+        <button type="submit" class="btn btn-success" name="cadastrar">Adicionar</button>
+        <a href="index.php" type="btn" class="btn btn-default">Voltar</a>
+
+    </div>
+
+    </form>
+</div>
 </div>
 </div>
 </div>
