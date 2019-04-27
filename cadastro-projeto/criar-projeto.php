@@ -138,7 +138,7 @@ if (isset($_POST['cadastrar'])) {
         <br/>
 
         <button type="submit" class="btn btn-success" name="cadastrar">Adicionar</button>
-        <a href="index.php" type="btn" class="btn btn-default">Voltar</a>
+        <a href="../usuario-logado.php" type="btn" class="btn btn-default">Voltar</a>
 
     </div>
 

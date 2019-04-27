@@ -30,7 +30,7 @@
 	  $nivelArray = mysqli_fetch_array($executa);
       return $nivelArray['nivelUsuario'];
     }
-	
+
 		    // verificiar validacao de usuario
     public function CodDoUsuario($login) {
 
