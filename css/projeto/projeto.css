@@ -1,7 +1,5 @@
-<<<<<<< HEAD
-=======
 
->>>>>>> parent of fae223a... Ajustando Padding Cadastro Usuario
+
 label .teste {
 color: blueviolet !important;
 }
@@ -9,8 +7,7 @@ color: blueviolet !important;
 .background-estilo input {
   width: 50% !important;
 }
-<<<<<<< HEAD
-=======
+
 .tamanho-campoLogin{
 font-family: 'Source Serif Pro', serif;
 }
@@ -18,7 +15,6 @@ font-family: 'Source Serif Pro', serif;
   padding-top: 06%;
 }
 .centralizandoCadastro{
-  background: url(/css/img/gestao-tecnologia-servicos-ti.jpg);
    height: 100%;
 }.body{
   height: 100%;
@@ -49,7 +45,6 @@ font-family: 'Source Serif Pro', serif;
 
 
 
->>>>>>> parent of fae223a... Ajustando Padding Cadastro Usuario
 /*.tamanho-campoLogin{*/
 /*}*/
 /*.tamanho-campoNome{*/
