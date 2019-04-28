@@ -64,6 +64,22 @@ if (isset($_POST['cadastrar'])) {
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
 
+     <!--    footer e header para páginas-->
+    
+    <link rel="stylesheet" href="components/css/header.css"/>
+    <link rel="stylesheet" href="components/css/footer.css"/>
+    <script>
+        $(function () {
+            $("#header").load("components/header.php");
+        });
+    </script>
+    <script>
+        $(function () {
+            $("#footer").load("components/footer.php");
+        });
+    </script>
+
+
 </head>
     <body>
 
@@ -127,7 +143,7 @@ if (isset($_POST['cadastrar'])) {
                         <div class="col-sm-5" class="tamanho-campocpf">
                             <div class="form-group" class="form-horizontal">
                                 <label for="cpf">CPF:</label>
-                                <input type="text" class="form-control" id="cpf" name="cpf" maxlength="11">
+                                <input type="number" class="form-control" id="cpf" name="cpf" maxlength="11">
                             </div>
                         </div>
 
@@ -162,5 +178,5 @@ if (isset($_POST['cadastrar'])) {
             </script>
     </body>
 </div>
-
+    <div id="footer"></div>
 </html>
