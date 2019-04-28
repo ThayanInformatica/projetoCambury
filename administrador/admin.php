@@ -1,8 +1,14 @@
 <?php
 
 session_start();
+if (isset($_SESSION['login']) && isset($_SESSION['senha']) && isset($_SESSION['nivel'])):
+    if (isset($_SESSION['nivel'])) {
+        $nivel = $_SESSION['nivel'];
+        if ($nivel != 99) {
+            header('location: ../usuario-logado.php');
+        }
+    }
 
-if (!isset($_SESSION['login']) && !isset($_SESSION['senha'])):
 endif;
 
 ?>
@@ -13,10 +19,20 @@ endif;
     <meta charset="UTF-8">
     <title>Login PHP OO</title>
 
+    <link rel="stylesheet" href="../css/projeto/projetos-page.css"/>
+
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
     <![endif]-->
+
+    <script>
+        $(document).ready(function () {
+            $('[data-toggle="tooltip"]').tooltip();
+        });
+    </script>
+
+
 </head>
 <body>
 <div class="container jumbotron">
@@ -80,8 +96,8 @@ endif;
                 echo '<td>' . $getProjetos['objetivo'] . '</td>';
                 echo '<td>' . $getProjetos['resumo'] . '</td>';
                 echo '<td>' . $getProjetos['curso'] . ' / ' . $getProjetos['turma'] . '</td>';
-                echo '<td width=450>';
-                echo '<a class="btn btn-primary" href="ler-projeto.php?codProjeto=' . $getProjetos['codProjeto'] . '">Info</a>';
+                echo '<td width=350>';
+                echo '<a class="btn btn-info" data-toggle="tooltip" data-placement="top" title="Informações do Projeto" href="ler-projeto.php?codProjeto=' . $getProjetos['codProjeto'] . '">Info</a>';
                 echo ' ';
                 if ($_SESSION['nivel'] == 100) { // RN: Administrador não pode editar projeto
                     echo '<a class="btn btn-warning" data-toggle="tooltip" data-placement="top" title="Após ser aceito, não poderá mais editar" href="editar.php?id=' . $getProjetos['codProjeto'] . '">Editar</a>';
@@ -92,7 +108,7 @@ endif;
                     echo ' ';
                 }
                 if ($_SESSION['nivel'] == 99 && $getProjetos['projetoAceito'] == 0) {
-                    echo '<a class="btn btn-warning" href="aprovar.php?codProjeto=' . $getProjetos['codProjeto'] . '">Aceitar Projeto</a>';
+                    echo '<a class="btn btn-success" href="aprovar.php?codProjeto=' . $getProjetos['codProjeto'] . '">Aceitar Projeto</a>';
                     echo ' ';
                 }
                 if ($_SESSION['nivel'] == 99 && $getProjetos['projetoAceito'] == 0) {

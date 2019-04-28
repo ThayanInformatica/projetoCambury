@@ -1,9 +1,14 @@
 <?php
 session_start();
-if (!isset($_SESSION['login']) && !isset($_SESSION['senha'])):
-    header("Location: index.php");
-endif;
+if (isset($_SESSION['login']) && isset($_SESSION['senha']) && isset($_SESSION['nivel'])):
+    if (isset($_SESSION['nivel'])) {
+        $nivel = $_SESSION['nivel'];
+        if ($nivel != 0) {
+            header('location: index.php');
+        }
+    }
 
+endif;
 
 ?>
 
@@ -13,6 +18,8 @@ endif;
 <head>
     <meta charset="utf-8">
     <title>Cambury | PCA</title>
+
+    <link rel="stylesheet" href="css/projeto/projetos-page.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
@@ -66,36 +73,43 @@ endif;
             <h2>Meus Projetos</h2>
             <thead>
             <tr>
-                <th scope="col">Id</th>
-                <th scope="col">Nome</th>
-                <th scope="col">Endereço</th>
-                <th scope="col">Telefone</th>
-                <th scope="col">Email</th>
-                <th scope="col">Sexo</th>
-                <th scope="col">Ação</th>
+                <th scope="col">Nome do Projeto</th>
+                <th scope="col">Nome do Orientador</th>
+                <th scope="col">Objetivo do Projeto</th>
+                <th scope="col">Resumo do Projeto</th>
+                <th scope="col">Curso e Turma</th>
+                <th scope="col">Ações</th>
             </tr>
             </thead>
             <tbody>
             <?php
             include 'classes/conectdb.php';
             $pdo = conectdb::conectar();
-            $sql = 'SELECT codUsuario,codProjeto,nomeProjeto,nomeProfessor,projetoAceito FROM tb_projeto WHERE codUsuario = ' . $codUsuario . ' ';
+            $sql = 'SELECT codUsuario,codProjeto,nomeProjeto,nomeProfessor,objetivo,resumo,curso,turma,projetoAceito FROM tb_projeto ';
 
             foreach ($pdo->query($sql) as $getProjetos) {
                 echo '<tr>';
-                echo '<th scope="row">' . $getProjetos['codProjeto'] . '</th>';
-                echo '<td>' . $getProjetos['nomeProjeto'] . '</td>';
+                echo '<th scope="row">' . $getProjetos['nomeProjeto'] . '</th>';
                 echo '<td>' . $getProjetos['nomeProfessor'] . '</td>';
-                echo '<td width=250>';
-                echo '<a class="btn btn-primary" href="ler-projeto.php?codProjeto=' . $getProjetos['codProjeto'] . '">Info</a>';
+                echo '<td>' . $getProjetos['objetivo'] . '</td>';
+                echo '<td>' . $getProjetos['resumo'] . '</td>';
+                echo '<td>' . $getProjetos['curso'] . ' / ' . $getProjetos['turma'] . '</td>';
+                echo '<td width=300>';
+                echo '<a class="btn btn-info" data-toggle="tooltip" data-placement="top" title="Informações do Projeto" href="funcoes-projeto/ler-projeto.php?codProjeto=' . $getProjetos['codProjeto'] . '">Info</a>';
                 echo ' ';
                 if ($getProjetos['projetoAceito'] == 0) {
                     echo '<a class="btn btn-warning" data-toggle="tooltip" data-placement="top" title="Após ser aceito, não poderá mais editar" href="editar.php?id=' . $getProjetos['codProjeto'] . '">Editar</a>';
                     echo ' ';
                 }
-//                echo '<a class="btn btn-danger" href="delete.php?id=' . $row['id'] . '">Excluir</a>';
-                echo '</td>';
-                echo '</tr>';
+                if ($getProjetos['projetoAceito'] == 1) {
+                    echo '<span class="alert alert-success" role="alert" data-toggle="tooltip">Projeto Aceito</span>';
+                    echo ' ';
+                }
+                if ($getProjetos['projetoAceito'] == 0) {
+                    echo '<a class="btn btn-danger" href="funcoes-projeto/deletar-projeto.php?codProjeto=' . $getProjetos['codProjeto'] . '">Excluir</a>';
+                    echo '</td>';
+                    echo '</tr>';
+                }
             }
             conectdb::desconectar();
             ?>

@@ -95,6 +95,15 @@
       header("Location:index.php?success=logout");
       exit();
     }
-	
+
+      function ifsessionExists(){
+
+          if(isset($_SESSION)){
+              return true;
+          }else{
+              return false;
+          }
+      }
+
 
   }
