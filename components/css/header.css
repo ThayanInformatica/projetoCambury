@@ -1,0 +1,16 @@
+.barra-header {
+  box-sizing: border-box;
+  border-bottom: 10px solid black;
+  margin-top: 1%;
+  text-align: center;
+  padding-top: 5px;
+  background-color: #132d3f;
+  height: 99px;
+  color: #FFFFFF;
+  font-family: 'Open Sans','Arial';
+}
+
+.barra-header h1 {
+  margin-top: 20px;
+  font-size: 35px;
+}

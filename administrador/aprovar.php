@@ -39,18 +39,36 @@ if(!empty($_POST))
 <html lang="pt-br">
 
 <head>
-    <meta charset="utf-8">
-    <!-- Latest compiled and minified CSS -->
-    <title>Aceitar Projeto</title>
+    <meta charset="UTF-8">
+    <title>Projeto | Faculdades Cambury</title>
+
+    <link rel="stylesheet" href="css/admin-page.css"/>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+
+    <!--    footer e header para páginas-->
+    <link rel="stylesheet" href="../components/css/header.css"/>
+    <link rel="stylesheet" href="../components/css/footer.css"/>
+    <script>
+        $(function () {
+            $("#header").load("../components/header.php");
+        });
+    </script>
+    <script>
+        $(function () {
+            $("#footer").load("../components/footer.php");
+        });
+    </script>
+    <!--    copiar e colar isto para as demais novas paginas-->
 
 </head>
 
 <body>
-<div class="container">
-    <div class="span10 offset1">
+<div id="header"></div>
+
+<div class="container" style="    border: 1.2px solid lightgreen;">
+        <div class="span10 offset1">
         <div class="row">
             <h3 class="well">Aceitar Projeto</h3>
         </div>
@@ -59,8 +77,8 @@ if(!empty($_POST))
             <div class="alert alert-success"> Deseja aceitar o projeto?
             </div>
             <div class="form actions">
-                <button type="submit" class="btn btn-danger">Sim</button>
-                <a href="admin.php" type="btn" class="btn btn-default">Não</a>
+                <button type="submit" class="btn btn-success">Sim</button>
+                <a href="admin.php" type="btn" class="btn btn-default">Voltar</a>
             </div>
         </form>
     </div>
@@ -70,5 +88,5 @@ if(!empty($_POST))
 <!--<!-- Latest compiled and minified JavaScript -->-->
 <!--<script src="assets/js/bootstrap.min.js"></script>-->
 </body>
-
+<div id="footer"></div>
 </html>

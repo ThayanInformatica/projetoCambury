@@ -30,17 +30,29 @@ endif;
         });
     </script>
 
+    <!--    footer e header para páginas-->
+    <link rel="stylesheet" href="components/css/header.css"/>
+    <link rel="stylesheet" href="components/css/footer.css"/>
+    <script>
+        $(function () {
+            $("#header").load("components/header.php");
+        });
+    </script>
+    <script>
+        $(function () {
+            $("#footer").load("components/footer.php");
+        });
+    </script>
+    <!--    copiar e colar isto para as demais novas paginas-->
+
 </head>
 
 <body>
-
+<div id="header"></div>
 
 <div class="container">
     <div class="jumbotron">
-        <h2><span class="badge badge-secondary">v 1.0.0 Projeto Version 1</span></h2><br/>
-
         <h2>Olá <?php echo $_SESSION['login']; ?>!</h2> <br/>
-
         <a href="logout.php">Sair</a>
     </div>
     </br>
@@ -117,6 +129,7 @@ endif;
         </table>
     </div>
 </div>
+<div id="footer"></div>
 </body>
 
 </html>

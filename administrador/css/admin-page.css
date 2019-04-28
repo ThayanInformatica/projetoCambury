@@ -1,0 +1,15 @@
+.container {
+    max-width: 400px !important;
+    margin: 2% auto !important;
+    border: 1.2px solid red;
+    padding: 2px 26px 26px 26px;
+    border-radius: 25px;
+}
+
+.container h3{
+    text-align: center  ;
+}
+
+.btn-default {
+    float: right;
+}

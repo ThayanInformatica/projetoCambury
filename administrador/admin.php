@@ -20,7 +20,6 @@ endif;
     <title>Login PHP OO</title>
 
     <link rel="stylesheet" href="../css/projeto/projetos-page.css"/>
-
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
@@ -32,9 +31,24 @@ endif;
         });
     </script>
 
+    <!--    footer e header para páginas-->
+    <link rel="stylesheet" href="../components/css/header.css"/>
+    <link rel="stylesheet" href="../components/css/footer.css"/>
+    <script>
+        $(function () {
+            $("#header").load("../components/header.php");
+        });
+    </script>
+    <script>
+        $(function () {
+            $("#footer").load("../components/footer.php");
+        });
+    </script>
+    <!--    copiar e colar isto para as demais novas paginas-->
 
 </head>
 <body>
+<div id="header"></div>
 <div class="container jumbotron">
 
     <h2>Bem-Vindo Administrador <?php echo $_SESSION['login']; ?>!</h2>
@@ -90,8 +104,8 @@ endif;
 
             foreach ($pdo->query($sql) as $getProjetos) {
                 echo '<tr>';
-                echo '<th scope="row">' . $getProjetos['nomeProjeto'] . '</th>';
-                echo '<th scope="row" style="display: none;">' . $getProjetos['codProjeto'] . '</th>';
+                echo '<td  style="display: none;">' . $getProjetos['codProjeto'] . '</td>'; // get id do projeto deixar com display none
+                echo '<td >' . $getProjetos['nomeProjeto'] . '</td>';
                 echo '<td>' . $getProjetos['nomeProfessor'] . '</td>';
                 echo '<td>' . $getProjetos['objetivo'] . '</td>';
                 echo '<td>' . $getProjetos['resumo'] . '</td>';
@@ -127,6 +141,7 @@ endif;
         </table>
     </div>
 </div>
+<div id="footer"></div>
 </body>
 
 </html>
