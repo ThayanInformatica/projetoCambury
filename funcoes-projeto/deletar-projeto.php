@@ -1,58 +1,89 @@
 <?php
-require 'banco.php';
 
-$id = 0;
+session_start();
+if (isset($_SESSION['login']) && isset($_SESSION['senha']) && isset($_SESSION['nivel'])):
+    if (isset($_SESSION['nivel'])) {
+        $nivel = $_SESSION['nivel'];
+        if ($nivel != 0) {
+            header('location: ../usuario-logado.php');
+        }
+    }
 
-if(!empty($_GET['id']))
-{
-    $id = $_REQUEST['id'];
+endif;
+
+
+require '../classes/conectdb.php';
+
+$codProjeto = 0;
+
+if (!empty($_GET['codProjeto'])) {
+    $codProjeto = $_REQUEST['codProjeto'];
 }
 
-if(!empty($_POST))
-{
-    $id = $_POST['id'];
+if (!empty($_POST)) {
+    $codProjeto = $_POST['codProjeto'];
 
     //Delete do banco:
-    $pdo = Banco::conectar();
+    $pdo = conectdb::conectar();
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    $sql = "DELETE FROM pessoa where id = ?";
+    $sql = "DELETE FROM tb_projeto where codProjeto = ?";
     $q = $pdo->prepare($sql);
-    $q->execute(array($id));
-    Banco::desconectar();
-    header("Location: index.php");
+    $q->execute(array($codProjeto));
+    conectdb::desconectar();
+    header("Location: ../usuario-logado.php");
 }
 ?>
 
-    <!DOCTYPE html>
-    <html lang="pt-br">
+<!DOCTYPE html>
+<html lang="pt-br">
 
-    <head>
-        <meta charset="utf-8">
-        <!-- Latest compiled and minified CSS -->
-        <link rel="stylesheet" href="assets/css/bootstrap.min.css">
-        <title>Deletar Contato</title>
-    </head>
+<head>
+    <meta charset="utf-8">
+    <title>Deletar Projeto | Faculdades Cambury</title>
+    <link rel="stylesheet" href="../administrador/css/admin-page.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
 
-    <body>
-        <div class="container">
-            <div class="span10 offset1">
-                <div class="row">
-                    <h3 class="well">Excluir Contato</h3>
-                </div>
-                <form class="form-horizontal" action="delete.php" method="post">
-                    <input type="hidden" name="id" value="<?php echo $id;?>" />
-                    <div class="alert alert-danger"> Deseja excluir o contato?
-                    </div>
-                    <div class="form actions">
-                        <button type="submit" class="btn btn-danger">Sim</button>
-                        <a href="index.php" type="btn" class="btn btn-default">Não</a>
-                    </div>
-                </form>
-            </div>
+    <!--    footer e header para páginas-->
+    <link rel="stylesheet" href="../components/css/header.css"/>
+    <link rel="stylesheet" href="../components/css/footer.css"/>
+    <script>
+        $(function () {
+            $("#header").load("../components/header.php");
+        });
+    </script>
+    <script>
+        $(function () {
+            $("#footer").load("../components/footer.php");
+        });
+    </script>
+    <!--    copiar e colar isto para as demais novas paginas-->
+
+</head>
+
+<body>
+<div id="header"></div>
+
+<div class="container">
+    <div class="span10 offset1">
+        <div class="row">
+            <h3 class="well">Deletar Projeto</h3>
         </div>
-        <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-        <!-- Latest compiled and minified JavaScript -->
-    </body>
+        <form class="form-horizontal" action="#" method="post">
+            <input type="hidden" name="codProjeto" value="<?php echo $codProjeto; ?>"/>
+            <div class="alert alert-danger"> Deseja deletar o Projeto?
+            </div>
+            <div class="form actions">
+                <button type="submit" class="btn btn-danger">Sim</button>
+                <a href="../usuario-logado.php" type="btn" class="btn btn-default">Não</a>
+            </div>
+        </form>
+    </div>
+</div>
 
-    </html>
+<div id="footer"></div>
+
+</body>
+
+</html>

@@ -26,7 +26,7 @@ if (isset($_POST['cadastrar'])) {
         } else {
             $insere = $cadastrar->cadastra($codUsuario, $nomeProjeto, $nomeProfessor, $objetivoProjeto, $resumoProjeto, $cursoProjeto, $turmaProjeto);
             if ($insere == true) {
-                header('location:criar-projeto.php?successprojeto=cadastrado');
+                header('location:../usuario-logado.php?successprojeto=cadastrado');
             }
         }
 
@@ -45,7 +45,6 @@ if (isset($_POST['cadastrar'])) {
 <head>
     <meta charset="utf-8">
     <!-- Latest compiled and minified CSS -->
-    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
     <title>Cambury | Cadastro de Projeto</title>
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">

@@ -7,11 +7,10 @@ if (isset($_SESSION['login']) && isset($_SESSION['senha']) && isset($_SESSION['n
         if ($nivel != 99) {
             header('location: ../usuario-logado.php');
         } elseif ($nivel != 0) {
-            header('location: admin.php');
+            header('location: ../administrador/admin.php');
 
         }
     }
 
 endif;
-
 ?>

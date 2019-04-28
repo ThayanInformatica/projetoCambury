@@ -13,11 +13,11 @@ endif;
 
 ?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 
 <head>
     <meta charset="UTF-8">
-    <title>Login PHP OO</title>
+    <title>Administrador | Faculdades Cambury</title>
 
     <link rel="stylesheet" href="../css/projeto/projetos-page.css"/>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
