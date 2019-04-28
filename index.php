@@ -42,7 +42,7 @@ if ($_POST) {
     }
 
     if (!isset($_SESSION['login']) && !isset($_SESSION['senha'])):
-        header("location: index.php");
+        header("location: index.php?erro=senha");
     endif;
 
 }
@@ -67,16 +67,12 @@ if ($_POST) {
     <?php
 
     if (isset($_GET['erro'])) {
-        echo '<div class="alert alert-danger">Dados de login incorretos</div>';
+        echo '<div class="alert alert-danger">Login ou Senha incorretos</div>';
     }
 
     if (isset($_GET['success'])) {
         echo '<div class="alert alert-success">Logout efetuado com sucesso</div>';
     }
-    if (isset($_GET['successUser'])) {
-        echo '<div class="alert alert-success">Logout efetuado com sucesso</div>';
-    }
-
     ?>
     <h2>Login</h2>
     <hr>
