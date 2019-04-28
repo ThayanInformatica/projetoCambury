@@ -1,5 +1,18 @@
 <?php
 
+session_start();
+if (isset($_SESSION['login']) && isset($_SESSION['senha']) && isset($_SESSION['nivel'])):
+    header('location: usuario-logado.php');
+endif;
+
+if (isset($_SESSION['nivel'])) {
+    $nivel = $_SESSION['nivel'];
+    if ($nivel == 99) {
+        header('location: administrador/admin.php');
+    }
+
+}
+
 if (isset($_POST['cadastrar'])) {
     include('classes/Conexao.class.php');
     include('classes/UsuarioDAO.class.php');
