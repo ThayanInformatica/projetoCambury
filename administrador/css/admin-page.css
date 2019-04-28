@@ -1,4 +1,4 @@
-.container {
+.modals-page .container {
     max-width: 400px !important;
     margin: 2% auto !important;
     border: 1.2px solid red;
@@ -6,10 +6,24 @@
     border-radius: 25px;
 }
 
-.container h3{
+.modals-page .container h3{
     text-align: center  ;
 }
 
-.btn-default {
+.modals-page .btn-default {
     float: right;
+}
+
+.dropdown-menu {
+    display: block !important;
+    opacity:0 !important;
+    -webkit-transition: all 250ms ease-in !important;
+    -moz-transition: all 250ms ease-in !important;
+    -ms-transition: all 250ms ease-in !important;
+    -o-transition: all 250ms ease-in !important;
+    transition: all 250ms ease-in !important;
+}
+.btn-group.open .dropdown-menu {
+    display: block !important;
+    opacity: 1 !important;
 }

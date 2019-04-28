@@ -1,13 +1,14 @@
 <?php
 
 session_start();
-if (isset($_SESSION['login']) && isset($_SESSION['senha']) && isset($_SESSION['nivel'])):
+if (isset($_SESSION['login']) && isset($_SESSION['senha']) && isset($_SESSION['nivel']) && isset($_SESSION['codUsuario'])):
     if (isset($_SESSION['nivel'])) {
         $nivel = $_SESSION['nivel'];
         if ($nivel != 99) {
             header('location: ../usuario-logado.php');
         }
-    }
+}
+    $codUsuario = $_SESSION['codUsuario'];
 
 endif;
 
@@ -59,13 +60,27 @@ endif;
 
 <div class="container">
     </br>
-    <div class="row">
-        <p>
-            <?php if ($_SESSION['nivel'] == 99) {
-                echo '<a href="cadastro-projeto/criar-projeto.php" class="btn btn-success">Aceitar Avaliador</a>';
-            }
-            ?>
 
+    <div class="btn-group">
+        <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Menu <span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu">
+            <?php echo'<li><a href="editar-perfil.php?codUsuario=' . $codUsuario . '">Editar Perfil</a></li>' ?>
+            <li><a href="#">Something else here</a></li>
+            <li><a href="listar-usuario.php">Listar usuarios</a></li>
+            <li role="separator" class="divider"></li>
+            <li><a href="#">Separated link</a></li>
+        </ul>
+    </div>
+
+    <div class="row">
+<!--        <p>-->
+<!--            --><?php //if ($_SESSION['nivel'] == 99) {
+//                echo '<a href="cadastro-projeto/criar-projeto.php" class="btn btn-success">Aceitar Avaliador</a>';
+//            }
+//            ?>
+<!---->
             <?php
 
             include('../classes/Conexao.class.php');
@@ -80,8 +95,8 @@ endif;
             $codUsuario = $usuario->CodDoUsuario($login);
             $_SESSION['codUsuario'] = $codUsuario;
             ?>
-
-        </p>
+<!---->
+<!--        </p>-->
 
         <table class="table table-striped">
             <h2>Lista de Projetos</h2>

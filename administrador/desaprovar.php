@@ -16,13 +16,11 @@ require '../classes/conectdb.php';
 
 $codProjeto = 0;
 
-if(!empty($_GET['codProjeto']))
-{
+if (!empty($_GET['codProjeto'])) {
     $codProjeto = $_REQUEST['codProjeto'];
 }
 
-if(!empty($_POST))
-{
+if (!empty($_POST)) {
     $codProjeto = $_POST['codProjeto'];
 
     //Delete do banco:
@@ -68,22 +66,24 @@ if(!empty($_POST))
 <body>
 <div id="header"></div>
 
-<div class="container">
-    <div class="span10 offset1">
-        <div class="row">
-            <h3 class="well">Desaprovar Projeto</h3>
+<div class="modals-page">
+    <div class="container">
+        <div class="span10 offset1">
+            <div class="row">
+                <h3 class="well">Desaprovar Projeto</h3>
+            </div>
+            <form class="form-horizontal" action="#" method="post">
+                <input type="hidden" name="codProjeto" value="<?php echo $codProjeto; ?>"/>
+                <div class="alert alert-danger"> Deseja desaprovar o projeto?
+                </div>
+                <div class="form actions">
+                    <button type="submit" class="btn btn-danger">Sim</button>
+                    <a href="admin.php" type="btn" class="btn btn-default">Voltar</a>
+                </div>
+            </form>
         </div>
-        <form class="form-horizontal" action="#" method="post">
-            <input type="hidden" name="codProjeto" value="<?php echo $codProjeto;?>" />
-            <div class="alert alert-danger"> Deseja desaprovar o projeto?
-            </div>
-            <div class="form actions">
-                <button type="submit" class="btn btn-danger">Sim</button>
-                <a href="admin.php" type="btn" class="btn btn-default">Voltar</a>
-            </div>
-        </form>
     </div>
-    </div>
+</div>
 <div id="footer"></div>
 </body>
 

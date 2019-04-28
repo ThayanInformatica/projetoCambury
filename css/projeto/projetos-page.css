@@ -18,3 +18,17 @@
     margin: auto;
     max-width: 300px;
 }
+
+.dropdown-menu {
+    display: block !important;
+    opacity:0 !important;
+    -webkit-transition: all 250ms ease-in !important;
+    -moz-transition: all 250ms ease-in !important;
+    -ms-transition: all 250ms ease-in !important;
+    -o-transition: all 250ms ease-in !important;
+    transition: all 250ms ease-in !important;
+}
+.btn-group.open .dropdown-menu {
+    display: block !important;
+    opacity: 1 !important;
+}

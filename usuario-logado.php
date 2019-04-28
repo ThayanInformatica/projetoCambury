@@ -1,12 +1,13 @@
 <?php
 session_start();
-if (isset($_SESSION['login']) && isset($_SESSION['senha']) && isset($_SESSION['nivel'])):
+if (isset($_SESSION['login']) && isset($_SESSION['senha']) && isset($_SESSION['nivel']) && isset($_SESSION['codUsuario'])):
     if (isset($_SESSION['nivel'])) {
         $nivel = $_SESSION['nivel'];
         if ($nivel != 0) {
             header('location: index.php');
         }
     }
+    $codUsuario = $_SESSION['codUsuario'];
 
 endif;
 
@@ -56,6 +57,21 @@ endif;
         <a href="logout.php">Sair</a>
     </div>
     </br>
+
+    <div class="btn-group" style="float: right;">
+        <button  type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
+                aria-expanded="false">
+            Menu <span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu">
+            <?php echo '<li><a href="funcoes-usuario/editar-usuario.php?codUsuario=' . $codUsuario . '">Editar Perfil</a></li>' ?>
+<!--            <li><a href="#">Something else here</a></li>-->
+<!--            <li><a href="listar-usuario.php">Listar usuarios</a></li>-->
+<!--            <li role="separator" class="divider"></li>-->
+<!--            <li><a href="#">Separated link</a></li>-->
+        </ul>
+    </div>
+
     <div class="row">
         <p>
             <?php if ($_SESSION['nivel'] == 0) {
