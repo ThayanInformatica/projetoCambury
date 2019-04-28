@@ -1,3 +1,7 @@
+<<<<<<< HEAD
+=======
+
+>>>>>>> parent of fae223a... Ajustando Padding Cadastro Usuario
 label .teste {
 color: blueviolet !important;
 }
@@ -5,6 +9,47 @@ color: blueviolet !important;
 .background-estilo input {
   width: 50% !important;
 }
+<<<<<<< HEAD
+=======
+.tamanho-campoLogin{
+font-family: 'Source Serif Pro', serif;
+}
+.centralizandoCadastro{
+  padding-top: 06%;
+}
+.centralizandoCadastro{
+  background: url(/css/img/gestao-tecnologia-servicos-ti.jpg);
+   height: 100%;
+}.body{
+  height: 100%;
+}
+.espacoCadastro{
+  padding-left: 43%;
+}
+.centralizandoFormulario{
+  margin-left: 15%;
+}
+.campoTituloCambury{
+  margin-left: 40%;
+  width:20px; 
+}
+.h1Cambury{
+  box-sizing: border-box;
+  border-bottom: 10px solid black;
+  margin: 0px;
+  padding: 20px;
+  background-color: #132d3f;
+  padding-left: 44%;
+  height: 99px;
+  color: #FFFFFF;
+  font-family: 'Open Sans','Arial'
+}
+
+
+
+
+
+>>>>>>> parent of fae223a... Ajustando Padding Cadastro Usuario
 /*.tamanho-campoLogin{*/
 /*}*/
 /*.tamanho-campoNome{*/

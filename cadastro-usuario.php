@@ -48,6 +48,10 @@ if (isset($_POST['cadastrar'])) {
 
     <link rel="stylesheet" href="css/projeto/projeto.css"/>
     <link rel="stylesheet" href="../dist/css/bootstrapValidator.css"/>
+<<<<<<< HEAD
+=======
+   
+>>>>>>> parent of fae223a... Ajustando Padding Cadastro Usuario
 
     <!-- Include the FontAwesome CSS if you want to use feedback icons provided by FontAwesome -->
     <!--<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" />-->
@@ -62,6 +66,7 @@ if (isset($_POST['cadastrar'])) {
     <![endif]-->
 
 </head>
+<<<<<<< HEAD
 <body>
 
 <div class="container jumbotron">
@@ -149,5 +154,108 @@ if (isset($_POST['cadastrar'])) {
 
         </script>
 </body>
+=======
+
+    <body>
+
+    
+        
+        <h1 class='h1Cambury'>Cambury</h1>
+
+        <div class="centralizandoCadastro">
+    <div class="container jumbotron">
+
+        <?php
+        // mensagem de erro caso as senhas não sejam iguais
+        if (isset($_GET['erro'])) {
+            echo '<div class="alert alert-danger">As senhas devem ser iguais!</div>';
+        }
+        // mensagem de erro caso o login escolhido já exista no banco de dados
+        if (isset($_GET['repetido'])) {
+            echo '<div class="alert alert-danger">Este Login ou CPF já foi escolhido por outra pessoa!</div>';
+        }
+        // mensagem de sucesso caso o usuario seja cadastrado corretamente
+        if (isset($_GET['successUser'])) {
+            echo '<div class="alert alert-success">Usuario cadastrado!</div>';
+        }
+
+        ?>
+
+        <div class="container" >
+            <div class="row" >
+                    <h2 class="espacoCadastro">Cadastro</h2>
+                    <hr>
+                    <form action="#" method="post">
+                    
+                    <div class="centralizandoFormulario">
+                        <div class="col-sm-5" class="tamanho-campoLogin">
+                            <div class="form-group">
+                                <label id="teste" for="login" style="">Login</label>
+                                <input type="text" class="form-control" id="login" name="login" required autofocus>
+                            </div>
+                        </div>
+
+                        <div class="col-sm-5" class="tamanho-campoNome">
+                            <div class="form-group ">
+                                <label for="nome">Nome: </label>
+                                <input id="nome" type="text" class="form-control" name="nome" required>
+                            </div>
+                        </div>
+                        <div class="col-sm-5" class="tamanho-campoSenha">
+                            <div class="campo-senha" class="form-group">
+                                <label for="senha">Senha:</label>
+                                <input type="password" class="form-control" id="senha" name="senha" required>
+                            </div>
+                        </div>
+
+                        <div class="col-sm-5" class="tamanho-campoRepita">
+                            <div class="form-group">
+                                <label for="rep_senha">Repita a Senha:</label>
+                                <input type="password" class="form-control" id="rep_senha" name="rep_senha" required>
+                            </div>
+                        </div>
+
+                        <div class="col-sm-5" class="tamanho-campocpf">
+                            <div class="form-group" class="form-horizontal">
+                                <label for="cpf">CPF:</label>
+                                <input type="text" class="form-control" id="cpf" name="cpf" maxlength="11">
+                            </div>
+                        </div>
+
+                        <div class="col-sm-5" class="tamanho-campoEmail">
+                            <div class="form-group">
+                                <label for="email">E-mail:</label>
+                                    <div class="input-group">
+                                    <div class="input-group-addon">@</div>
+                                <input type="text" class="form-control" id="email" name="email" required>
+                                
+                            </div>
+                        </div>
+                        </div>
+                        <div class="col-sm-5">
+                        <button  type="submit" class="btn btn-primary" name="cadastrar">Cadastrar</button>
+                        </div>
+                    </form>
+                    <hr>
+                    
+                    <div class="col-sm-5">
+                    <a class="btn btn-primary" href="index.php">Voltar</a>
+                 </div>
+                    
+            </div>
+        </div>
+    </div>
+
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.3/jquery.min.js"></script>
+            <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+            <script>
+                setTimeout(function () {
+                    $('.alert').fadeOut();
+                }, 3000);
+
+            </script>
+    </body>
+</div>
+>>>>>>> parent of fae223a... Ajustando Padding Cadastro Usuario
 
 </html>
