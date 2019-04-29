@@ -7,12 +7,12 @@ if (!isset($_SESSION['login']) && !isset($_SESSION['senha'])):
 endif;
 
 if (isset($_SESSION['login']) && isset($_SESSION['senha']) && isset($_SESSION['nivel']) && isset($_SESSION['codUsuario'])):
-if (isset($_SESSION['nivel'])) {
-    $nivel = $_SESSION['nivel'];
-    if ($nivel != 99) {
-        header('location: ../usuario-logado.php');
+    if (isset($_SESSION['nivel'])) {
+        $nivel = $_SESSION['nivel'];
+        if ($nivel != 99) {
+            header('location: ../usuario-logado.php');
+        }
     }
-}
 endif;
 
 require '../classes/conectdb.php';
@@ -103,6 +103,13 @@ if (!empty($_POST)) {
 
         document.getElementById('theInput').disabled = true;
     </script>
+    <link rel="stylesheet" href="../components/css/menu-admin.css"/>
+    <script>
+        $(function () {
+            $("#menu").load("../components/menu-administrador.php");
+        });
+    </script>
+
     <script>
         $(function () {
             $("#footer").load("../components/footer.php");
@@ -110,18 +117,19 @@ if (!empty($_POST)) {
     </script>
     <!--    copiar e colar isto para as demais novas paginas-->
 
-    <title>Editar Perfil | Faculdades Cambury</title>
+    <title>Meu Perfil | Faculdades Cambury</title>
 </head>
 
 <body>
 <div id="header"></div>
+<div id="menu"></div>
 
 <div class="container">
 
     <div class="span10 offset1">
         <div class="card">
             <div class="card-header">
-                <h3 class="well"> Editar Usuário </h3>
+                <h3 class="well"> Meu Usuário </h3>
             </div>
             <div class="card-body">
                 <form class="form-horizontal" action="#"
@@ -131,7 +139,7 @@ if (!empty($_POST)) {
                         <label class="control-label">Login</label>
                         <div class="controls">
                             <input name="login" id="login" class="form-control" size="50" type="text"
-                                   value="<?php echo !empty($login) ? $login : ''; ?>"  readonly="readonly">
+                                   value="<?php echo !empty($login) ? $login : ''; ?>" readonly="readonly">
                         </div>
                     </div>
 
@@ -141,7 +149,7 @@ if (!empty($_POST)) {
                             <input name="nome" class="form-control" size="80" type="text" placeholder="Nome do Usuário"
                                    value="<?php echo !empty($nome) ? $nome : ''; ?>" minlength="5">
                             <?php if (!empty($nomeErro)): ?>
-                        <br/>
+                                <br/>
                                 <div class="alert alert-danger"><?php echo $nomeErro; ?></div>
 
                             <?php endif; ?>
@@ -151,7 +159,8 @@ if (!empty($_POST)) {
                     <div class="control-group <?php echo !empty($senha) ? 'error' : ''; ?>">
                         <label class="control-label">Senha</label>
                         <div class="controls">
-                            <input name="senha" class="form-control" size="30" type="password" placeholder="Digite sua senha"
+                            <input name="senha" class="form-control" size="30" type="password"
+                                   placeholder="Digite sua senha"
                                    value="<?php echo !empty($senha) ? $senha : ''; ?>" minlength="6">
                             <?php if (!empty($senhaErro)): ?>
                                 <br/>
@@ -163,7 +172,8 @@ if (!empty($_POST)) {
                     <div class="control-group <?php echo !empty($rep_senha) ? 'error' : ''; ?>">
                         <label class="control-label">Repetir Senha</label>
                         <div class="controls">
-                            <input name="rep_senha" class="form-control" size="40" type="password" placeholder="Repita a senha"
+                            <input name="rep_senha" class="form-control" size="40" type="password"
+                                   placeholder="Repita a senha"
                                    value="<?php echo !empty($rep_senha) ? $rep_senha : ''; ?>" minlength="6">
                             <?php if (!empty($rep_senhaErro)): ?>
                                 <br/>
@@ -176,14 +186,15 @@ if (!empty($_POST)) {
                         <label class="control-label">CPF</label>
                         <div class="controls">
                             <input name="cpf" class="form-control" size="14" type="number"
-                                   value="<?php echo !empty($cpf) ? $cpf : ''; ?>"  readonly="readonly">
+                                   value="<?php echo !empty($cpf) ? $cpf : ''; ?>" readonly="readonly">
                         </div>
                     </div>
 
                     <div class="control-group <?php echo !empty($email) ? 'error' : ''; ?>">
                         <label class="control-label">E-mail</label>
                         <div class="controls">
-                            <input name="email" class="form-control" size="40" type="email" placeholder="Digite seu Email"
+                            <input name="email" class="form-control" size="40" type="email"
+                                   placeholder="Digite seu Email"
                                    value="<?php echo !empty($email) ? $email : ''; ?>">
                             <?php if (!empty($emailErro)): ?>
                                 <br/>

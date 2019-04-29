@@ -38,17 +38,17 @@ endif;
         <div class="container-fluid">
             <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header">
-                <a class="navbar-brand" href="../index.php">Cambury - PCA</a>
+                <a class="navbar-brand" href="../../index.php">Cambury - PCA</a>
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
-                    <li><a href="../administrador/usuario-avaliador/validar-usuario-avaliador.php">Adicionar Avaliador
+                    <li><a href="../../administrador/usuario-avaliador/validar-usuario-avaliador.php">Adicionar Avaliador
                             <span class="sr-only">(current)</span></a></li>
-                    <li><a href="../administrador/listar-usuario.php">Listar Usuários</a></li>
-                    <?php echo'<li><a href="../administrador/editar-perfil.php?codUsuario=' . $codUsuario . '"">Meu Perfil</a></li>'; ?>
-                    <li><a href="../logout.php">Deslogar</a></li>
+                    <li><a href="../../administrador/listar-usuario.php">Listar Usuários</a></li>
+                    <?php echo'<li><a href="../../administrador/editar-perfil.php?codUsuario=' . $codUsuario . '"">Meu Perfil</a></li>'; ?>
+                    <li><a href="../../logout.php">Deslogar</a></li>
                 </ul>
             </div>
         </div><!-- /.navbar-collapse -->

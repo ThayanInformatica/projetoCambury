@@ -63,12 +63,19 @@ if (!empty($_POST)) {
         });
     </script>
     <!--    copiar e colar isto para as demais novas paginas-->
+    <link rel="stylesheet" href="../../components/css/menu-admin.css"/>
+    <script>
+        $(function () {
+            $("#menu").load("../../components/menu-administrador-topage.php");
+        });
+    </script>
 
     <title>Projeto | Faculdades Cambury</title>
 </head>
 
 <body>
 <div id="header"></div>
+<div id="menu"></div>
 
 <div class="modals-page">
     <div class="container">

@@ -50,26 +50,34 @@ endif;
         });
     </script>
     <!--    copiar e colar isto para as demais novas paginas-->
+    <link rel="stylesheet" href="../../components/css/menu-admin.css"/>
+    <script>
+        $(function () {
+            $("#menu").load("../../components/menu-administrador-topage.php");
+        });
+    </script>
 
 </head>
 <body>
 <div id="header"></div>
+<div id="menu"></div>
+
 <div class="container">
     </br>
 
-    <div class="btn-group">
-        <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
-                aria-expanded="false">
-            Menu <span class="caret"></span>
-        </button>
-        <ul class="dropdown-menu">
-            <?php echo '<li><a href="editar-perfil.php?codUsuario=' . $codUsuario . '">Editar Perfil</a></li>' ?>
-            <li><a href="#"></a></li>
-            <li><a href="listar-usuario.php">Listar usuarios</a></li>
-            <li role="separator" class="divider"></li>
-            <li><a href="#">Separated link</a></li>
-        </ul>
-    </div>
+<!--    <div class="btn-group">-->
+<!--        <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"-->
+<!--                aria-expanded="false">-->
+<!--            Menu <span class="caret"></span>-->
+<!--        </button>-->
+<!--        <ul class="dropdown-menu">-->
+<!--            --><?php //echo '<li><a href="editar-perfil.php?codUsuario=' . $codUsuario . '">Editar Perfil</a></li>' ?>
+<!--            <li><a href="#"></a></li>-->
+<!--            <li><a href="listar-usuario.php">Listar usuarios</a></li>-->
+<!--            <li role="separator" class="divider"></li>-->
+<!--            <li><a href="#">Separated link</a></li>-->
+<!--        </ul>-->
+<!--    </div>-->
 
     <div class="row">
         <!--        <p>-->

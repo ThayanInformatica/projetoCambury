@@ -62,10 +62,17 @@ if (null == $codProjeto) {
         });
     </script>
     <!--    copiar e colar isto para as demais novas paginas-->
+    <link rel="stylesheet" href="../../components/css/menu-admin.css"/>
+    <script>
+        $(function () {
+            $("#menu").load("../../components/menu-administrador-topage.php");
+        });
+    </script>
 </head>
 
 <body>
 <div id="header"></div>
+<div id="menu"></div>
 
 <div class="container">
     <div class="span10 offset1">
