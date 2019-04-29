@@ -1,0 +1,13 @@
+.editandoResumo{
+    font-weight: 600;
+}
+.editandoObjetivo{
+    font-weight: 600;
+}
+.campoProjeto{
+    float: right;
+}
+.campoOrientador{
+    padding-right: 60%;
+    margin-bottom: 10px;
+}

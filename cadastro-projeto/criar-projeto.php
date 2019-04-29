@@ -59,12 +59,31 @@ if (isset($_POST['cadastrar'])) {
     <!-- Latest compiled and minified CSS -->
     <title>Cambury | Cadastro de Projeto</title>
 
+    <link rel="stylesheet" href="../components/css/header.css"/>
+    <link rel="stylesheet" href="../components/css/footer.css"/>
+    <link rel="stylesheet" href="assets/css/cssCadastroProjeto.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
 
+    <link rel="stylesheet" href="components/css/header.css"/>
+    <link rel="stylesheet" href="components/css/footer.css"/>
+    <script>
+        $(function () {
+            $("#header").load("../components/header.php");
+        });
+    </script>
+    <script>
+        $(function () {
+            $("#footer").load("../components/footer.php");
+        });
+    </script>
+
+
 </head>
 
+
+    <div id="header"></div>
 <body>
 
 
@@ -81,6 +100,8 @@ if (isset($_POST['cadastrar'])) {
     }
 
     ?>
+
+
     <div clas="span10 offset1">
         <div class="card">
             <div class="card-header">
@@ -89,8 +110,8 @@ if (isset($_POST['cadastrar'])) {
             <div class="card-body">
 
                 <form action="#" method="post">
-                    <div class="control-group">
-                        <label class="control-label">Nome do Projeto</label>
+                    <div class="campoProjeto" class="control-group">
+                        <label class="control-label">Nome do Projeto:</label>
                         <div class="controls">
                             <input size="50" class="form-control" name="nomeProjeto" type="text"
                                    placeholder="Digite o nome do projeto" required=""
@@ -98,8 +119,8 @@ if (isset($_POST['cadastrar'])) {
                         </div>
                     </div>
 
-                    <div class="control-group">
-                        <label class="control-label">Prof° Orientador</label>
+                    <div class="campoOrientador" class="control-group">
+                        <label class="control-label">Prof° Orientador:</label>
                         <div class="controls">
                             <input size="50" class="form-control" name="nomeProfessor" type="text"
                                    placeholder="Digite o nome do Orientador" required=""
@@ -108,7 +129,7 @@ if (isset($_POST['cadastrar'])) {
                     </div>
             </div>
 
-            <div class="control-group>
+            <div class="editandoObjetivo" class="control-group>
                 <label class=" control-label
             ">Objetivo do Projeto</label>
             <div class="controls">
@@ -117,7 +138,7 @@ if (isset($_POST['cadastrar'])) {
             </div>
         </div>
 
-        <div class="control-group>
+        <div class="editandoResumo" class="control-group>
             <label class=" control-label
         ">Resumo do Projeto</label>
         <div class="controls">
@@ -165,6 +186,6 @@ if (isset($_POST['cadastrar'])) {
 </div>
 </div>
 </body>
-
+<div id="footer"></div>
 </html>
 
