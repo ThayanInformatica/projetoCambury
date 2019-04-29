@@ -48,7 +48,7 @@ endif;
                             <span class="sr-only">(current)</span></a></li>
                     <li><a href="../administrador/listar-usuario.php">Listar Usuários</a></li>
                     <?php echo'<li><a href="../administrador/editar-perfil.php?codUsuario=' . $codUsuario . '"">Editar Perfil</a></li>'; ?>
-                    <li><a href="logout.php">Sair</a></li>
+                    <li><a href="../logout.php">Deslogar</a></li>
                 </ul>
             </div>
         </div><!-- /.navbar-collapse -->
