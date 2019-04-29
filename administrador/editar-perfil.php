@@ -129,7 +129,7 @@ if (!empty($_POST)) {
     <div class="span10 offset1">
         <div class="card">
             <div class="card-header">
-                <h3 class="well"> Meu Usuário </h3>
+                <h3 class="well"> Meu Perfil </h3>
             </div>
             <div class="card-body">
                 <form class="form-horizontal" action="#"

@@ -111,7 +111,7 @@ if (!empty($_POST)) {
     </script>
     <!--    copiar e colar isto para as demais novas paginas-->
 
-    <title>Editar Perfil | Faculdades Cambury</title>
+    <title>Meu Perfil | Faculdades Cambury</title>
 </head>
 
 <body>
@@ -122,7 +122,7 @@ if (!empty($_POST)) {
     <div class="span10 offset1">
         <div class="card">
             <div class="card-header">
-                <h3 class="well"> Editar Usuário </h3>
+                <h3 class="well"> Meu Perfil </h3>
             </div>
             <div class="card-body">
                 <form class="form-horizontal" action="#"
