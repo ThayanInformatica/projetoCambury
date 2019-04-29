@@ -127,78 +127,82 @@ if (isset($_POST['cadastrar'])) {
 
     <div clas="span10 offset1">
         <div class="card">
-            <div class="card-header">
-                <h3 class="well"> Cadastro de Projeto </h3>
-            </div>
-            <div class="card-body">
-
-            <form>
-            <div class="editandoEspacamentoProjetoOrientador"
-                <form>
-                    <div class="form-row">
-            <div  class="form-group col-md-6">
-            <label for="inputEmail4">Nome do Projeto:</label>
-            <input type="email" class="form-control" id="inputEmail4" placeholder="Digite o nome do projeto">
-            </div>
-            <div  class="form-group col-md-6">
-            <label for="inputPassword4">Prof° Orientador:</label>
-            <input type="password" class="form-control" id="inputPassword4" placeholder="Digite o nome do Orientador">
-            </div>
-        </div>
-        </form>
-</div>
             
-            <div class="editandoObjetivo" class="control-group>
-                <label class=" control-label
-            ">Objetivo do Projeto:</label>
-            <div class="controls">
-                            <textarea size="35" class="form-control"  name="objetivoProjeto" type="text" required=""
-                            > </textarea>
-                            
+           
+        <div  class="editandoCadastro"  class="container">
+            <div class="row">
+                <h2 class="editandoh1"> Cadastro de Projeto </h2>
+                    
+                    <div class="card-body">
+
+                    <form action="#" method="post">
+                    <div class="editandoEspacamentoProjetoOrientador"
+                        
+                            <div class="form-row">
+                    <div  class="form-group col-md-6">
+                    <label for="inputEmail4">Nome do Projeto:</label>
+                    <input type="email" class="form-control" id="inputEmail4" placeholder="Digite o nome do projeto">
+                    </div>
+                    <div  class="form-group col-md-6">
+                    <label for="inputPassword4">Prof° Orientador:</label>
+                    <input type="password" class="form-control" id="inputPassword4" placeholder="Digite o nome do Orientador">
+                    </div>
+                </div>
+                
+        </div>
+                    
+                    <div class="editandoObjetivo" class="control-group>
+                        <label class=" control-label
+                    ">Objetivo do Projeto:</label>
+                    <div class="controls">
+                                    <textarea size="35" class="form-control"  name="objetivoProjeto" type="text" required=""
+                                    > </textarea>
+                                    
+                    </div>
+                </div>
+
+                <div class="editandoResumo" class="control-group>
+                    <label class=" control-label
+                ">Resumo do Projeto:</label>
+                <div class="controls">
+                                    <textarea size="40" class="form-control" name="resumoProjeto" type="text" required=""
+                                    ></textarea>
+                </div>
             </div>
+
+            <div class="espacamentoCursoTurma">
+            <div class="col-sm-3">
+                <label>Curso:</label>
+                <select class="form-control" name="cursoProjeto">
+                    <option value="TI">GESTÃO DA TECNOLOGIA DA INFORMAÇÃO</option>
+                    <option value="CIÊNCIAS CONTÁBEIS">CIÊNCIAS CONTÁBEIS</option>
+                    <option value="ADMINISTRAÇÃO">ADMINISTRAÇÃO</option>
+                    <option value="ESTÉTICA E COSMÉTIC">ESTÉTICA E COSMÉTICA</option>
+                    <option value="MARKETING">MARKETING</option>
+                    <option value="TECNOLOGIA EM PROCESSOS GERENCIAIS">TECNOLOGIA EM PROCESSOS GERENCIAIS</option>
+                </select>
+            </div>
+
+            <div class="col-sm-3">
+                <label>Turma:</label>
+                <select class="form-control" name="turmaProjeto">
+                    <option value="01">01</option>
+                    <option value="02">02</option>
+                    <option value="03">03</option>
+                    <option value="04">04</option>
+                    <option value="05">05</option>
+                </select>
+            </div>
+
+            <div class="form-actions">
+                <br/>
+
+                <button type="submit" class="btn btn-primary" id="espacamentoAdicionar" name="cadastrar">Adicionar</button>
+                <a href="../usuario-logado.php" type="btn" id="espacamentoVoltar" class="btn btn-primary" href="index.php"s>Voltar</a>
+            </div>
+            
+            </form>
         </div>
-
-        <div class="editandoResumo" class="control-group>
-            <label class=" control-label
-        ">Resumo do Projeto:</label>
-        <div class="controls">
-                            <textarea size="40" class="form-control" name="resumoProjeto" type="text" required=""
-                            ></textarea>
-        </div>
-    </div>
-
-    <div class="espacamentoCursoTurma">
-    <div class="col-sm-3">
-        <label>Curso:</label>
-        <select class="form-control" name="cursoProjeto">
-            <option value="TI">GESTÃO DA TECNOLOGIA DA INFORMAÇÃO</option>
-            <option value="CIÊNCIAS CONTÁBEIS">CIÊNCIAS CONTÁBEIS</option>
-            <option value="ADMINISTRAÇÃO">ADMINISTRAÇÃO</option>
-            <option value="ESTÉTICA E COSMÉTIC">ESTÉTICA E COSMÉTICA</option>
-            <option value="MARKETING">MARKETING</option>
-            <option value="TECNOLOGIA EM PROCESSOS GERENCIAIS">TECNOLOGIA EM PROCESSOS GERENCIAIS</option>
-        </select>
-    </div>
-
-    <div class="col-sm-3">
-        <label>Turma:</label>
-        <select class="form-control" name="turmaProjeto">
-            <option value="01">01</option>
-            <option value="02">02</option>
-            <option value="03">03</option>
-            <option value="04">04</option>
-            <option value="05">05</option>
-        </select>
-    </div>
-
-    <div class="form-actions">
-        <br/>
-
-        <button type="submit" class="btn btn-primary" name="cadastrar">Adicionar</button>
-        <a href="../usuario-logado.php" type="btn" id="espacamentoVoltar" class="btn btn-primary" href="index.php"s>Voltar</a>
-    </div>
-
-    </form>
 </div>
     
     

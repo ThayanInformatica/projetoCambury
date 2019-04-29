@@ -1,6 +1,4 @@
-.editandoResumo{
-    font-weight: 600;
-}
+
 .editandoObjetivo{
     font-weight: 600;
     padding-bottom: 10px;
@@ -12,6 +10,7 @@
     margin-bottom: 10px;
     margin-left: 35px;
     padding-right: 1%;
+    font-weight: 600;
 }
 .editandoEspacamentoProjetoOrientador{
     margin-left: 20px;
@@ -21,6 +20,7 @@
 }
 .espacamentoCursoTurma{
     margin-left: 20px;
+    margin-bottom: 35px;
 
 }
 .card-header{
@@ -30,4 +30,26 @@
 
 #espacamentoVoltar{
     margin-left: 50px;
+    margin-top: 5px;
+}
+
+#espacamentoAdicionar{
+    margin-top: 5px;
+}
+
+.editandoh1{
+    margin-left: 30px;
+    margin-bottom: 20px;
+    font-family: cursive;
+    font-size: 35px;
+}
+.editandoCadastro{
+    margin-top: 0px;
+    margin-bottom: 0px;
+    background-color: #eee;
+    padding-right: 40px;
+    padding-left: 35px;
+}
+.barra-footer{
+    margin-top: 0px;
 }
