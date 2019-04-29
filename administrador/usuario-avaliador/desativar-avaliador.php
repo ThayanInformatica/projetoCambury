@@ -83,7 +83,7 @@ if (!empty($_POST)) {
                 </div>
                 <div class="form actions">
                     <button type="submit" class="btn btn-danger">Sim</button>
-                    <a href="admin.php" type="btn" class="btn btn-default">Voltar</a>
+                    <a href="../admin.php" type="btn" class="btn btn-default">Voltar</a>
                 </div>
             </form>
         </div>

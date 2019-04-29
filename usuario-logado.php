@@ -108,8 +108,6 @@ endif;
             <tr>
                 <th scope="col">Nome do Projeto</th>
                 <th scope="col">Nome do Orientador</th>
-                <th scope="col">Objetivo do Projeto</th>
-                <th scope="col">Resumo do Projeto</th>
                 <th scope="col">Curso e Turma</th>
                 <th scope="col">Ações</th>
             </tr>
@@ -124,11 +122,9 @@ endif;
                 echo '<tr>';
                 echo '<th scope="row">' . $getProjetos['nomeProjeto'] . '</th>';
                 echo '<td>' . $getProjetos['nomeProfessor'] . '</td>';
-                echo '<td>' . $getProjetos['objetivo'] . '</td>';
-                echo '<td>' . $getProjetos['resumo'] . '</td>';
                 echo '<td>' . $getProjetos['curso'] . ' / ' . $getProjetos['turma'] . '</td>';
                 echo '<td width=300>';
-                echo '<a class="btn btn-info" data-toggle="tooltip" data-placement="top" title="Informações do Projeto" href="funcoes-projeto/ler-projeto.php?codProjeto=' . $getProjetos['codProjeto'] . '">Info</a>';
+                echo '<a class="btn btn-info" data-toggle="tooltip" data-placement="top" title="Informações gerais do Projeto" href="funcoes-projeto/ler-projeto.php?codProjeto=' . $getProjetos['codProjeto'] . '">Info</a>';
                 echo ' ';
                 if ($getProjetos['projetoAceito'] == 0) {
                     echo '<a class="btn btn-warning" data-toggle="tooltip" data-placement="top" title="Após ser aceito, não poderá mais editar" href="funcoes-projeto/editar-projeto.php?codProjeto=' . $getProjetos['codProjeto'] . '">Editar</a>';

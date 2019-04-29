@@ -25,9 +25,11 @@ endif;
     <title>Administrador | Faculdades Cambury</title>
 
     <link rel="stylesheet" href="../css/projeto/projetos-page.css"/>
+    <link rel="stylesheet" href="../components/css/menu-admin.css"/>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+
     <![endif]-->
 
     <script>
@@ -39,6 +41,8 @@ endif;
     <!--    footer e header para páginas-->
     <link rel="stylesheet" href="../components/css/header.css"/>
     <link rel="stylesheet" href="../components/css/footer.css"/>
+
+
     <script>
         $(function () {
             $("#header").load("../components/header.php");
@@ -49,35 +53,24 @@ endif;
             $("#footer").load("../components/footer.php");
         });
     </script>
+    <script>
+        $(function () {
+            $("#menu").load("../components/menu-administrador.php");
+        });
+    </script>
     <!--    copiar e colar isto para as demais novas paginas-->
 
 </head>
 <body>
 <div id="header"></div>
-<div class="container jumbotron">
+<!--<div class="container jumbotron">-->
+<!--    <h2>Bem-Vindo Administrador --><?php //echo $_SESSION['login']; ?><!--!</h2>-->
+<!--</div>-->
 
-    <h2>Bem-Vindo Administrador <?php echo $_SESSION['login']; ?>!</h2>
-
-    <a href="../logout.php">Sair</a>
-
-</div>
+<div id="menu"></div>
 
 <div class="container">
     </br>
-
-    <div class="btn-group">
-        <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Menu <span class="caret"></span>
-        </button>
-        <ul class="dropdown-menu">
-            <?php echo'<li><a href="editar-perfil.php?codUsuario=' . $codUsuario . '">Editar Perfil</a></li>' ?>
-            <li><a href="usuario-avaliador/validar-usuario-avaliador.php">Adicionar Avaliador</a></li>
-            <li><a href="listar-usuario.php">Listar usuarios</a></li>
-            <li role="separator" class="divider"></li>
-            <li><a href="#">Separated link</a></li>
-        </ul>
-    </div>
-
     <div class="row">
 <!--        <p>-->
 <!--            --><?php //if ($_SESSION['nivel'] == 99) {
@@ -108,8 +101,6 @@ endif;
             <tr>
                 <th scope="col">Nome do Projeto</th>
                 <th scope="col">Nome do Orientador</th>
-                <th scope="col">Objetivo do Projeto</th>
-                <th scope="col">Resumo do Projeto</th>
                 <th scope="col">Curso e Turma</th>
                 <th scope="col">Ações</th>
             </tr>
@@ -126,8 +117,6 @@ endif;
                 echo '<td  style="display: none;">' . $getProjetos['codProjeto'] . '</td>'; // get id do projeto deixar com display none
                 echo '<td >' . $getProjetos['nomeProjeto'] . '</td>';
                 echo '<td>' . $getProjetos['nomeProfessor'] . '</td>';
-                echo '<td>' . $getProjetos['objetivo'] . '</td>';
-                echo '<td>' . $getProjetos['resumo'] . '</td>';
                 echo '<td>' . $getProjetos['curso'] . ' / ' . $getProjetos['turma'] . '</td>';
                 echo '<td width=350>';
                 echo '<a class="btn btn-info" data-toggle="tooltip" data-placement="top" title="Informações do Projeto" href="projeto-admin/ler-projeto.php?codProjeto=' . $getProjetos['codProjeto'] . '">Info</a>';
@@ -145,7 +134,7 @@ endif;
                     echo ' ';
                 }
                 if ($_SESSION['nivel'] == 99 && $getProjetos['projetoAceito'] == 0) {
-                    echo '<span class="glyphicon glyphicon-remove alert alert-danger  " role="alert" data-toggle="tooltip">Negado</span>';
+                    echo '<span class="glyphicon glyphicon-remove alert alert-danger  " role="alert" data-toggle="tooltip">Desaprovado</span>';
                     echo ' ';
                 }
                 if ($_SESSION['nivel'] == 99 && $getProjetos['projetoAceito'] == 1) {

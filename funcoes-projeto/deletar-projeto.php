@@ -70,6 +70,7 @@ if (!empty($_POST)) {
 <div id="header"></div>
 
 <div class="container">
+    <div class="modals-page">
     <div class="span10 offset1">
         <div class="row">
             <h3 class="well">Deletar Projeto</h3>
@@ -83,6 +84,7 @@ if (!empty($_POST)) {
                 <a href="../usuario-logado.php" type="btn" class="btn btn-default">Não</a>
             </div>
         </form>
+    </div>
     </div>
 </div>
 
