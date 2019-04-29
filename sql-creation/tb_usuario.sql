@@ -33,7 +33,8 @@ CREATE TABLE IF NOT EXISTS `tb_usuario` (
   `senhaUsuario` varchar(30) NOT NULL,
   `cpfUsuario` varchar(30) NOT NULL,
   `emailUsuario` varchar(30) NOT NULL,
-  `nivelUsuario` varchar(2) NULL DEFAULT 0
+  `nivelUsuario` varchar(2) NULL DEFAULT 0,
+    `avaliador` varchar(2) NULL DEFAULT 0
 ) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=latin1;
 
 --

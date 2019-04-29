@@ -8,31 +8,39 @@ if (isset($_SESSION['login']) && isset($_SESSION['senha']) && isset($_SESSION['n
     if (isset($_SESSION['nivel'])) {
         $nivel = $_SESSION['nivel'];
         if ($nivel != 99) {
-            header('location: ../usuario-logado.php');
+            header('location: ../../usuario-logado.php');
         }
+    }
+
+    if (isset($_GET['erro'])) {
+        echo '<div class="alert alert-danger">Login ou Senha incorretos</div>';
+    }
+
+    if (isset($_GET['success'])) {
+        echo '<div class="alert alert-success">Usuário aceito como avaliador</div>';
     }
 
 endif;
 
-require '../classes/conectdb.php';
+require '../../classes/conectdb.php';
 
-$codProjeto = 0;
+$codUsuario = 0;
 
-if (!empty($_GET['codProjeto'])) {
-    $codProjeto = $_REQUEST['codProjeto'];
+if (!empty($_GET['codUsuario'])) {
+    $codUsuario = $_REQUEST['codUsuario'];
 }
 
 if (!empty($_POST)) {
-    $codProjeto = $_POST['codProjeto'];
+    $codUsuario = $_POST['codUsuario'];
 
     //Delete do banco:
     $pdo = conectdb::conectar();
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    $sql = "UPDATE tb_projeto SET projetoAceito = 1 WHERE codProjeto = ?";
+    $sql = "UPDATE tb_usuario SET avaliador = 1 WHERE codUsuario = ?";
     $q = $pdo->prepare($sql);
     $q->execute(array($codProjeto));
     conectdb::desconectar();
-    header("Location: admin.php?=sucess");
+    header("Location: ../admin.php?=sucess");
 }
 ?>
 
@@ -41,24 +49,24 @@ if (!empty($_POST)) {
 
 <head>
     <meta charset="UTF-8">
-    <title>Projeto | Faculdades Cambury</title>
+    <title>Aceitar Avaliador | Faculdades Cambury</title>
 
-    <link rel="stylesheet" href="css/admin-page.css"/>
+    <link rel="stylesheet" href="../css/admin-page.css"/>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
 
     <!--    footer e header para páginas-->
-    <link rel="stylesheet" href="../components/css/header.css"/>
-    <link rel="stylesheet" href="../components/css/footer.css"/>
+    <link rel="stylesheet" href="../../components/css/header.css"/>
+    <link rel="stylesheet" href="../../components/css/footer.css"/>
     <script>
         $(function () {
-            $("#header").load("../components/header.php");
+            $("#header").load("../../components/header.php");
         });
     </script>
     <script>
         $(function () {
-            $("#footer").load("../components/footer.php");
+            $("#footer").load("../../components/footer.php");
         });
     </script>
     <!--    copiar e colar isto para as demais novas paginas-->
@@ -71,15 +79,15 @@ if (!empty($_POST)) {
     <div class="container" style="border: 1.2px solid lightgreen;">
         <div class="span10 offset1">
             <div class="row">
-                <h3 class="well">Aceitar Projeto</h3>
+                <h3 class="well">Aceitar Avaliador</h3>
             </div>
             <form class="form-horizontal" action="#" method="post">
-                <input type="hidden" name="codProjeto" value="<?php echo $codProjeto; ?>"/>
-                <div class="alert alert-success"> Deseja aceitar o projeto?
+                <input type="hidden" name="codUsuario" value="<?php echo $codUsuario; ?>"/>
+                <div class="alert alert-success"> Deseja aceitar o Avaliador?
                 </div>
                 <div class="form actions">
                     <button type="submit" class="btn btn-success">Sim</button>
-                    <a href="admin.php" type="btn" class="btn btn-default">Voltar</a>
+                    <a href="../admin.php" type="btn" class="btn btn-default">Voltar</a>
                 </div>
             </form>
         </div>

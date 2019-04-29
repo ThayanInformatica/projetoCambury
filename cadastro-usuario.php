@@ -25,6 +25,7 @@ if (isset($_POST['cadastrar'])) {
     $rep_senha = trim(strip_tags($_POST['rep_senha'])); // atribui login à variavel, com funções contra sql inject
     $cpf = trim(strip_tags($_POST['cpf'])); // atribui login à variavel, com funções contra sql inject
     $email = trim(strip_tags($_POST['email'])); // atribui login à variavel, com funções contra sql inject
+    $avaliador = trim(strip_tags($_POST['avaliador'])); // atribui login à variavel, com funções contra sql inject
 
     // confere se as senhas são iguais
 
@@ -36,7 +37,10 @@ if (isset($_POST['cadastrar'])) {
             header('location:cadastro-usuario.php?repetido=senha');
             // caso não haja login parecido, inclui métoro de inserção de dados no banco de dados
         } else {
-            $insere = $cadastrar->cadastra($login, $senha, $nome, $cpf, $email);
+            if ($avaliador != 1) {
+                $avaliador = 0;
+            }
+            $insere = $cadastrar->cadastra($login, $senha, $nome, $cpf, $email, $avaliador);
             // caso o usuario seja cadastrado, exibir mensagem de sucesso
             if ($insere == true) {
                 header('location:index.php?success=cadastrado');
@@ -191,7 +195,8 @@ if (isset($_POST['cadastrar'])) {
                         <div class="col-sm-5" class="tamanho-campoRepita">
                             <div class="form-group">
                                 <label for="rep_senha">Repita a Senha:</label>
-                                <input type="password" class="form-control" id="rep_senha" name="rep_senha" minlength="6"
+                                <input type="password" class="form-control" id="rep_senha" name="rep_senha"
+                                       minlength="6"
                                        placeholder="Repita a sua senha" required>
                             </div>
                         </div>
@@ -213,6 +218,11 @@ if (isset($_POST['cadastrar'])) {
                                     <input type="email" class="form-control" id="email" name="email" required>
 
                                 </div>
+                            </div>
+                            <div class="checkbox">
+                                <label>
+                                    <input type="checkbox" id="avaliador" name="avaliador" value="1"> Quero ser Avaliador
+                                </label>
                             </div>
                         </div>
                         <div class="col-sm-5">

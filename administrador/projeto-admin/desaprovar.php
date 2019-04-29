@@ -2,7 +2,7 @@
 
 session_start();
 if (!isset($_SESSION['login']) && !isset($_SESSION['senha'])):
-    header('location: ../index.php');
+    header('location: ../../index.php');
 endif;
 
 if (isset($_SESSION['login']) && isset($_SESSION['senha']) && isset($_SESSION['nivel'])):
@@ -16,7 +16,7 @@ if (isset($_SESSION['login']) && isset($_SESSION['senha']) && isset($_SESSION['n
 endif;
 
 
-require '../classes/conectdb.php';
+require '../../classes/conectdb.php';
 
 $codProjeto = 0;
 
@@ -34,7 +34,7 @@ if (!empty($_POST)) {
     $q = $pdo->prepare($sql);
     $q->execute(array($codProjeto));
     conectdb::desconectar();
-    header("Location: admin.php?=sucess");
+    header("Location: ../admin.php?=sucess");
 }
 ?>
 
@@ -44,22 +44,22 @@ if (!empty($_POST)) {
 <head>
     <meta charset="utf-8">
     <!-- Latest compiled and minified CSS -->
-    <link rel="stylesheet" href="css/admin-page.css"/>
+    <link rel="stylesheet" href="../css/admin-page.css"/>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
 
     <!--    footer e header para páginas-->
-    <link rel="stylesheet" href="../components/css/header.css"/>
-    <link rel="stylesheet" href="../components/css/footer.css"/>
+    <link rel="stylesheet" href="../../components/css/header.css"/>
+    <link rel="stylesheet" href="../../components/css/footer.css"/>
     <script>
         $(function () {
-            $("#header").load("../components/header.php");
+            $("#header").load("../../components/header.php");
         });
     </script>
     <script>
         $(function () {
-            $("#footer").load("../components/footer.php");
+            $("#footer").load("../../components/footer.php");
         });
     </script>
     <!--    copiar e colar isto para as demais novas paginas-->
