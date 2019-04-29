@@ -131,7 +131,7 @@ if (isset($_POST['cadastrar'])) {
            
         <div  class="editandoCadastro"  class="container">
             <div class="row">
-                <h2 class="editandoh1"> Cadastro de Projeto </h2>
+                <h2 class="editandoh1"> Cadastre seu Projeto </h2>
                     
                     <div class="card-body">
 
