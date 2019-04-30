@@ -1,0 +1,28 @@
+
+
+.centralizandoCampos{
+
+    text-align: center;
+    background-color: black
+}
+.well{
+    text-align: center;
+    margin-left: 35%;
+    margin-right: 35%;
+    margin-top: 10%;
+}
+
+.alert{
+    text-align: center;
+    margin-right: 35%;
+    margin-left: 35%;
+
+}
+
+.form{
+text-align: center;
+padding-right: 35%;
+padding-left: 45%;
+margin-bottom: 9%;
+
+}

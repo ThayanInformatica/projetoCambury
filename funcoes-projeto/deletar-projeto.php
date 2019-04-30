@@ -45,6 +45,7 @@ if (!empty($_POST)) {
     <meta charset="utf-8">
     <title>Deletar Projeto | Faculdades Cambury</title>
     <link rel="stylesheet" href="../administrador/css/admin-page.css"/>
+    <link rel="stylesheet" href="../funcoes-projeto/css/TelaDelete.css"    
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
@@ -69,22 +70,25 @@ if (!empty($_POST)) {
 <body>
 <div id="header"></div>
 
-<div class="container">
-    <div class="modals-page">
-    <div class="span10 offset1">
+<div class=centralizandoCampos></div>
+    <div class="container" >
+        <div class="modals-page">
+        <div class="span10 offset1">
         <div class="row">
-            <h3 class="well">Deletar Projeto</h3>
+                <h3 class="well">Deletar Projeto</h3>
+            </div>
+
+            <form class="form-horizontal" action="#" method="post">
+                <input type="hidden" name="codProjeto" value="<?php echo $codProjeto; ?>"/>
+                <div class="alert alert-danger"> Deseja deletar o Projeto?
+                </div>
+                <div class="form actions">
+                    <button type="submit" class="btn btn-danger">Sim</button>
+                    <a href="../usuario-logado.php" type="btn" class="btn btn-default">Não</a>
+                </div>
+            </form>
         </div>
-        <form class="form-horizontal" action="#" method="post">
-            <input type="hidden" name="codProjeto" value="<?php echo $codProjeto; ?>"/>
-            <div class="alert alert-danger"> Deseja deletar o Projeto?
-            </div>
-            <div class="form actions">
-                <button type="submit" class="btn btn-danger">Sim</button>
-                <a href="../usuario-logado.php" type="btn" class="btn btn-default">Não</a>
-            </div>
-        </form>
-    </div>
+        </div>
     </div>
 </div>
 
