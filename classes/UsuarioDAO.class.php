@@ -115,5 +115,35 @@ class UsuarioDAO
         }
     }
 
+    public function CodDoProjetoPeloUsuario($codUsuario)
+    {
+
+        $sql = "select codProjeto from tb_projeto where codUsuario = '$codUsuario'";
+
+        $executa = mysqli_query($this->conexao->getCon(), $sql);
+        $codProjeto = mysqli_fetch_array($executa);
+        return $codProjeto['codProjeto'];
+    }
+
+    public function recuperarProjetos($codUsuario)
+    {
+
+        $sql = "select * from tb_projeto";
+
+        $executa = mysqli_query($this->conexao->getCon(), $sql);
+        $codProjeto = mysqli_fetch_array($executa);
+        return $codProjeto['codProjeto'];
+    }
+
+    public function recuperarUsuarioAvaliador($codUsuario)
+    {
+
+        $sql = "select avaliador from tb_usuario where codUsuario = '$codUsuario'";
+
+        $executa = mysqli_query($this->conexao->getCon(), $sql);
+        $OKAvaliador = mysqli_fetch_array($executa);
+        return $OKAvaliador['avaliador'];
+    }
+
 
 }

@@ -64,26 +64,21 @@ endif;
     </br>
 
     <div class="btn-group" style="float: right;">
-        <button  type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
+        <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
                 aria-expanded="false">
             Menu <span class="caret"></span>
         </button>
         <ul class="dropdown-menu">
             <?php echo '<li><a href="funcoes-usuario/editar-usuario.php?codUsuario=' . $codUsuario . '">Editar Perfil</a></li>' ?>
-<!--            <li><a href="#">Something else here</a></li>-->
-<!--            <li><a href="listar-usuario.php">Listar usuarios</a></li>-->
-<!--            <li role="separator" class="divider"></li>-->
-<!--            <li><a href="#">Separated link</a></li>-->
+            <!--            <li><a href="#">Something else here</a></li>-->
+            <!--            <li><a href="listar-usuario.php">Listar usuarios</a></li>-->
+            <!--            <li role="separator" class="divider"></li>-->
+            <!--            <li><a href="#">Separated link</a></li>-->
         </ul>
     </div>
 
     <div class="row">
         <p>
-            <?php if ($_SESSION['nivel'] == 0) {
-                echo '<a href="cadastro-projeto/criar-projeto.php" class="btn btn-success">Adicionar Projeto</a>';
-            }
-            ?>
-
             <?php
 
             include('classes/Conexao.class.php');
@@ -98,12 +93,39 @@ endif;
             $codUsuario = $usuario->CodDoUsuario($login);
             $_SESSION['codUsuario'] = $codUsuario;
 
+            // Pegar ID de projetos de usuários
+
+            $codProjeto = $usuario->CodDoProjetoPeloUsuario($codUsuario);
+
+            $avaliadorOK = $usuario->recuperarUsuarioAvaliador($codUsuario);
+
+            $ProjetosOk = $usuarioProjeto->recuperarProjetosParaAvaliar();
+
+            ?>
+
+            <?php if ($_SESSION['nivel'] == 0 && $avaliadorOK < 2) {
+                echo '<a href="cadastro-projeto/criar-projeto.php" class="btn btn-success">Adicionar Projeto</a>';
+            }
             ?>
 
         </p>
 
+
+        <?php
+        if (isset($codProjeto)) {
+        ?>
+
         <table class="table table-striped">
-            <h2>Meus Projetos</h2>
+            <?php if ($avaliadorOK <= 1) {
+                ?>
+                <h2>Meus Projetos</h2>
+            <?php }
+            ?>
+            <?php if ($ProjetosOk >= 2) {
+                ?>/
+                <h2>Avaliar Projetos</h2>
+            <?php }
+            ?>
             <thead>
             <tr>
                 <th scope="col">Nome do Projeto</th>
@@ -113,32 +135,93 @@ endif;
             </tr>
             </thead>
             <tbody>
+
+            <?php }
+            ?>
+
+
             <?php
             include 'classes/conectdb.php';
             $pdo = conectdb::conectar();
-            $sql = 'SELECT codUsuario,codProjeto,nomeProjeto,nomeProfessor,objetivo,resumo,curso,turma,projetoAceito FROM tb_projeto ';
+            $sql = 'SELECT codProjeto,codUsuario,nomeProjeto,nomeProfessor,objetivo,resumo,curso,turma,projetoAceito FROM tb_projeto ';
+
+            // FORMULÁRIO DE PROJETO PARARA ORIENTADOR
 
             foreach ($pdo->query($sql) as $getProjetos) {
-                echo '<tr>';
-                echo '<th scope="row">' . $getProjetos['nomeProjeto'] . '</th>';
-                echo '<td>' . $getProjetos['nomeProfessor'] . '</td>';
-                echo '<td>' . $getProjetos['curso'] . ' / ' . $getProjetos['turma'] . '</td>';
-                echo '<td width=300>';
-                echo '<a class="btn btn-info" data-toggle="tooltip" data-placement="top" title="Informações gerais do Projeto" href="funcoes-projeto/ler-projeto.php?codProjeto=' . $getProjetos['codProjeto'] . '">Info</a>';
-                echo ' ';
-                if ($getProjetos['projetoAceito'] == 0) {
-                    echo '<a class="btn btn-warning" data-toggle="tooltip" data-placement="top" title="Após ser aceito, não poderá mais editar" href="funcoes-projeto/editar-projeto.php?codProjeto=' . $getProjetos['codProjeto'] . '">Editar</a>';
+                if (isset($codProjeto) && $avaliadorOK <= 1) {
+                    echo '
+            <tr>';
+                    echo '
+                <th scope="row">' . $getProjetos['nomeProjeto'] . '</th>
+                ';
+                    echo '
+                <td>' . $getProjetos['nomeProfessor'] . '</td>
+                ';
+                    echo '
+                <td>' . $getProjetos['curso'] . ' / ' . $getProjetos['turma'] . '</td>
+                ';
+                    echo '
+                <td width=300>';
+                    echo '<a class="btn btn-info" data-toggle="tooltip" data-placement="top"
+                             title="Informações gerais do Projeto"
+                             href="funcoes-projeto/ler-projeto.php?codProjeto=' . $getProjetos['codProjeto'] . '">Info</a>';
                     echo ' ';
+                    if ($getProjetos['projetoAceito'] == 0) {
+                        echo '<a class="btn btn-warning" data-toggle="tooltip" data-placement="top"
+                             title="Após ser aceito, não poderá mais editar"
+                             href="funcoes-projeto/editar-projeto.php?codProjeto=' . $getProjetos['codProjeto'] . '">Editar</a>';
+                        echo ' ';
+                    }
+                    if ($getProjetos['projetoAceito'] == 1) {
+                        echo '<span class="alert alert-success" role="alert" data-toggle="tooltip">Projeto Aceito</span>';
+                        echo ' ';
+                    }
+                    if ($getProjetos['projetoAceito'] == 0) {
+                        echo '<a class="btn btn-danger"
+                             href="funcoes-projeto/deletar-projeto.php?codProjeto=' . $getProjetos['codProjeto'] . '">Excluir</a>';
+                        echo '
+                </td>
+                ';
+                        echo '
+            </tr>
+            ';
+                    }
                 }
-                if ($getProjetos['projetoAceito'] == 1) {
-                    echo '<span class="alert alert-success" role="alert" data-toggle="tooltip">Projeto Aceito</span>';
+            }
+
+            //            FORMULÁRIO DE TELA PARA AVALIADOR
+
+            foreach ($pdo->query($sql) as $getProjetos) {
+                if (isset($codProjeto) && $avaliadorOK === 2 && $getProjetos['projetoAceito'] === 1) {
+                    echo '
+            <tr>';
+                    echo '
+                <th scope="row">' . $getProjetos['nomeProjeto'] . '</th>
+                ';
+                    echo '
+                <td>' . $getProjetos['nomeProfessor'] . '</td>
+                ';
+                    echo '
+                <td>' . $getProjetos['curso'] . ' / ' . $getProjetos['turma'] . '</td>
+                ';
+                    echo '
+                <td width=300>';
+
+                    echo '<span class="alert alert-success glyphicon glyphicon-ok" role="alert" data-toggle="tooltip">Aceito</span>';
                     echo ' ';
-                }
-                if ($getProjetos['projetoAceito'] == 0) {
-                    echo '<a class="btn btn-danger" href="funcoes-projeto/deletar-projeto.php?codProjeto=' . $getProjetos['codProjeto'] . '">Excluir</a>';
+
+                    if ($avaliadorOK === 2) {
+                        echo '<a class="btn btn-primary" href="projeto-admin/desaprovar.php?codProjeto=' . $getProjetos['codProjeto'] . '">Avaliar Projeto</a>';
+                    }
                     echo '</td>';
-                    echo '</tr>';
+
+
                 }
+            }
+
+            if (!isset($codProjeto)) {
+                echo '<div class="jumbotron">';
+                echo '<h2>Não existe projeto</h2>';
             }
             conectdb::desconectar();
             ?>

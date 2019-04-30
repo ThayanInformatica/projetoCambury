@@ -36,9 +36,9 @@ if (!empty($_POST)) {
     //Delete do banco:
     $pdo = conectdb::conectar();
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    $sql = "UPDATE tb_usuario SET avaliador = 1 WHERE codUsuario = ?";
+    $sql = "UPDATE tb_usuario SET avaliador = 2 WHERE codUsuario = ?";
     $q = $pdo->prepare($sql);
-    $q->execute(array($codProjeto));
+    $q->execute(array($codUsuario));
     conectdb::desconectar();
     header("Location: ../admin.php?=sucess");
 }

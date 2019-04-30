@@ -65,19 +65,19 @@ endif;
 <div class="container">
     </br>
 
-<!--    <div class="btn-group">-->
-<!--        <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"-->
-<!--                aria-expanded="false">-->
-<!--            Menu <span class="caret"></span>-->
-<!--        </button>-->
-<!--        <ul class="dropdown-menu">-->
-<!--            --><?php //echo '<li><a href="editar-perfil.php?codUsuario=' . $codUsuario . '">Editar Perfil</a></li>' ?>
-<!--            <li><a href="#"></a></li>-->
-<!--            <li><a href="listar-usuario.php">Listar usuarios</a></li>-->
-<!--            <li role="separator" class="divider"></li>-->
-<!--            <li><a href="#">Separated link</a></li>-->
-<!--        </ul>-->
-<!--    </div>-->
+    <!--    <div class="btn-group">-->
+    <!--        <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"-->
+    <!--                aria-expanded="false">-->
+    <!--            Menu <span class="caret"></span>-->
+    <!--        </button>-->
+    <!--        <ul class="dropdown-menu">-->
+    <!--            --><?php //echo '<li><a href="editar-perfil.php?codUsuario=' . $codUsuario . '">Editar Perfil</a></li>' ?>
+    <!--            <li><a href="#"></a></li>-->
+    <!--            <li><a href="listar-usuario.php">Listar usuarios</a></li>-->
+    <!--            <li role="separator" class="divider"></li>-->
+    <!--            <li><a href="#">Separated link</a></li>-->
+    <!--        </ul>-->
+    <!--    </div>-->
 
     <div class="row">
         <!--        <p>-->
@@ -118,32 +118,34 @@ endif;
 
             include '../../classes/conectdb.php';
             $pdo = conectdb::conectar();
-            $sql = 'SELECT codUsuario,nomeUsuario,cpfUsuario,emailUsuario,nivelUsuario,avaliador from tb_usuario where nivelUsuario <= 0 ORDER BY nivelUsuario DESC ';
+            $sql = 'SELECT codUsuario,nomeUsuario,cpfUsuario,emailUsuario,nivelUsuario,avaliador from tb_usuario where avaliador ORDER BY nomeUsuario ';
 
             foreach ($pdo->query($sql) as $getUsuarios) {
-                echo '<tr>';
-                echo '<td  style="display: none;">' . $getUsuarios['codUsuario'] . '</td>'; // get id do usuario
-                echo '<td >' . $getUsuarios['nomeUsuario'] . '</td>';
-                echo '<td>' . $getUsuarios['cpfUsuario'] . '</td>';
-                echo '<td>' . $getUsuarios['emailUsuario'] . '</td>';
-                echo '<td width=350>';
-                echo ' ';
-                if ($getUsuarios['avaliador'] == 0) {
-                    echo '<a class="btn btn-success" href="aceitar-avaliador.php?codUsuario=' . $getUsuarios['codUsuario'] . '">Aceitar como Avaliador</a>';
+                if ($getUsuarios['nivelUsuario'] < 99) {
+                    echo '<tr>';
+                    echo '<td  style="display: none;">' . $getUsuarios['codUsuario'] . '</td>'; // get id do usuario
+                    echo '<td >' . $getUsuarios['nomeUsuario'] . '</td>';
+                    echo '<td>' . $getUsuarios['cpfUsuario'] . '</td>';
+                    echo '<td>' . $getUsuarios['emailUsuario'] . '</td>';
+                    echo '<td width=350>';
                     echo ' ';
-                }
-                if ($getUsuarios['avaliador'] == 1) {
-                    echo '<span class="alert alert-success glyphicon glyphicon-ok" role="alert" data-toggle="tooltip">Avaliador</span>';
-                    echo ' ';
-                }
-                if ($getUsuarios['avaliador'] == 1) {
-                    echo '<a class="btn btn-danger" href="desativar-avaliador.php?codUsuario=' . $getUsuarios['codUsuario'] . '">Desativar Avaliador</a>';
-                    echo '</td>';
-                    echo '</tr>';
-                }
-                if ($getUsuarios['avaliador'] == 0) {
-                    echo '<span class="alert alert-danger glyphicon glyphicon-remove" role="alert" data-toggle="tooltip">Orientador</span>';
-                    echo ' ';
+                    if ($getUsuarios['avaliador'] == 1) {
+                        echo '<a class="btn btn-success" href="aceitar-avaliador.php?codUsuario=' . $getUsuarios['codUsuario'] . '">Aceitar como Avaliador</a>';
+                        echo ' ';
+                    }
+                    if ($getUsuarios['avaliador'] == 2) {
+                        echo '<span class="alert alert-success glyphicon glyphicon-ok" role="alert" data-toggle="tooltip">Avaliador</span>';
+                        echo ' ';
+                    }
+                    if ($getUsuarios['avaliador'] == 2) {
+                        echo '<a class="btn btn-danger" href="desativar-avaliador.php?codUsuario=' . $getUsuarios['codUsuario'] . '">Desativar Avaliador</a>';
+                        echo '</td>';
+                        echo '</tr>';
+                    }
+                    if ($getUsuarios['avaliador'] == 1) {
+                        echo '<span class="alert alert-danger glyphicon glyphicon-remove" role="alert" data-toggle="tooltip">Orientador</span>';
+                        echo ' ';
+                    }
                 }
             }
             conectdb::desconectar();

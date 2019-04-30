@@ -52,16 +52,16 @@ class ProjetoDAO
         }
     }
 
-//    public function recuperarProjetosDeUsuario($codUsuario)
-//    {
-//
-//        $sql = "SELECT codProjeto,nomeProjeto,nomeProfessor FROM tb_projeto WHERE '$codUsuario'";
-//
-//        $executa = mysqli_query($this->conexao->getCon(), $sql);
-//        $getArreyProjetos = mysqli_fetch_array($executa);
-//            return $getArreyProjetos;
-//
-//    }
+    public function recuperarProjetosParaAvaliar()
+    {
+
+        $sql = "select * from tb_projeto where projetoAceito = 1";
+
+        $executa = mysqli_query($this->conexao->getCon(), $sql);
+        $OKProjeto = mysqli_fetch_array($executa);
+        return $OKProjeto['projetoAceito'];
+    }
+
 }
 
 //SELECT codProjeto,nomeProjeto,nomeProfessor FROM `tb_projeto` WHERE codUsuario=24;

@@ -185,7 +185,7 @@ if (!empty($_POST)) {
                     <div class="control-group <?php echo !empty($cpf) ? 'error' : ''; ?>">
                         <label class="control-label">CPF</label>
                         <div class="controls">
-                            <input name="cpf" class="form-control" size="14" type="number"
+                            <input name="cpf" class="form-control" size="14" type="text"
                                    value="<?php echo !empty($cpf) ? $cpf : ''; ?>" readonly="readonly">
                         </div>
                     </div>

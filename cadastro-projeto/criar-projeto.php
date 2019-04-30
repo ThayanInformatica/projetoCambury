@@ -102,7 +102,7 @@ if (isset($_POST['cadastrar'])) {
     ?>
 
      <!-- Codigo antigo Caso houver erro -->
-            
+
             <!--  <form action="#" method="post">
                     <div class="campoProjeto" class="form-group col-md-6">>
                         <label class="control-label" for="NameProjeto">Nome do Projeto:</label>
@@ -111,7 +111,7 @@ if (isset($_POST['cadastrar'])) {
                                    placeholder="Digite o nome do projeto" required=""
                             >
                         </div>
-                    </div> 
+                    </div>
 
                     <div class="campoOrientador" class="form-group col-md-6">
                         <label class="control-label">Prof° Orientador:</label>
@@ -140,12 +140,12 @@ if (isset($_POST['cadastrar'])) {
                         
                             <div class="form-row">
                     <div  class="form-group col-md-6">
-                    <label for="inputEmail4">Nome do Projeto:</label>
-                    <input type="email" class="form-control" id="inputEmail4" placeholder="Digite o nome do projeto">
+                    <label for="nomeProjeto">Nome do Projeto:</label>
+                    <input name="nomeProjeto" type="text" class="form-control" id=nomeProjeto" placeholder="Digite o nome do projeto">
                     </div>
                     <div  class="form-group col-md-6">
-                    <label for="inputPassword4">Prof° Orientador:</label>
-                    <input type="password" class="form-control" id="inputPassword4" placeholder="Digite o nome do Orientador">
+                    <label for="nomeProfessor">Prof° Orientador:</label>
+                    <input type="text" class="form-control" name="nomeProfessor" id="nomeProfessor" placeholder="Digite o nome do Orientador">
                     </div>
                 </div>
                 
