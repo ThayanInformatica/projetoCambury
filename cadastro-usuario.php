@@ -10,7 +10,8 @@ if (isset($_SESSION['nivel'])) {
     if ($nivel == 99) {
         header('location: administrador/admin.php');
     }
-
+  
+    
 }
 
 if (isset($_POST['cadastrar'])) {
