@@ -108,7 +108,7 @@ endif;
 
             include '../classes/conectdb.php';
             $pdo = conectdb::conectar();
-            $sql = 'SELECT codUsuario,nomeUsuario,cpfUsuario,emailUsuario,nivelUsuario from tb_usuario where nivelUsuario <= 50 ORDER BY nivelUsuario DESC ';
+            $sql = 'SELECT codUsuario,nomeUsuario,cpfUsuario,emailUsuario,nivelUsuario,avaliador from tb_usuario where nivelUsuario <= 50 ORDER BY avaliador DESC ';
 
             foreach ($pdo->query($sql) as $getUsuarios) {
                 echo '<tr>';
@@ -116,10 +116,10 @@ endif;
                 echo '<td >' . $getUsuarios['nomeUsuario'] . '</td>';
                 echo '<td>' . $getUsuarios['cpfUsuario'] . '</td>';
                 echo '<td>' . $getUsuarios['emailUsuario'] . '</td>';
-                if ($getUsuarios['nivelUsuario'] == 0) {
+                if ($getUsuarios['avaliador'] <= 1) {
                     echo '<td>Orientador</td>';
                 }
-                if ($getUsuarios['nivelUsuario'] > 0) {
+                if ($getUsuarios['avaliador'] == 2) {
                     echo '<td>Avaliador</td>';
                 }
 

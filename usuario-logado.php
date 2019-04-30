@@ -148,7 +148,7 @@ endif;
             // FORMULÁRIO DE PROJETO PARARA ORIENTADOR
 
             foreach ($pdo->query($sql) as $getProjetos) {
-                if (isset($codProjeto) && $avaliadorOK <= 1) {
+                if (isset($codProjeto) && $avaliadorOK <= 1 && $getProjetos['codUsuario'] === $codUsuario) {
                     echo '
             <tr>';
                     echo '
