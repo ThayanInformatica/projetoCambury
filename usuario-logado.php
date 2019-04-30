@@ -12,7 +12,6 @@ if (isset($_SESSION['login']) && isset($_SESSION['senha']) && isset($_SESSION['n
             header('location: index.php');
         }
     }
-    $codUsuario = $_SESSION['codUsuario'];
 
 endif;
 
@@ -63,19 +62,19 @@ endif;
     </div>
     </br>
 
-    <div class="btn-group" style="float: right;">
-        <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
-                aria-expanded="false">
-            Menu <span class="caret"></span>
-        </button>
-        <ul class="dropdown-menu">
-            <?php echo '<li><a href="funcoes-usuario/editar-usuario.php?codUsuario=' . $codUsuario . '">Editar Perfil</a></li>' ?>
-            <!--            <li><a href="#">Something else here</a></li>-->
-            <!--            <li><a href="listar-usuario.php">Listar usuarios</a></li>-->
-            <!--            <li role="separator" class="divider"></li>-->
-            <!--            <li><a href="#">Separated link</a></li>-->
-        </ul>
-    </div>
+<!--    <div class="btn-group" style="float: right;">-->
+<!--        <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"-->
+<!--                aria-expanded="false">-->
+<!--            Menu <span class="caret"></span>-->
+<!--        </button>-->
+<!--        <ul class="dropdown-menu">-->
+<!--            --><?php //echo '<li><a href="funcoes-usuario/editar-usuario.php?codUsuario=' . $codUsuario . '">Editar Perfil</a></li>' ?>
+<!--                        <li><a href="#">Something else here</a></li>-->
+<!--                        <li><a href="listar-usuario.php">Listar usuarios</a></li>-->
+<!--                        <li role="separator" class="divider"></li>-->
+<!--                        <li><a href="#">Separated link</a></li>-->
+<!--        </ul>-->
+<!--    </div>-->
 
     <div class="row">
         <p>
@@ -111,21 +110,19 @@ endif;
         </p>
 
 
-        <?php
-        if (isset($codProjeto)) {
-        ?>
-
-        <table class="table table-striped">
             <?php if ($avaliadorOK <= 1) {
                 ?>
                 <h2>Meus Projetos</h2>
             <?php }
             ?>
-            <?php if ($ProjetosOk >= 2) {
-                ?>/
+
+            <?php if ($avaliadorOK == 2) {
+                ?>
                 <h2>Avaliar Projetos</h2>
             <?php }
             ?>
+
+        <table class="table table-striped">
             <thead>
             <tr>
                 <th scope="col">Nome do Projeto</th>
@@ -136,19 +133,15 @@ endif;
             </thead>
             <tbody>
 
-            <?php }
-            ?>
-
-
             <?php
             include 'classes/conectdb.php';
             $pdo = conectdb::conectar();
-            $sql = 'SELECT codProjeto,codUsuario,nomeProjeto,nomeProfessor,objetivo,resumo,curso,turma,projetoAceito FROM tb_projeto ';
+            $sql = 'SELECT codProjeto,codUsuario,nomeProjeto,nomeProfessor,objetivo,resumo,curso,turma,projetoAceito FROM tb_projeto order by projetoAceito DESC ';
 
             // FORMULÁRIO DE PROJETO PARARA ORIENTADOR
 
             foreach ($pdo->query($sql) as $getProjetos) {
-                if (isset($codProjeto) && $avaliadorOK <= 1 && $getProjetos['codUsuario'] === $codUsuario) {
+                if ($getProjetos['codUsuario'] === $codUsuario && $avaliadorOK < 2) {
                     echo '
             <tr>';
                     echo '
@@ -186,13 +179,13 @@ endif;
             </tr>
             ';
                     }
+
                 }
             }
-
             //            FORMULÁRIO DE TELA PARA AVALIADOR
 
             foreach ($pdo->query($sql) as $getProjetos) {
-                if (isset($codProjeto) && $avaliadorOK === 2 && $getProjetos['projetoAceito'] === 1) {
+                if ($avaliadorOK == 2 && $getProjetos['projetoAceito'] == 1) {
                     echo '
             <tr>';
                     echo '
@@ -206,23 +199,17 @@ endif;
                 ';
                     echo '
                 <td width=300>';
+                    if ($getProjetos['projetoAceito'] == 1) {
+                        echo '<span class="alert alert-success glyphicon glyphicon-ok" role="alert" data-toggle="tooltip">Aceito</span>';
+                        echo ' ';
+                    }
 
-                    echo '<span class="alert alert-success glyphicon glyphicon-ok" role="alert" data-toggle="tooltip">Aceito</span>';
-                    echo ' ';
-
-                    if ($avaliadorOK === 2) {
+                    if ($getProjetos['projetoAceito'] == 1) {
                         echo '<a class="btn btn-primary" href="projeto-admin/desaprovar.php?codProjeto=' . $getProjetos['codProjeto'] . '">Avaliar Projeto</a>';
                     }
                     echo '</td>';
-
-
+                    }
                 }
-            }
-
-            if (!isset($codProjeto)) {
-                echo '<div class="jumbotron">';
-                echo '<h2>Não existe projeto</h2>';
-            }
             conectdb::desconectar();
             ?>
             </tbody>

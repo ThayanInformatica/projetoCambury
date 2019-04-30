@@ -124,7 +124,7 @@ endif;
 
             include '../classes/conectdb.php';
             $pdo = conectdb::conectar();
-            $sql = 'SELECT codUsuario,codProjeto,nomeProjeto,nomeProfessor,objetivo,resumo,curso,turma,projetoAceito FROM tb_projeto ';
+            $sql = 'SELECT codUsuario,codProjeto,nomeProjeto,nomeProfessor,objetivo,resumo,curso,turma,projetoAceito FROM tb_projeto ORDER BY projetoAceito DESC ';
 
             foreach ($pdo->query($sql) as $getProjetos) {
                 if (isset($codProjeto)) {
