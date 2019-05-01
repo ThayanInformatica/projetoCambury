@@ -5,18 +5,21 @@
     text-align: center;
     background-color: black
 }
-.well{
+#editandoTitulo{
     text-align: center;
     margin-left: 35%;
     margin-right: 35%;
     margin-top: 10%;
+    margin-bottom: 25px;
+    font-family: 'Alfa Slab One', cursive;
+    color: #a94442
+
 }
 
 .alert{
     text-align: center;
     margin-right: 35%;
     margin-left: 35%;
-
 }
 
 .form{
@@ -25,4 +28,7 @@ padding-right: 35%;
 padding-left: 45%;
 margin-bottom: 9%;
 
+}
+.editSim{
+    padding-right: 20%;
 }
