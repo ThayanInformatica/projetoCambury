@@ -112,6 +112,12 @@ body {
     z-index: 999;
 }
 
+/*@media only screen and (max-width: 768px) {*/
+/*    .sidebar-wrapper {*/
+/*        display: none;*/
+/*    }*/
+/*}*/
+
 .sidebar-wrapper ul {
     list-style-type: none;
     padding: 0;
@@ -241,7 +247,7 @@ body {
 }
 
 .sidebar-wrapper .sidebar-menu .sidebar-dropdown > a:after {
-    font-family: "Font Awesome 5 Free";
+    font-family: 'Material Icons';
     font-weight: 900;
     content: "\f105";
     font-style: normal;
@@ -299,6 +305,7 @@ body {
 }
 
 .sidebar-wrapper .sidebar-menu .sidebar-dropdown.active > a:after {
+    font-family: 'Material Icons';
     transform: rotate(90deg);
     right: 17px;
 }
@@ -478,3 +485,5 @@ body {
 .chiller-theme .sidebar-footer>a:last-child {
     border-right: none;
 }
+
+
