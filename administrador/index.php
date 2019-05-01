@@ -1,6 +1,22 @@
-<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<?php
+session_start();
+
+if (!isset($_SESSION['login']) && !isset($_SESSION['senha'])):
+    header('location: ../index.php');
+endif;
+
+if (isset($_SESSION['login']) && isset($_SESSION['senha']) && isset($_SESSION['nivel']) && isset($_SESSION['codUsuario'])):
+    if (isset($_SESSION['nivel'])) {
+        $nivel = $_SESSION['nivel'];
+        if ($nivel != 99) {
+            header('location: ../usuario-logado.php');
+        }
+    }
+    $codUsuario = $_SESSION['codUsuario'];
+
+endif;
+
+?>
 <!------ Include the above in your HEAD tag ---------->
 
 <!DOCTYPE html>
@@ -77,12 +93,12 @@
 <!--                         alt="User picture">-->
 <!--                </div>-->
                 <div class="user-info">
-          <span class="user-name">Jhon
-            <strong>Smith</strong>
+          <span class="user-name">André
+<!--            <strong>Smith</strong>-->
           </span>
                     <span class="user-role">Administrator</span>
                     <span class="user-status">
-            <i class="fa fa-circle"></i>
+<!--            <i class="fa fa-circle"></i>-->
             <span>Online</span>
           </span>
                 </div>
@@ -240,71 +256,128 @@
             <!-- sidebar-menu  -->
         </div>
         <!-- sidebar-content  -->
-        <div class="sidebar-footer">
-            <a href="#">
-                <i class="fa fa-bell"></i>
-                <span class="badge badge-pill badge-warning notification">3</span>
-            </a>
-            <a href="#">
-                <i class="fa fa-envelope"></i>
-                <span class="badge badge-pill badge-success notification">7</span>
-            </a>
-            <a href="#">
-                <i class="fa fa-cog"></i>
-                <span class="badge-sonar"></span>
-            </a>
-            <a href="#">
-                <i class="fa fa-power-off"></i>
-            </a>
-        </div>
+<!--        <div class="sidebar-footer">-->
+<!--            <a href="#">-->
+<!--                <i class="fa fa-bell"></i>-->
+<!--                <span class="badge badge-pill badge-warning notification">3</span>-->
+<!--            </a>-->
+<!--            <a href="#">-->
+<!--                <i class="fa fa-envelope"></i>-->
+<!--                <span class="badge badge-pill badge-success notification">7</span>-->
+<!--            </a>-->
+<!--            <a href="#">-->
+<!--                <i class="fa fa-cog"></i>-->
+<!--                <span class="badge-sonar"></span>-->
+<!--            </a>-->
+<!--            <a href="#">-->
+<!--                <i class="fa fa-power-off"></i>-->
+<!--            </a>-->
+<!--        </div>-->
     </nav>
     <!-- sidebar-wrapper  -->
     <main class="page-content">
-        <div class="container-fluid">
-            <h2>Pro Sidebar</h2>
-            <hr>
+        <div class="container">
+            </br>
             <div class="row">
-                <div class="form-group col-md-12">
-                    <p>This is a responsive sidebar template with dropdown menu based on bootstrap 4 framework.</p>
-                    <p> You can find the complete code on <a href="https://github.com/azouaoui-med/pro-sidebar-template"
-                                                             target="_blank">
-                            Github</a>, it contains more themes and background image option</p>
-                </div>
-                <div class="form-group col-md-12">
-                    <iframe src="https://ghbtns.com/github-btn.html?user=azouaoui-med&repo=pro-sidebar-template&type=star&count=true&size=large"
-                            frameborder="0" scrolling="0" width="140px" height="30px"></iframe>
-                    <iframe src="https://ghbtns.com/github-btn.html?user=azouaoui-med&repo=pro-sidebar-template&type=fork&count=true&size=large"
-                            frameborder="0" scrolling="0" width="140px" height="30px"></iframe>
-                </div>
-            </div>
-            <h5>More templates</h5>
-            <hr>
-            <div class="row">
-                <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-                    <div class="card rounded-0 p-0 shadow-sm">
-                        <img src="https://user-images.githubusercontent.com/25878302/53659076-e2204680-3c5a-11e9-8c00-0c10bcd945e6.jpg"
-                             class="card-img-top rounded-0" alt="Angular pro sidebar">
-                        <div class="card-body text-center">
-                            <h6 class="card-title">Angular Pro Sidebar</h6>
-                            <a href="https://github.com/azouaoui-med/angular-pro-sidebar" target="_blank"
-                               class="btn btn-primary btn-sm">Github</a>
-                            <a href="https://azouaoui-med.github.io/angular-pro-sidebar/demo/" target="_blank"
-                               class="btn btn-success btn-sm">Preview</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-                    <div class="card rounded-0 p-0 shadow-sm">
-                        <img src="https://user-images.githubusercontent.com/25878302/53659497-016ba380-3c5c-11e9-8dfd-4901ddaf090b.jpg"
-                             class="card-img-top rounded-0" alt="Angular pro sidebar">
-                        <div class="card-body text-center">
-                            <h6 class="card-title">Angular Dashboard</h6>
-                            <a href="https://github.com/azouaoui-med/lightning-admin-angular" target="_blank"
-                               class="btn btn-primary btn-sm">Github</a>
-                            <a href="https://azouaoui-med.github.io/lightning-admin-angular/demo/" target="_blank"
-                               class="btn btn-success btn-sm">Preview</a>
-                        </div>
-                    </div>
-                </div>
+                <!--        <p>-->
+                <!--            --><?php //if ($_SESSION['nivel'] == 99) {
+                //                echo '<a href="cadastro-projeto/criar-projeto.php" class="btn btn-success">Aceitar Avaliador</a>';
+                //            }
+                //            ?>
+                <!---->
+                <?php
+
+                include('../classes/Conexao.class.php');
+                include('../classes/ProjetoDAO.class.php');
+                include('../classes/UsuarioDAO.class.php');
+
+                $usuario = new UsuarioDAO();
+                $usuarioProjeto = new ProjetoDAO();
+
+                $login = $_SESSION['login'];
+
+                $codUsuario = $usuario->CodDoUsuario($login);
+                $_SESSION['codUsuario'] = $codUsuario;
+
+                // Pegar ID de projetos de usuários
+
+                $codProjeto = $usuario->recuperarProjetos($codUsuario);
+
+                ?>
+                <!---->
+                <!--        </p>-->
+
+
+                <table class="table table-striped">
+                    <h2 style="text-align: center;">Lista de Projetos</h2>
+                    <thead>
+                    <?php
+                    if (isset($codProjeto)) {
+
+                        ?>
+                        <tr>
+                            <th scope="col">Nome do Projeto</th>
+                            <th scope="col">Nome do Orientador</th>
+                            <th scope="col">Curso e Turma</th>
+                            <th scope="col">Ações</th>
+                        </tr>
+                        <?php
+                    }
+                    ?>
+                    </thead>
+                    <tbody>
+
+                    <?php
+
+                    include '../classes/conectdb.php';
+                    $pdo = conectdb::conectar();
+                    $sql = 'SELECT codUsuario,codProjeto,nomeProjeto,nomeProfessor,objetivo,resumo,curso,turma,projetoAceito FROM tb_projeto ORDER BY projetoAceito DESC ';
+
+                    foreach ($pdo->query($sql) as $getProjetos) {
+                        if (isset($codProjeto)) {
+                            echo '<tr class="projetos-admin">';
+                            echo '<td  style="display: none;">' . $getProjetos['codProjeto'] . '</td>'; // get id do projeto deixar com display none
+                            echo '<td >' . $getProjetos['nomeProjeto'] . '</td>';
+                            echo '<td>' . $getProjetos['nomeProfessor'] . '</td>';
+                            echo '<td>' . $getProjetos['curso'] . ' / ' . $getProjetos['turma'] . '</td>';
+                            echo '<td width=350>';
+                            echo '<a class="btn btn-info" data-toggle="tooltip" data-placement="top" title="Informações do Projeto" href="projeto-admin/ler-projeto.php?codProjeto=' . $getProjetos['codProjeto'] . '">Info</a>';
+                            echo ' ';
+                            if ($_SESSION['nivel'] == 100) { // RN: Administrador não pode editar projeto
+                                echo '<a class="btn btn-warning" data-toggle="tooltip" data-placement="top" title="Após ser aceito, não poderá mais editar" href="editar.php?id=' . $getProjetos['codProjeto'] . '">Editar</a>';
+                                echo ' ';
+                            }
+                            if ($_SESSION['nivel'] == 99 && $getProjetos['projetoAceito'] == 1) {
+                                echo '<span class="alert alert-success glyphicon glyphicon-ok" role="alert" data-toggle="tooltip">Aceito</span>';
+                                echo ' ';
+                            }
+                            if ($_SESSION['nivel'] == 99 && $getProjetos['projetoAceito'] == 0) {
+                                echo '<a class="btn btn-success" href="projeto-admin/aprovar.php?codProjeto=' . $getProjetos['codProjeto'] . '">Aceitar Projeto</a>';
+                                echo ' ';
+                            }
+                            if ($_SESSION['nivel'] == 99 && $getProjetos['projetoAceito'] == 0) {
+                                echo '<span class="glyphicon glyphicon-remove alert alert-danger  " role="alert" data-toggle="tooltip">Desaprovado</span>';
+                                echo ' ';
+                            }
+                            if ($_SESSION['nivel'] == 99 && $getProjetos['projetoAceito'] == 1) {
+                                echo '<a class="btn btn-danger" href="projeto-admin/desaprovar.php?codProjeto=' . $getProjetos['codProjeto'] . '">Desaprovar Projeto</a>';
+                                echo '</td>';
+                                echo '</tr>';
+                            }
+                        }
+                    }
+
+                    if (!isset($codProjeto)) {
+                        echo '<div class="jumbotron">';
+                        echo '<h2>Não existe projeto</h2>';
+                    }
+                    conectdb::desconectar();
+                    ?>
+                    </tbody>
+                </table>
             </div>
         </div>
+
+        <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+        <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
