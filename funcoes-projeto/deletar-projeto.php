@@ -76,7 +76,7 @@ if (!empty($_POST)) {
         <div class="modals-page">
         <div class="span10 offset1">
         <div class="row">
-                <h3  id="editandoTitulo" class="well" >Deletar Projeto</h3>
+                <h3  id="editandoTitulo">Deletar Projeto</h3>
             </div>
 
             <form class="form-horizontal" action="#" method="post">
