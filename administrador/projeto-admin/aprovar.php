@@ -49,52 +49,97 @@ if (!empty($_POST)) {
     <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
 
     <!--    footer e header para páginas-->
-    <link rel="stylesheet" href="../../components/css/header.css"/>
-    <link rel="stylesheet" href="../../components/css/footer.css"/>
-    <script>
-        $(function () {
-            $("#header").load("../../components/header.php");
-        });
-    </script>
-    <script>
-        $(function () {
-            $("#footer").load("../../components/footer.php");
-        });
-    </script>
-    <!--    copiar e colar isto para as demais novas paginas-->
+<!--    <link rel="stylesheet" href="../../components/css/header.css"/>-->
+<!--    <link rel="stylesheet" href="../../components/css/footer.css"/>-->
+<!--    <script>-->
+<!--        $(function () {-->
+<!--            $("#header").load("../../components/header.php");-->
+<!--        });-->
+<!--    </script>-->
+<!--    <script>-->
+<!--        $(function () {-->
+<!--            $("#footer").load("../../components/footer.php");-->
+<!--        });-->
+<!--    </script>-->
+<!--        copiar e colar isto para as demais novas paginas-->
+<!---->
+<!--    <link rel="stylesheet" href="../../components/css/menu-admin.css"/>-->
+<!--    <script>-->
+<!--        $(function () {-->
+<!--            $("#menu").load("../../components/menu-administrador-topage.php");-->
+<!--        });-->
+<!--    </script>-->
 
-    <link rel="stylesheet" href="../../components/css/menu-admin.css"/>
-    <script>
-        $(function () {
-            $("#menu").load("../../components/menu-administrador-topage.php");
-        });
+    <script type="text/javascript">
+
+        $(document).ready(function() {
+            $('#myModal').modal('show');
+        })
     </script>
 
 </head>
 
 <body>
-<div id="header"></div>
-<div id="menu"></div>
+<!--<div id="header"></div>-->
+<!--<div id="menu"></div>-->
 
-<div class="modals-page">
-    <div class="container" style="border: 1.2px solid lightgreen;">
-        <div class="span10 offset1">
-            <div class="row">
-                <h3 class="well">Aceitar Projeto</h3>
-            </div>
-            <form class="form-horizontal" action="#" method="post">
-                <input type="hidden" name="codProjeto" value="<?php echo $codProjeto; ?>"/>
-                <div class="alert alert-success"> Deseja aceitar o projeto?
+<div class="container">
+<!--    <h2>Modal Example</h2>-->
+    <!-- Trigger the modal with a button -->
+<!--    <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Open Modal</button>-->
+
+    <!-- Modal -->
+    <div class="modal fade" id="myModal" role="dialog">
+        <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Aceitar Projeto</h4>
                 </div>
-                <div class="form actions">
+                <form class="form-horizontal" action="#" method="post">
+
+                <div class="modal-body">
+                    <input type="hidden" name="codProjeto" value="<?php echo $codProjeto; ?>"/>
+                    <div class="alert alert-success"> Deseja aceitar o projeto?
+                    </div>
+
+                </div>
+
+                <div class="modal-footer">
                     <button type="submit" class="btn btn-success">Sim</button>
                     <a href="../admin.php" type="btn" class="btn btn-default">Voltar</a>
                 </div>
+            </div>
             </form>
+
         </div>
     </div>
+
 </div>
 
 </body>
-<div id="footer"></div>
+<!--<div id="footer"></div>-->
 </html>
+
+<!--Antiga modal-->
+
+<!--<div class="modals-page">-->
+<!--    <div class="container" style="border: 1.2px solid lightgreen;">-->
+<!--        <div class="span10 offset1">-->
+<!--            <div class="row">-->
+<!--                <h3 class="well">Aceitar Projeto</h3>-->
+<!--            </div>-->
+<!--            <form class="form-horizontal" action="#" method="post">-->
+<!--                <input type="hidden" name="codProjeto" value="--><?php //echo $codProjeto; ?><!--"/>-->
+<!--                <div class="alert alert-success"> Deseja aceitar o projeto?-->
+<!--                </div>-->
+<!--                <div class="form actions">-->
+<!--                    <button type="submit" class="btn btn-success">Sim</button>-->
+<!--                    <a href="../admin.php" type="btn" class="btn btn-default">Voltar</a>-->
+<!--                </div>-->
+<!--            </form>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</div>-->
