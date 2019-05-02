@@ -18,7 +18,6 @@ endif;
 
 ?>
 
-<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script>
@@ -74,7 +73,7 @@ endif;
 <!------ Include the above in your HEAD tag ---------->
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 
 <head>
     <meta charset="utf-8">
@@ -82,7 +81,7 @@ endif;
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description"
           content="Responsive sidebar template with sliding effect and dropdown menu based on bootstrap 3">
-    <title>Sidebar template</title>
+    <title>Administrador | Cambury</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
           integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
           crossorigin="anonymous">
@@ -95,7 +94,7 @@ endif;
 
 <body>
 <div class="page-wrapper chiller-theme toggled">
-    <a id="show-sidebar" class="btn btn-sm btn-dark" href="#">
+    <a id="show-sidebar" class="btn btn-sm btn-dark" href="#" style="height: 100% !important;">
         <i class="material-icons">
             menu
         </i>
@@ -112,9 +111,9 @@ endif;
             </div>
             <div class="sidebar-header">
                 <div class="user-pic">
-                    <!--                    <img class="img-responsive img-rounded"-->
-                    <!--                         src="https://raw.githubusercontent.com/azouaoui-med/pro-sidebar-template/gh-pages/src/img/user.jpg"-->
-                    <!--                         alt="User picture">-->
+                                        <img class="img-responsive img-rounded"
+                                             src="../images/User.png"
+                                             alt="User picture">
                 </div>
                 <div class="user-info">
           <span class="user-name">André
@@ -157,7 +156,7 @@ endif;
                         <div class="sidebar-submenu">
                             <ul>
                                 <li>
-                                    <a href="#">Editar Perfil
+                                    <a <?php echo 'href="editar-perfil.php?codUsuario=' . $codUsuario . '"' ?> >Editar Perfil
                                         <span class="badge badge-pill badge-success">Pro</span>
                                     </a>
                                 </li>
@@ -179,7 +178,7 @@ endif;
                         <div class="sidebar-submenu">
                             <ul>
                                 <li>
-                                    <a href="#">Listar Usuários
+                                    <a href="listar-usuario.php">Listar Usuários
 
                                     </a>
                                     <!--                                </li>-->
@@ -200,10 +199,10 @@ endif;
                         <div class="sidebar-submenu">
                             <ul>
                                 <li>
-                                    <a href="#">Aceitar Avaliador</a>
+                                    <a href="usuario-avaliador/validar-usuario-avaliador.php">Aceitar Avaliador</a>
                                 </li>
                                 <li>
-                                    <a href="#">Listar Avaliadores</a>
+                                    <a href="usuario-avaliador/listar-avaliadores.php">Listar Avaliadores</a>
                                 </li>
                                 <!--                                <li>-->
                                 <!--                                    <a href="#">Tables</a>-->
@@ -283,7 +282,7 @@ endif;
         </div>
         <!-- sidebar-content  -->
         <div class="sidebar-footer">
-            <a href="#">
+            <a href="../logout.php">
                 <i class="material-icons" style="color: #c82333;" data-toggle="tooltip" data-placement="top" title="Deslogar" role="alert" data-toggle="tooltip">power_settings_new</i>
             </a>
             <!--            <a href="#">-->
@@ -401,10 +400,11 @@ endif;
                     </tbody>
                 </table>
             </div>
-            <div>
+<!--            <div>-->
                 <!--    Ajuster img de selo apos subir para produção-->
-            </div>
+<!--            </div>-->
         </div>
+    </main>
 
         <!-- page-wrapper -->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>

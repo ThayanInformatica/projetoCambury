@@ -90,6 +90,7 @@ body {
 }
 /*----------------show sidebar button----------------*/
 #show-sidebar {
+    height: 100% !important;
     position: fixed;
     left: 0;
     top: 10px;
@@ -177,8 +178,8 @@ body {
 
 .sidebar-wrapper .sidebar-header .user-pic img {
     object-fit: cover;
-    height: 100%;
     width: 100%;
+    border-radius: 27px;
 }
 
 .sidebar-wrapper .sidebar-header .user-info {

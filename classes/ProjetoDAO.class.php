@@ -62,6 +62,17 @@ class ProjetoDAO
         return $OKProjeto['projetoAceito'];
     }
 
+    public function recuperarProjetosAvaliados($codProjeto)
+    {
+        $sql = "select nota_1,nota_2,nota_3,nota_4 from tb_avaliacao where codProjeto = '$codProjeto'";
+
+        $executa = mysqli_query($this->conexao->getCon(), $sql);
+        $existeNota = mysqli_fetch_array($executa);
+        return $existeNota;
+    }
+
 }
 
+//select SUM(nota_1 + nota_2 + nota_3 + nota_4) AS TotalItemsOrdered from tb_avaliacao;
+//select SUM(nota_1 + nota_2 + nota_3 + nota_4) AS TotalItemsOrdered from tb_avaliacao WHERE codProjeto = $codProjeto ORDER BY;
 //SELECT codProjeto,nomeProjeto,nomeProfessor FROM `tb_projeto` WHERE codUsuario=24;

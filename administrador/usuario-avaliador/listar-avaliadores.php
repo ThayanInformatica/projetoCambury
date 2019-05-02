@@ -19,7 +19,6 @@ endif;
 
 ?>
 
-<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script>
@@ -65,12 +64,6 @@ endif;
 
 </script>
 
-<script>
-    $(document).ready(function () {
-        $('[data-toggle="tooltip"]').tooltip();
-    });
-</script>
-
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -84,9 +77,16 @@ endif;
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
           integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
           crossorigin="anonymous">
-    <link href="css/all.css" rel="stylesheet">
+    <link href="../css/all.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
           rel="stylesheet">
+    <link href="../../components/css/footer.css">
+
+    <script>
+        $(document).ready(function () {
+            $('[data-toggle="tooltip"]').tooltip();
+        });
+    </script>
 
 </head>
 
@@ -101,7 +101,7 @@ endif;
     <nav id="sidebar" class="sidebar-wrapper">
         <div class="sidebar-content">
             <div class="sidebar-brand">
-                <a href="admin.php">Cambury PCA</a>
+                <a href="../admin.php">Cambury PCA</a>
                 <div id="close-sidebar">
                     <i class="material-icons">
                         keyboard_arrow_left
@@ -155,7 +155,7 @@ endif;
                         <div class="sidebar-submenu">
                             <ul>
                                 <li>
-                                    <a <?php echo 'href="editar-perfil.php?codUsuario=' . $codUsuario . '"' ?> >Editar
+                                    <a <?php echo 'href="../editar-perfil.php?codUsuario=' . $codUsuario . '"' ?> >Editar
                                         Perfil
                                         <span class="badge badge-pill badge-success">Pro</span>
                                     </a>
@@ -178,7 +178,7 @@ endif;
                         <div class="sidebar-submenu">
                             <ul>
                                 <li>
-                                    <a href="listar-usuario.php">Listar Usuários
+                                    <a href="../listar-usuario.php">Listar Usuários
 
                                     </a>
                                     <!--                                </li>-->
@@ -199,10 +199,10 @@ endif;
                         <div class="sidebar-submenu">
                             <ul>
                                 <li>
-                                    <a href="usuario-avaliador/validar-usuario-avaliador.php">Aceitar Avaliador</a>
+                                    <a href="../usuario-avaliador/validar-usuario-avaliador.php">Aceitar Avaliador</a>
                                 </li>
                                 <li>
-                                    <a href="usuario-avaliador/listar-avaliadores.php">Listar Avaliadores</a>
+                                    <a href="#">Listar Avaliadores</a>
                                 </li>
                                 <!--                                <li>-->
                                 <!--                                    <a href="#">Tables</a>-->
@@ -300,66 +300,36 @@ endif;
         </div>
     </nav>
 
+    <main class="page-content">
+        <div class="container">
+            </br>
+            <div class="row">
+                <table class="table table-striped">
+                    <h2>Lista de Avaliadores</h2>
+                    <thead>
+                    <tr>
+                        <th scope="col">Nome do Avaliador</th>
+                        <th scope="col">CPF</th>
+                        <th scope="col">Email</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <?php
 
-<main class="page-content">
-    <div class="container">
-        </br>
-        <div class="row">
+                    include '../../classes/conectdb.php';
+                    $pdo = conectdb::conectar();
+                    $sql = 'SELECT codUsuario,nomeUsuario,cpfUsuario,emailUsuario,nivelUsuario,avaliador from tb_usuario where nivelUsuario <= 50 ORDER BY avaliador DESC ';
 
-            <!--        <p>-->
-            <!--            --><?php //if ($_SESSION['nivel'] == 99) {
-            //                echo '<a href="cadastro-projeto/criar-projeto.php" class="btn btn-success">Aceitar Avaliador</a>';
-            //            }
-            //            ?>
-            <!---->
-            <!--            --><?php
-            //
-            //            include('../classes/Conexao.class.php');
-            //            include('../classes/ProjetoDAO.class.php');
-            //            include('../classes/UsuarioDAO.class.php');
-            //
-            //            $usuario = new UsuarioDAO();
-            //            $usuarioProjeto = new ProjetoDAO();
-            //
-            //            $login = $_SESSION['login'];
-            //
-            //            $codUsuario = $usuario->CodDoUsuario($login);
-            //            $_SESSION['codUsuario'] = $codUsuario;
-            //            ?>
-            <!---->
-            <!--        </p>-->
-
-            <table class="table table-striped">
-                <h2>Lista de Usuarios</h2>
-                <thead>
-                <tr>
-                    <th scope="col">Nome do Usuário</th>
-                    <th scope="col">CPF</th>
-                    <th scope="col">Email</th>
-                    <th scope="col">Função</th>
-                </tr>
-                </thead>
-                <tbody>
-                <?php
-
-                include '../classes/conectdb.php';
-                $pdo = conectdb::conectar();
-                $sql = 'SELECT codUsuario,nomeUsuario,cpfUsuario,emailUsuario,nivelUsuario,avaliador from tb_usuario where nivelUsuario <= 50 ORDER BY avaliador DESC ';
-
-                foreach ($pdo->query($sql) as $getUsuarios) {
-                    echo '<tr>';
-                    echo '<td  style="display: none;">' . $getUsuarios['codUsuario'] . '</td>'; // get id do usuario
-                    echo '<td >' . $getUsuarios['nomeUsuario'] . '</td>';
-                    echo '<td>' . $getUsuarios['cpfUsuario'] . '</td>';
-                    echo '<td>' . $getUsuarios['emailUsuario'] . '</td>';
-                    if ($getUsuarios['avaliador'] <= 1) {
-                        echo '<td>Orientador</td>';
-                    }
-                    if ($getUsuarios['avaliador'] == 2) {
-                        echo '<td>Avaliador</td>';
-                    }
-
-                    echo '<td width=350>';
+                    foreach ($pdo->query($sql) as $getUsuarios) {
+                        if ($_SESSION['nivel'] == 99 && $getUsuarios['avaliador'] == 2) {
+                            echo '<tr>';
+                            echo '<td  style="display: none;">' . $getUsuarios['codUsuario'] . '</td>'; // get id do usuario
+                            echo '<td >' . $getUsuarios['nomeUsuario'] . '</td>';
+                            echo '<td>' . $getUsuarios['cpfUsuario'] . '</td>';
+                            echo '<td>' . $getUsuarios['emailUsuario'] . '</td>';
+                            echo '<td class="material-icons" style="color: forestgreen;  cursor: pointer;" data-toggle="tooltip" data-placement="top" title="Aceito">check_circle</td>';
+                            echo '<td width=50>';
+                        }
 //                echo '<a class="btn btn-info" data-toggle="tooltip" data-placement="top" title="Informações do Projeto" href="ler-projeto.php?codProjeto=' . $getProjetos['codProjeto'] . '">Info</a>';
 //                echo ' ';
 //                if ($_SESSION['nivel'] == 99 && $getProjetos['projetoAceito'] == 0) {
@@ -375,14 +345,14 @@ endif;
 //                    echo '</td>';
 //                    echo '</tr>';
 //                }
-                }
-                conectdb::desconectar();
-                ?>
-                </tbody>
-            </table>
+                    }
+                    conectdb::desconectar();
+                    ?>
+                    </tbody>
+                </table>
+            </div>
         </div>
-    </div>
-</main>
+    </main>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
             integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
@@ -390,7 +360,6 @@ endif;
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
             integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
             crossorigin="anonymous"></script>
-</body>
 </body>
 
 </html>

@@ -49,30 +49,30 @@ if (!empty($_POST)) {
     <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
 
     <!--    footer e header para páginas-->
-<!--    <link rel="stylesheet" href="../../components/css/header.css"/>-->
-<!--    <link rel="stylesheet" href="../../components/css/footer.css"/>-->
-<!--    <script>-->
-<!--        $(function () {-->
-<!--            $("#header").load("../../components/header.php");-->
-<!--        });-->
-<!--    </script>-->
-<!--    <script>-->
-<!--        $(function () {-->
-<!--            $("#footer").load("../../components/footer.php");-->
-<!--        });-->
-<!--    </script>-->
-<!--        copiar e colar isto para as demais novas paginas-->
-<!---->
-<!--    <link rel="stylesheet" href="../../components/css/menu-admin.css"/>-->
-<!--    <script>-->
-<!--        $(function () {-->
-<!--            $("#menu").load("../../components/menu-administrador-topage.php");-->
-<!--        });-->
-<!--    </script>-->
+    <!--    <link rel="stylesheet" href="../../components/css/header.css"/>-->
+    <!--    <link rel="stylesheet" href="../../components/css/footer.css"/>-->
+    <!--    <script>-->
+    <!--        $(function () {-->
+    <!--            $("#header").load("../../components/header.php");-->
+    <!--        });-->
+    <!--    </script>-->
+    <!--    <script>-->
+    <!--        $(function () {-->
+    <!--            $("#footer").load("../../components/footer.php");-->
+    <!--        });-->
+    <!--    </script>-->
+    <!--        copiar e colar isto para as demais novas paginas-->
+    <!---->
+    <!--    <link rel="stylesheet" href="../../components/css/menu-admin.css"/>-->
+    <!--    <script>-->
+    <!--        $(function () {-->
+    <!--            $("#menu").load("../../components/menu-administrador-topage.php");-->
+    <!--        });-->
+    <!--    </script>-->
 
     <script type="text/javascript">
 
-        $(document).ready(function() {
+        $(document).ready(function () {
             $('#myModal').modal('show');
         })
     </script>
@@ -84,9 +84,9 @@ if (!empty($_POST)) {
 <!--<div id="menu"></div>-->
 
 <div class="container">
-<!--    <h2>Modal Example</h2>-->
+    <!--    <h2>Modal Example</h2>-->
     <!-- Trigger the modal with a button -->
-<!--    <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Open Modal</button>-->
+    <!--    <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Open Modal</button>-->
 
     <!-- Modal -->
     <div class="modal fade" id="myModal" role="dialog">
@@ -100,17 +100,17 @@ if (!empty($_POST)) {
                 </div>
                 <form class="form-horizontal" action="#" method="post">
 
-                <div class="modal-body">
-                    <input type="hidden" name="codProjeto" value="<?php echo $codProjeto; ?>"/>
-                    <div class="alert alert-success"> Deseja aceitar o projeto?
+                    <div class="modal-body">
+                        <input type="hidden" name="codProjeto" value="<?php echo $codProjeto; ?>"/>
+                        <div class="alert alert-success"> Deseja aceitar o projeto?
+                        </div>
+
                     </div>
 
-                </div>
-
-                <div class="modal-footer">
-                    <button type="submit" class="btn btn-success">Sim</button>
-                    <a href="../admin.php" type="btn" class="btn btn-default">Voltar</a>
-                </div>
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-success">Sim</button>
+                        <a href="../admin.php" type="btn" class="btn btn-default">Voltar</a>
+                    </div>
             </div>
             </form>
 

@@ -97,8 +97,11 @@ endif;
             $codProjeto = $usuario->CodDoProjetoPeloUsuario($codUsuario);
 
             $avaliadorOK = $usuario->recuperarUsuarioAvaliador($codUsuario);
+            $_SESSION['avaliador'] = $avaliadorOK;
 
             $ProjetosOk = $usuarioProjeto->recuperarProjetosParaAvaliar();
+
+            $validarSeProjetoTemNota = $usuarioProjeto->recuperarProjetosAvaliados($codProjeto);
 
             ?>
 
@@ -135,9 +138,9 @@ endif;
 
             <?php
             include 'classes/conectdb.php';
-            $pdo = conectdb::conectar();
-            $sql = 'SELECT codProjeto,codUsuario,nomeProjeto,nomeProfessor,objetivo,resumo,curso,turma,projetoAceito FROM tb_projeto order by projetoAceito DESC ';
 
+            $pdo = conectdb::conectar();
+            $sql = 'SELECT codProjeto,codUsuario,nomeProjeto,nomeProfessor,objetivo,resumo,curso,turma,projetoAceito FROM tb_projeto order by projetoAceito DESC';
             // FORMULÁRIO DE PROJETO PARARA ORIENTADOR
 
             foreach ($pdo->query($sql) as $getProjetos) {
@@ -184,32 +187,47 @@ endif;
             }
             //            FORMULÁRIO DE TELA PARA AVALIADOR
 
-            foreach ($pdo->query($sql) as $getProjetos) {
-                if ($avaliadorOK == 2 && $getProjetos['projetoAceito'] == 1) {
-                    echo '
+            $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+            $sql2 = "select nota_1,nota_2,nota_3,nota_4 from tb_avaliacao where codProjeto = ?";
+            $q = $pdo->prepare($sql2);
+            $q->execute(array($getProjetos['codProjeto']));
+            $projetoNotas = $q->fetch(PDO::FETCH_ASSOC);
+
+
+            if ($avaliadorOK == 2) {
+                foreach ($pdo->query($sql) as $getProjetos) {
+                    if ($avaliadorOK == 2 && $getProjetos['projetoAceito'] == 1) {
+                        echo '
             <tr>';
-                    echo '
+                        echo '
                 <th scope="row">' . $getProjetos['nomeProjeto'] . '</th>
                 ';
-                    echo '
+                        echo '
                 <td>' . $getProjetos['nomeProfessor'] . '</td>
                 ';
-                    echo '
+                        echo '
                 <td>' . $getProjetos['curso'] . ' / ' . $getProjetos['turma'] . '</td>
                 ';
-                    echo '
+                        echo '
                 <td width=300>';
-                    if ($getProjetos['projetoAceito'] == 1) {
-                        echo '<span class="alert alert-success glyphicon glyphicon-ok" role="alert" data-toggle="tooltip">Aceito</span>';
-                        echo ' ';
+                        if ($getProjetos['projetoAceito'] == 1) {
+                            echo '<span class="alert alert-success glyphicon glyphicon-ok" role="alert" data-toggle="tooltip">Aceito</span>';
+                            echo ' ';
+                        }
+
+                        if ($getProjetos['projetoAceito'] == 1 && !isset($projetoNotas)) {
+                            echo '<a class="btn btn-primary" href="avaliador/avaliar-projeto.php?codProjeto=' . $getProjetos['codProjeto'] . '#avaliar">Avaliar Projeto</a>';
+                        }
+                        echo '</td>';
+
+                        if ($getProjetos['projetoAceito'] == 1 && isset($projetoNotas)) {
+                            echo '<span class="alert alert-success glyphicon glyphicon-ok" role="alert" data-toggle="tooltip">Já Avaliado</span>';
+                            echo ' ';
+                        }
                     }
 
-                    if ($getProjetos['projetoAceito'] == 1) {
-                        echo '<a class="btn btn-primary" href="projeto-admin/desaprovar.php?codProjeto=' . $getProjetos['codProjeto'] . '">Avaliar Projeto</a>';
-                    }
-                    echo '</td>';
-                    }
                 }
+            }
             conectdb::desconectar();
             ?>
             </tbody>
