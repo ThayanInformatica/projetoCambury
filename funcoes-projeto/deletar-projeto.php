@@ -118,7 +118,7 @@ $(document).ready(function () {
                 </div>
                 <div class="form actions">
                     <button  type="submit" class="btn btn-danger">Sim</button>
-                    <a href="../admin.php" id="editandoVoltar" type="btn" class="btn btn-default">Voltar</a>
+                    <a href="../usuario-logado.php" id="editandoVoltar" type="btn" class="btn btn-default">Voltar</a>
                 </div>
             </form>
         </div>
