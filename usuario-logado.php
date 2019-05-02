@@ -62,19 +62,19 @@ endif;
     </div>
     </br>
 
-<!--    <div class="btn-group" style="float: right;">-->
-<!--        <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"-->
-<!--                aria-expanded="false">-->
-<!--            Menu <span class="caret"></span>-->
-<!--        </button>-->
-<!--        <ul class="dropdown-menu">-->
-<!--            --><?php //echo '<li><a href="funcoes-usuario/editar-usuario.php?codUsuario=' . $codUsuario . '">Editar Perfil</a></li>' ?>
-<!--                        <li><a href="#">Something else here</a></li>-->
-<!--                        <li><a href="listar-usuario.php">Listar usuarios</a></li>-->
-<!--                        <li role="separator" class="divider"></li>-->
-<!--                        <li><a href="#">Separated link</a></li>-->
-<!--        </ul>-->
-<!--    </div>-->
+    <!--    <div class="btn-group" style="float: right;">-->
+    <!--        <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"-->
+    <!--                aria-expanded="false">-->
+    <!--            Menu <span class="caret"></span>-->
+    <!--        </button>-->
+    <!--        <ul class="dropdown-menu">-->
+    <!--            --><?php //echo '<li><a href="funcoes-usuario/editar-usuario.php?codUsuario=' . $codUsuario . '">Editar Perfil</a></li>' ?>
+    <!--                        <li><a href="#">Something else here</a></li>-->
+    <!--                        <li><a href="listar-usuario.php">Listar usuarios</a></li>-->
+    <!--                        <li role="separator" class="divider"></li>-->
+    <!--                        <li><a href="#">Separated link</a></li>-->
+    <!--        </ul>-->
+    <!--    </div>-->
 
     <div class="row">
         <p>
@@ -101,8 +101,6 @@ endif;
 
             $ProjetosOk = $usuarioProjeto->recuperarProjetosParaAvaliar();
 
-            $validarSeProjetoTemNota = $usuarioProjeto->recuperarProjetosAvaliados($codProjeto);
-
             ?>
 
             <?php if ($_SESSION['nivel'] == 0 && $avaliadorOK < 2) {
@@ -113,17 +111,17 @@ endif;
         </p>
 
 
-            <?php if ($avaliadorOK <= 1) {
-                ?>
-                <h2>Meus Projetos</h2>
-            <?php }
+        <?php if ($avaliadorOK <= 1) {
             ?>
+            <h2>Meus Projetos</h2>
+        <?php }
+        ?>
 
-            <?php if ($avaliadorOK == 2) {
-                ?>
-                <h2>Avaliar Projetos</h2>
-            <?php }
+        <?php if ($avaliadorOK == 2) {
             ?>
+            <h2>Avaliar Projetos</h2>
+        <?php }
+        ?>
 
         <table class="table table-striped">
             <thead>
@@ -140,7 +138,10 @@ endif;
             include 'classes/conectdb.php';
 
             $pdo = conectdb::conectar();
-            $sql = 'SELECT codProjeto,codUsuario,nomeProjeto,nomeProfessor,objetivo,resumo,curso,turma,projetoAceito FROM tb_projeto order by projetoAceito DESC';
+            $sql = 'SELECT codProjeto,codUsuario,nomeProjeto,nomeProfessor,objetivo,resumo,curso,turma,projetoAceito FROM tb_projeto order by projetoAceito DESC;
+                      select nota_1, nota_2, nota_3, nota_4 from tb_avaliacao order by asc ;';
+            conectdb::desconectar();
+
             // FORMULÁRIO DE PROJETO PARARA ORIENTADOR
 
             foreach ($pdo->query($sql) as $getProjetos) {
@@ -187,15 +188,10 @@ endif;
             }
             //            FORMULÁRIO DE TELA PARA AVALIADOR
 
-            $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-            $sql2 = "select nota_1,nota_2,nota_3,nota_4 from tb_avaliacao where codProjeto = ?";
-            $q = $pdo->prepare($sql2);
-            $q->execute(array($getProjetos['codProjeto']));
-            $projetoNotas = $q->fetch(PDO::FETCH_ASSOC);
-
 
             if ($avaliadorOK == 2) {
                 foreach ($pdo->query($sql) as $getProjetos) {
+                    $validarSeProjetoTemNota = $usuarioProjeto->recuperarProjetosAvaliados($getProjetos['codProjeto']);
                     if ($avaliadorOK == 2 && $getProjetos['projetoAceito'] == 1) {
                         echo '
             <tr>';
@@ -208,6 +204,7 @@ endif;
                         echo '
                 <td>' . $getProjetos['curso'] . ' / ' . $getProjetos['turma'] . '</td>
                 ';
+
                         echo '
                 <td width=300>';
                         if ($getProjetos['projetoAceito'] == 1) {
@@ -215,20 +212,20 @@ endif;
                             echo ' ';
                         }
 
-                        if ($getProjetos['projetoAceito'] == 1 && !isset($projetoNotas)) {
+                        if ($getProjetos['projetoAceito'] == 1 && !isset($validarSeProjetoTemNota)) {
                             echo '<a class="btn btn-primary" href="avaliador/avaliar-projeto.php?codProjeto=' . $getProjetos['codProjeto'] . '#avaliar">Avaliar Projeto</a>';
                         }
-                        echo '</td>';
+                        echo ' ';
 
-                        if ($getProjetos['projetoAceito'] == 1 && isset($projetoNotas)) {
+                        if ($getProjetos['projetoAceito'] == 1 && isset($validarSeProjetoTemNota)) {
                             echo '<span class="alert alert-success glyphicon glyphicon-ok" role="alert" data-toggle="tooltip">Já Avaliado</span>';
                             echo ' ';
                         }
+
                     }
 
                 }
             }
-            conectdb::desconectar();
             ?>
             </tbody>
         </table>

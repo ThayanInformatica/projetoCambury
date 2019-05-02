@@ -216,7 +216,7 @@ if (isset($validarSeProjetoTemNota)) {
                         </div>
                         <br/>
                         <div class="form-actions">
-                            <a href="../admin.php" type="btn" class="btn btn-default">Voltar</a>
+                            <a href="../index.php" type="btn" class="btn btn-default">Voltar</a>
                         </div>
                     </div>
                 </div>
@@ -241,7 +241,7 @@ if (isset($validarSeProjetoTemNota)) {
                             <input onchange="alteraPonto($(this));" onkeyup="maxValor($(this))" name="nota1"
                                    class="form-control" size="10" type="text"
                                    placeholder="Ex: 9.6"
-                                   value="<?php echo !empty($nota1) ? $nota1 : ''; ?>" maxlength="3">
+                                   value="<?php echo !empty($nota1) ? $nota1 : ''; ?>" maxlength="3" required>
                             <?php if (!empty($nota1Erro)): ?>
                                 <br/>
                                 <div class="alert alert-danger"><?php echo $nota1Erro; ?></div>
@@ -256,7 +256,7 @@ if (isset($validarSeProjetoTemNota)) {
                             <input onchange="alteraPonto($(this));" onkeyup="maxValor($(this))" name="nota2"
                                    class="form-control" size="40" type="text"
                                    placeholder="Ex: 10"
-                                   value="<?php echo !empty($nota2) ? $nota2 : ''; ?>" maxlength="3">
+                                   value="<?php echo !empty($nota2) ? $nota2 : ''; ?>" maxlength="3" required>
                             <?php if (!empty($nota2Erro)): ?>
                                 <br/>
                                 <div class="alert alert-danger"><?php echo $nota2Erro; ?></div>
@@ -271,7 +271,7 @@ if (isset($validarSeProjetoTemNota)) {
                             <input onchange="alteraPonto($(this));" onkeyup="maxValor($(this))" name="nota3"
                                    class="form-control" size="40" type="text"
                                    placeholder="Ex: 1.2"
-                                   value="<?php echo !empty($nota3) ? $nota3 : ''; ?>" maxlength="3">
+                                   value="<?php echo !empty($nota3) ? $nota3 : ''; ?>" maxlength="3" required>
                             <?php if (!empty($nota3Erro)): ?>
                                 <br/>
                                 <div class="alert alert-danger"><?php echo $nota3Erro; ?></div>
@@ -286,7 +286,7 @@ if (isset($validarSeProjetoTemNota)) {
                             <input onchange="alteraPonto($(this));" onkeyup="maxValor($(this))" name="nota4"
                                    class="form-control" size="40" type="text"
                                    placeholder="Ex: 5.9"
-                                   value="<?php echo !empty($nota4) ? $nota4 : ''; ?>" maxlength="3">
+                                   value="<?php echo !empty($nota4) ? $nota4 : ''; ?>" maxlength="3" required>
                             <?php if (!empty($nota4Erro)): ?>
                                 <br/>
                                 <div class="alert alert-danger"><?php echo $nota4Erro; ?></div>
