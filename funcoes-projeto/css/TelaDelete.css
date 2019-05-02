@@ -1,34 +1,25 @@
 
-
-.centralizandoCampos{
-
-    text-align: center;
-    background-color: black
-}
-#editandoTitulo{
-    text-align: center;
-    margin-left: 35%;
-    margin-right: 35%;
-    margin-top: 10%;
-    margin-bottom: 25px;
-    font-family: 'Alfa Slab One', cursive;
-    color: #a94442
-
+.modals-page .container{
+    max-width: 400px !important;
+    margin: 2% auto !important;
+    border: 1.2px solid red;
+    padding: 2px 26px 26px 26px;
+    border-radius: 25px;
+    background-color: #ffffff;
 }
 
+.modals-page .container h3{
+    text-align: center  ;
+}
+.modals-page{
+    margin-top: 34%;
+}
+.modals-page .btn-default {
+    float: right;
+}
+.btn-danger{
+    margin-left: 55%;
+}
 .alert{
     text-align: center;
-    margin-right: 35%;
-    margin-left: 35%;
-}
-
-.form{
-text-align: center;
-padding-right: 35%;
-padding-left: 45%;
-margin-bottom: 9%;
-
-}
-.editSim{
-    padding-right: 20%;
 }
