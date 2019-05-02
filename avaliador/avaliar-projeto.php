@@ -76,9 +76,9 @@ if (!empty($_POST)) {
 }
 
 if (null == $codProjeto) {
-    header("Location: ../../usuario-logado.php");
+    header("Location: ../usuario-logado.php");
 } elseif (null == $_SESSION['login']) {
-    header("Location: ../../index.php");
+    header("Location: ../index.php");
 } else {
     $pdo = conectdb::conectar();
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
@@ -215,9 +215,6 @@ if (isset($validarSeProjetoTemNota)) {
                             </div>
                         </div>
                         <br/>
-                        <div class="form-actions">
-                            <a href="../index.php" type="btn" class="btn btn-default">Voltar</a>
-                        </div>
                     </div>
                 </div>
             </div>
