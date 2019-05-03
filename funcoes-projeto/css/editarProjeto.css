@@ -1,0 +1,38 @@
+
+.container{
+    background-color: #eee;
+    padding-bottom: 80px;
+}
+.well{
+    text-align: center;
+}
+
+.campoProjeto{
+    margin-right: 20%;
+}
+
+.campoOrientador{
+    margin-right: 20%
+}
+.editandoObjProjeto{
+    margin-right: 20%;
+}
+.editandoResumo{
+    margin-right: 20%;
+
+    
+}
+
+#editandoCursos{
+    margin-bottom: 30px;
+    width: 41%;
+    margin-left: -16px;
+}
+#editandoTurma{
+    margin-left: 54px;
+    
+}
+.btn{
+    padding-top: 40%;
+}
+

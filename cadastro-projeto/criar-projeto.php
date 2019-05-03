@@ -141,7 +141,7 @@ if (isset($_POST['cadastrar'])) {
                             <div class="form-row">
                     <div  class="form-group col-md-6">
                     <label for="nomeProjeto">Nome do Projeto:</label>
-                    <input name="nomeProjeto" type="text" class="form-control" id=nomeProjeto" placeholder="Digite o nome do projeto">
+                    <input name="nomeProjeto" type="text" class="form-control" id="nomeProjeto" placeholder="Digite o nome do projeto">
                     </div>
                     <div  class="form-group col-md-6">
                     <label for="nomeProfessor">Prof° Orientador:</label>
