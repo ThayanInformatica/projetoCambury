@@ -14,6 +14,7 @@
     <link rel="stylesheet" href="css/owl.carousel.min.css">
     <link rel="stylesheet" href="css/owl.theme.default.min.css">
     <link rel="stylesheet" href="css/owl.theme.default.min.css">
+    <link rel="stylesheet" href="cssIndex2/cssIndex.css">
 
     <link rel="stylesheet" href="css/jquery.fancybox.min.css">
 
@@ -51,17 +52,18 @@
 
     <header class="site-navbar py-4 js-sticky-header site-navbar-target" role="banner">
 
+        
         <div class="container-fluid">
             <div class="d-flex align-items-center">
-                <div class="site-logo mr-auto w-25"><a href="index.html">OneSchool</a></div>
+                
+                <div class="site-logo mr-auto w-25"><a href="index.html">Cambury</a></div>
 
                 <div class="mx-auto text-center">
                     <nav class="site-navigation position-relative text-right" role="navigation">
                         <ul class="site-menu main-menu js-clone-nav mx-auto d-none d-lg-block  m-0 p-0">
                             <li><a href="#home-section" class="nav-link">Home</a></li>
-                            <li><a href="#courses-section" class="nav-link">Courses</a></li>
-                            <li><a href="#programs-section" class="nav-link">Programs</a></li>
-                            <li><a href="#teachers-section" class="nav-link">Teachers</a></li>
+                            <li><a href="#courses-section" class="nav-link">Cursos</a></li>
+                            <li><a href="#programs-section" class="nav-link">Blog</a></li>
                         </ul>
                     </nav>
                 </div>
@@ -69,7 +71,7 @@
                 <div class="ml-auto w-25">
                     <nav class="site-navigation position-relative text-right" role="navigation">
                         <ul class="site-menu main-menu site-menu-dark js-clone-nav mr-auto d-none d-lg-block m-0 p-0">
-                            <li class="cta"><a href="#contact-section" class="nav-link"><span>Contact Us</span></a></li>
+                            <li class="cta"><a href="#contact-section" class="nav-link"><span>Contato</span></a></li>
                         </ul>
                     </nav>
                     <a href="#" class="d-inline-block d-lg-none site-menu-toggle js-menu-toggle text-black float-right"><span class="icon-menu h3"></span></a>
@@ -87,26 +89,23 @@
                     <div class="col-12">
                         <div class="row align-items-center">
                             <div class="col-lg-6 mb-4">
-                                <h1  data-aos="fade-up" data-aos-delay="100">Learn From The Expert</h1>
-                                <p class="mb-4"  data-aos="fade-up" data-aos-delay="200">Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime ipsa nulla sed quis rerum amet natus quas necessitatibus.</p>
-                                <p data-aos="fade-up" data-aos-delay="300"><a href="#" class="btn btn-primary py-3 px-5 btn-pill">Admission Now</a></p>
+                                <h1  data-aos="fade-up" data-aos-delay="100">Faculdade Cambury</h1>
+                                <p class="mb-4"  data-aos="fade-up" data-aos-delay="200">Oferece uma profissão e prepara o aluno para o mercado de trabalho.</p>
 
                             </div>
 
                             <div class="col-lg-5 ml-auto" data-aos="fade-up" data-aos-delay="500">
                                 <form action="" method="post" class="form-box">
-                                    <h3 class="h4 text-black mb-4">Sign Up</h3>
+                                    <h3 class="h4 text-black mb-4">Login</h3>
                                     <div class="form-group">
-                                        <input type="text" class="form-control" placeholder="Email Addresss">
+                                        <input type="text" class="form-control" placeholder="Usuario">
                                     </div>
                                     <div class="form-group">
-                                        <input type="password" class="form-control" placeholder="Password">
+                                        <input type="password" class="form-control" placeholder="senha">
                                     </div>
-                                    <div class="form-group mb-4">
-                                        <input type="password" class="form-control" placeholder="Re-type Password">
-                                    </div>
+                                  
                                     <div class="form-group">
-                                        <input type="submit" class="btn btn-primary btn-pill" value="Sign up">
+                                        <input type="submit" class="btn btn-primary btn-pill" value="Enviar">
                                     </div>
                                 </form>
                             </div>
