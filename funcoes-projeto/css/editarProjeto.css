@@ -5,34 +5,57 @@
 }
 .well{
     text-align: center;
+    font-family: 'Rufina', serif;
 }
 
 .campoProjeto{
     margin-right: 20%;
+    font-family: 'Rufina', serif;
+    margin-left: 21%;
+    margin-right: 73px;
 }
 
 .campoOrientador{
-    margin-right: 20%
+    font-family: 'Rufina', serif;
+    margin-left: 10%; 
+    width: 70%;  
 }
 .editandoObjProjeto{
-    margin-right: 20%;
+    margin-left: 21%;
+    margin-right: 73px;
+    font-family: 'Rufina', serif;
+    
 }
 .editandoResumo{
     margin-right: 20%;
-
-    
+    font-family: 'Rufina', serif;
+    margin-left: 10%; 
+    margin-top: 0px;
 }
 
 #editandoCursos{
+    font-family: 'Rufina', serif;
     margin-bottom: 30px;
-    width: 41%;
-    margin-left: -16px;
+    width: 31%;
+    margin-left: 10%;
+
 }
 #editandoTurma{
-    margin-left: 54px;
+    font-family: 'Rufina', serif;
+    margin-bottom: 10px;
+    width: 5%;
+    margin-left: 10%;
+    
     
 }
 .btn{
     padding-top: 40%;
+}
+
+.editandoBotoes{
+    margin-left: 10%;
+}
+.editandoBotoes #editandoVoltar {
+    margin-left: 10%;
 }
 

@@ -97,6 +97,7 @@ if (!empty($_POST)) {
     <meta charset="utf-8">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="../funcoes-projeto/css/editarProjeto.css">
+    <link href="https://fonts.googleapis.com/css?family=Marcellus+SC|Prompt|Rufina" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
 
@@ -134,7 +135,7 @@ if (!empty($_POST)) {
 
                     <div  class="form-group col-md-6">
                         <div class="campoProjeto" class="control-group <?php echo !empty($nomeProjeto) ? 'error' : ''; ?>">
-                            <label class="control-label">Nome do Projeto</label>
+                            <label class="control-label">Nome do Projeto:</label>
                             <div class="controls">
                                 <input name="nomeProjeto" class="form-control" size="50" type="text" placeholder="Nome do Projeto"
                                     value="<?php echo !empty($nomeProjeto) ? $nomeProjeto : ''; ?>">
@@ -147,7 +148,7 @@ if (!empty($_POST)) {
                     
                     <div  class="form-group col-md-6">
                         <div class="campoOrientador" class="control-group <?php echo !empty($nomeProfessor) ? 'error' : ''; ?>">
-                            <label class="control-label">Nome do Orientador</label>
+                            <label class="control-label">Nome do Orientador:</label>
                             <div class="controls">
                                 <input name="nomeProfessor" class="form-control" size="80" type="text" placeholder="Nome do Orientador"
                                     value="<?php echo !empty($nomeProfessor) ? $nomeProfessor : ''; ?>">
@@ -160,7 +161,7 @@ if (!empty($_POST)) {
 
                     <div  class="form-group col-md-6">
                         <div  class="editandoObjProjeto" class="control-group <?php echo !empty($objetivo) ? 'error' : ''; ?>">
-                            <label  class="control-label">Objetivo do Projeto</label>
+                            <label  class="control-label">Objetivo do Projeto:</label>
                             <div class="controls">
                                 <input name="objetivo" class="form-control" size="30" type="text" placeholder="Objetivo"
                                     value="<?php echo !empty($objetivo) ? $objetivo : ''; ?>">
@@ -173,7 +174,7 @@ if (!empty($_POST)) {
                     
                     <div  class="form-group col-md-6">
                         <div class="editandoResumo" class="control-group <?php echo !empty($resumo) ? 'error' : ''; ?>">
-                            <label  class="control-label">Resumo do Projeto</label>
+                            <label  class="control-label">Resumo do Projeto:</label>
                             <div class="controls">
                                 <input  name="resumo" class="form-control" size="40" type="text" placeholder="Resumo do Projeto"
                                 class="areaDoInput"    value="<?php echo !empty($resumo) ? $resumo : ''; ?>">
@@ -184,9 +185,11 @@ if (!empty($_POST)) {
                         </div>
                     </div>    
 
-                    <div id="editandoCursos" class="col-sm-3">
-                        <label>Curso</label>
-                        <select class="form-control" name="curso">
+                    
+                    
+                    <div id="editandoCursos" >
+                        <label>Curso:</label>
+                        <select class="form-control " name="curso">
                             <option value="TI">GESTÃO DA TECNOLOGIA DA INFORMAÇÃO</option>
                             <option value="CIÊNCIAS CONTÁBEIS">CIÊNCIAS CONTÁBEIS</option>
                             <option value="ADMINISTRAÇÃO">ADMINISTRAÇÃO</option>
@@ -196,24 +199,26 @@ if (!empty($_POST)) {
                         </select>
                     </div>
 
-                    <div id="editandoTurma" class="col-sm-3">
-                        <label>Turma</label>
-                        <select class="form-control" name="turma">
+                    <div id="editandoTurma">
+                        <label>Turma:</label>
+                        <select class="form-control " name="turma">
                             <option value="01">01</option>
                             <option value="02">02</option>
                             <option value="03">03</option>
                             <option value="04">04</option>
                             <option value="05">05</option>
+                            <option value="06">06</option>
+                            <option value="07">07</option>
                         </select>
                     </div>
 
                     <br/>
-
                     <br> 
+
                     <div  class="form-actions">
                         <div class="editandoBotoes">
                        <button type="submit" class="btn btn-warning">Atualizar</button>
-                        <a href="../usuario-logado.php" type="btn" class="btn btn-default">Voltar</a>
+                        <a href="../usuario-logado.php" id="editandoVoltar" type="btn" class="btn btn-default" class="editandoVoltar">Voltar</a>
                         </div>
                     </div>
     
