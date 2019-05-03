@@ -114,7 +114,7 @@ $(document).ready(function () {
             </div>
             <form class="form-horizontal" action="#" method="post">
                 <input type="hidden" name="codProjeto" value="<?php echo $codProjeto; ?>"/>
-                <div class="alert alert-danger"> Realmente deseja seu projeto ?
+                <div class="alert alert-danger"> Realmente deseja excluir seu projeto ?
                 </div>
                 <div class="form actions">
                     <button  type="submit" class="btn btn-danger">Sim</button>
