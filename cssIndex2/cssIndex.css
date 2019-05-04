@@ -1,4 +1,4 @@
-
-.site{
-<img src="projetoCambury\images\logo-cambury" alt="some text" width=60 height=40>
+#cambury-logo{
+    width: 10% !important;
+    margin-right: 10px !important;
 }
