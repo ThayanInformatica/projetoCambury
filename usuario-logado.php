@@ -15,6 +15,8 @@ if (isset($_SESSION['login']) && isset($_SESSION['senha']) && isset($_SESSION['n
         $codUsuario = $_SESSION['codUsuario'];
     }
 
+    $codUsuario = $_SESSION['codUsuario'];
+
 endif;
 
 ?>

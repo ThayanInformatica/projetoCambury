@@ -1,11 +1,3 @@
--- phpMyAdmin SQL Dump
--- version 4.2.12deb2+deb8u2
--- http://www.phpmyadmin.net
---
--- Host: localhost
--- Generation Time: 18-Out-2016 às 02:39
--- Versão do servidor: 5.5.52-0+deb8u1
--- PHP Version: 5.6.26-0+deb8u1
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -20,13 +12,12 @@ SET time_zone = "+00:00";
 -- Database: `projeto`
 --
 
--- --------------------------------------------------------
-
 --
 -- Estrutura da tabela `tb_avaliacao`
 --
 
 CREATE TABLE IF NOT EXISTS `tb_avaliacao` (
+  `codAvaliacao` int(11) NOT NULL,
   `codProjeto` int(11) NOT NULL,
 `codUsuario` int(11) NOT NULL,
   `nota_1` real NOT NULL,
@@ -39,8 +30,8 @@ CREATE TABLE IF NOT EXISTS `tb_avaliacao` (
 -- Extraindo dados da tabela `tb_usuario`
 --
 
-INSERT INTO `tb_avaliacao` (`codUsuario`, `codProjeto`, `nota_1`,`nota_2`,`nota_3`,`nota_4`) VALUES
-(18, 113, 5.0,9.2,9.4,9.1);
+INSERT INTO `tb_avaliacao` (`codAvaliacao`,`codUsuario`, `codProjeto`, `nota_1`,`nota_2`,`nota_3`,`nota_4`) VALUES
+(1,18, 113, 5.0,9.2,9.4,9.1);
 
 --
 -- Indexes for dumped tables
@@ -50,4 +41,14 @@ INSERT INTO `tb_avaliacao` (`codUsuario`, `codProjeto`, `nota_1`,`nota_2`,`nota_
 -- Indexes for table `tb_avaliacao`
 --
 ALTER TABLE `tb_avaliacao`
- ADD PRIMARY KEY (`codProjeto`);
+ ADD PRIMARY KEY (`codAvaliacao`);
+--
+-- AUTO_INCREMENT for table `tb_projeto`
+--
+ALTER TABLE `tb_avaliacao`
+MODIFY `codAvaliacao` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=19;
+ 
+ 
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

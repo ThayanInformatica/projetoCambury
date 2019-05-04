@@ -2,20 +2,39 @@
 session_start();
 
 if (!isset($_SESSION['login']) && !isset($_SESSION['senha'])):
-    header('location: ../index.php');
+    header('location: ../../index.php');
 endif;
 
 if (isset($_SESSION['login']) && isset($_SESSION['senha']) && isset($_SESSION['nivel']) && isset($_SESSION['codUsuario'])):
     if (isset($_SESSION['nivel'])) {
         $nivel = $_SESSION['nivel'];
         if ($nivel != 99) {
-            header('location: ../usuario-logado.php');
+            header('location: ../../usuario-logado.php');
         }
     }
     $codUsuario = $_SESSION['codUsuario'];
 
 endif;
 
+require '../../classes/conectdb.php';
+$codProjeto = null;
+if (!empty($_GET['codProjeto'])) {
+    $codProjeto = $_REQUEST['codProjeto'];
+}
+
+if (null == $codProjeto) {
+    header("Location: ../../usuario-logado.php");
+} elseif (null == $_SESSION['login']) {
+    header("Location: ../../index.php");
+} else {
+    $pdo = conectdb::conectar();
+    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    $sql = "SELECT DISTINCT tb_projeto.codProjeto,tb_projeto.nomeProjeto, tb_projeto.objetivo, tb_projeto.resumo, tb_projeto.nomeProfessor, tb_projeto.curso, tb_projeto.turma, tb_projeto.projetoAceito, tb_avaliacao.nota_1, tb_avaliacao.nota_2, tb_avaliacao.nota_3, tb_avaliacao.nota_4, (SELECT (tb_avaliacao.nota_1 + tb_avaliacao.nota_2 + tb_avaliacao.nota_3 + tb_avaliacao.nota_4)) as Total FROM tb_projeto LEFT JOIN tb_avaliacao ON tb_avaliacao.codProjeto = tb_projeto.codProjeto WHERE tb_projeto.codProjeto = ? and tb_projeto.projetoAceito = 1 ORDER BY Total Desc;";
+    $q = $pdo->prepare($sql);
+    $q->execute(array($codProjeto));
+    $projeto = $q->fetch(PDO::FETCH_ASSOC);
+    conectdb::desconectar();
+}
 ?>
 
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
@@ -85,14 +104,16 @@ endif;
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
           integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
           crossorigin="anonymous">
-    <link href="css/all.css" rel="stylesheet">
+    <link href="../css/all.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
           rel="stylesheet">
-    <link href="../components/css/footer.css">
+    <link href="../../components/css/footer.css">
+    <link href="https://fonts.googleapis.com/css?family=Marcellus+SC|Prompt|Rufina" rel="stylesheet">
 
 </head>
 
 <body>
+<div style="font-family: 'Rufina', serif;">
 <div class="page-wrapper chiller-theme toggled">
     <a id="show-sidebar" class="btn btn-sm btn-dark" href="#" style="height: 100% !important;">
         <i class="material-icons">
@@ -111,9 +132,9 @@ endif;
             </div>
             <div class="sidebar-header">
                 <div class="user-pic">
-                                        <img class="img-responsive img-rounded"
-                                             src="../images/User.png"
-                                             alt="User picture">
+                    <img class="img-responsive img-rounded"
+                         src="../../images/User.png"
+                         alt="User picture">
                 </div>
                 <div class="user-info">
           <span class="user-name">André
@@ -156,7 +177,8 @@ endif;
                         <div class="sidebar-submenu">
                             <ul>
                                 <li>
-                                    <a <?php echo 'href="editar-perfil.php?codUsuario=' . $codUsuario . '"' ?> >Editar Perfil
+                                    <a <?php echo 'href="../editar-perfil.php?codUsuario=' . $codUsuario . '"' ?> >Editar
+                                        Perfil
                                         <span class="badge badge-pill badge-success">Pro</span>
                                     </a>
                                 </li>
@@ -169,30 +191,6 @@ endif;
                             </ul>
                         </div>
                     </li>
-
-                    <li class="sidebar-dropdown">
-                        <a href="#">
-                            <i class="fa fa-shopping-cart"></i>
-                            <span>Resultados de Projetos</span>
-                            <!--                            <span class="badge badge-pill badge-danger">3</span>-->
-                        </a>
-                        <div class="sidebar-submenu">
-                            <ul>
-                                <li>
-                                    <a href="projeto-admin/resultado-avaliacoes.php">Listar Projetos Avaliados
-
-                                    </a>
-                                    <!--                                </li>-->
-                                    <!--                                <li>-->
-                                    <!--                                    <a href="#">Orders</a>-->
-                                    <!--                                </li>-->
-                                    <!--                                <li>-->
-                                    <!--                                    <a href="#">Credit cart</a>-->
-                                    <!--                                </li>-->
-                            </ul>
-                        </div>
-                    </li>
-
                     <li class="sidebar-dropdown">
                         <a href="#">
                             <i class="fa fa-shopping-cart"></i>
@@ -217,16 +215,38 @@ endif;
                     </li>
                     <li class="sidebar-dropdown">
                         <a href="#">
+                            <i class="fa fa-shopping-cart"></i>
+                            <span>Resultados de Projetos</span>
+                            <!--                            <span class="badge badge-pill badge-danger">3</span>-->
+                        </a>
+                        <div class="sidebar-submenu">
+                            <ul>
+                                <li>
+                                    <a href="listar-usuario.php">Listar Projetos Avaliados
+
+                                    </a>
+                                    <!--                                </li>-->
+                                    <!--                                <li>-->
+                                    <!--                                    <a href="#">Orders</a>-->
+                                    <!--                                </li>-->
+                                    <!--                                <li>-->
+                                    <!--                                    <a href="#">Credit cart</a>-->
+                                    <!--                                </li>-->
+                            </ul>
+                        </div>
+                    </li>
+                    <li class="sidebar-dropdown">
+                        <a href="#">
                             <i class="far fa-gem"></i>
                             <span>Avaliadores</span>
                         </a>
                         <div class="sidebar-submenu">
                             <ul>
                                 <li>
-                                    <a href="usuario-avaliador/validar-usuario-avaliador.php">Aceitar Avaliador</a>
+                                    <a href="../usuario-avaliador/validar-usuario-avaliador.php">Aceitar Avaliador</a>
                                 </li>
                                 <li>
-                                    <a href="usuario-avaliador/listar-avaliadores.php">Listar Avaliadores</a>
+                                    <a href="../usuario-avaliador/listar-avaliadores.php">Listar Avaliadores</a>
                                 </li>
                                 <!--                                <li>-->
                                 <!--                                    <a href="#">Tables</a>-->
@@ -306,8 +326,9 @@ endif;
         </div>
         <!-- sidebar-content  -->
         <div class="sidebar-footer">
-            <a href="../logout.php">
-                <i class="material-icons" style="color: #c82333;" data-toggle="tooltip" data-placement="top" title="Deslogar" role="alert" data-toggle="tooltip">power_settings_new</i>
+            <a href="../../logout.php">
+                <i class="material-icons" style="color: #c82333;" data-toggle="tooltip" data-placement="top"
+                   title="Deslogar" role="alert" data-toggle="tooltip">power_settings_new</i>
             </a>
             <!--            <a href="#">-->
             <!--                <i class="fa fa-envelope"></i>-->
@@ -325,119 +346,124 @@ endif;
     <!-- sidebar-wrapper  -->
     <main class="page-content">
         <div class="container">
-            </br>
-            <div class="row">
-                <!--        <p>-->
-                <!--            --><?php //if ($_SESSION['nivel'] == 99) {
-                //                echo '<a href="cadastro-projeto/criar-projeto.php" class="btn btn-success">Aceitar Avaliador</a>';
-                //            }
-                //            ?>
-                <!---->
-                <?php
+            <div class="span10 offset1">
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="well">Informações do Projeto Avaliado</h3>
+                    </div>
+                    <div class="container">
+                        <div class="form-horizontal">
+                            <div class="control-group">
+                                <label class="control-label" style="font-weight: bold;">Nome do Projeto</label>
+                                <div class="controls">
+                                    <label class="carousel-inner">
+                                        <?php echo $projeto['nomeProjeto']; ?>
+                                    </label>
+                                </div>
+                            </div>
 
-                include('../classes/Conexao.class.php');
-                include('../classes/ProjetoDAO.class.php');
-                include('../classes/UsuarioDAO.class.php');
+                            <div class="control-group">
+                                <label class="control-label" style="font-weight: bold;">Nome do Orientador</label>
+                                <div class="controls">
+                                    <label class="carousel-inner">
+                                        <?php echo $projeto['nomeProfessor']; ?>
+                                    </label>
+                                </div>
+                            </div>
 
-                $usuario = new UsuarioDAO();
-                $usuarioProjeto = new ProjetoDAO();
+                            <div class="control-group">
+                                <label class="control-label" style="font-weight: bold;">Objetivo do Projeto</label>
+                                <div class="controls">
+                                    <label class="carousel-inner">
+                                        <?php echo $projeto['objetivo']; ?>
+                                    </label>
+                                </div>
+                            </div>
 
-                $login = $_SESSION['login'];
+                            <div class="control-group">
+                                <label class="control-label" style="font-weight: bold;">Resumo do Projeto</label>
+                                <div class="controls">
+                                    <label class="carousel-inner" style="font-style: italic;">
+                                        <?php echo $projeto['resumo']; ?>
+                                    </label>
+                                </div>
+                            </div>
 
-                $codUsuario = $usuario->CodDoUsuario($login);
-                $_SESSION['codUsuario'] = $codUsuario;
+                            <div class="control-group">
+                                <label class="control-label" style="font-weight: bold;">Curso e Turma</label>
+                                <div class="controls">
+                                    <label class="carousel-inner">
+                                        <?php echo $projeto['curso']; ?> / <?php echo $projeto['turma']; ?>
+                                    </label>
+                                </div>
+                            </div>
 
-                // Pegar ID de projetos de usuários
+                            <div class="control-group">
+                                <label class="control-label" style="font-weight: bold;">Contribuição do projeto para instituições envolvidas e/ou sociedade</label>
+                                <div class="controls">
+                                    <label class="carousel-inner">
+                                        Nota: <?php echo $projeto['nota_1']; ?>
+                                    </label>
+                                </div>
+                            </div>
 
-                $codProjeto = $usuario->recuperarProjetos($codUsuario);
+                            <div class="control-group">
+                                <label class="control-label" style="font-weight: bold;">Ambientação e exposição do projeto
+                                </label>
+                                <div class="controls">
+                                    <label class="carousel-inner">
+                                        Nota: <?php echo $projeto['nota_2']; ?>
+                                    </label>
+                                </div>
+                            </div>
 
-                ?>
-                <!---->
-                <!--        </p>-->
+                            <div class="control-group">
+                                <label class="control-label" style="font-weight: bold;">Domínio nas explicações e dinâmica do projeto</label>
+                                <div class="controls">
+                                    <label class="carousel-inner">
+                                        Nota: <?php echo $projeto['nota_3']; ?>
+                                    </label>
+                                </div>
+                            </div>
 
+                            <div class="control-group">
+                                <label class="control-label" style="font-weight: bold;">Resultados obtidos com o projeto</label>
+                                <div class="controls">
+                                    <label class="carousel-inner">
+                                        Nota: <?php echo $projeto['nota_4']; ?>
+                                    </label>
+                                </div>
+                            </div>
 
-                <table class="table table-striped">
-                    <h2>Lista de Projetos</h2>
-                    <thead>
-                    <?php
-                    if (isset($codProjeto)) {
+                            <div class="control-group">
+                                <label class="control-label" style="font-weight: bold;">Total</label>
+                                <div class="controls">
+                                    <label class="carousel-inner" style="font-style: italic;">
+                                        Nota Total: <span style="font-weight: bold; color:#1e7e34;"><?php echo $projeto['Total']; ?></span>
+                                    </label>
+                                </div>
+                            </div>
 
-                        ?>
-                        <tr>
-                            <th scope="col">Nome do Projeto</th>
-                            <th scope="col">Nome do Orientador</th>
-                            <th scope="col">Curso e Turma</th>
-                            <th scope="col">Ações</th>
-                        </tr>
-                        <?php
-                    }
-                    ?>
-                    </thead>
-                    <tbody>
-
-                    <?php
-
-                    include '../classes/conectdb.php';
-                    $pdo = conectdb::conectar();
-                    $sql = 'SELECT codUsuario,codProjeto,nomeProjeto,nomeProfessor,objetivo,resumo,curso,turma,projetoAceito FROM tb_projeto ORDER BY projetoAceito DESC ';
-
-                    foreach ($pdo->query($sql) as $getProjetos) {
-                        if (isset($codProjeto)) {
-                            echo '<tr id="filterProjeto" class="projetos-admin">';
-                            echo '<td  style="display: none;">' . $getProjetos['codProjeto'] . '</td>'; // get id do projeto deixar com display none
-                            echo '<td >' . $getProjetos['nomeProjeto'] . '</td>';
-                            echo '<td>' . $getProjetos['nomeProfessor'] . '</td>';
-                            echo '<td>' . $getProjetos['curso'] . ' / ' . $getProjetos['turma'] . '</td>';
-                            echo '<td width=200>';
-                            echo '<a class="material-icons" data-toggle="tooltip" data-placement="top" title="Informações do Projeto" href="projeto-admin/ler-projeto.php?codProjeto=' . $getProjetos['codProjeto'] . '">info</a>';
-                            echo ' ';
-                            if ($_SESSION['nivel'] == 100) { // RN: Administrador não pode editar projeto
-                                echo '<a class="btn btn-warning" data-toggle="tooltip" data-placement="top" title="Após ser aceito, não poderá mais editar" href="editar.php?id=' . $getProjetos['codProjeto'] . '">Editar</a>';
-                                echo ' ';
-                            }
-                            if ($_SESSION['nivel'] == 99 && $getProjetos['projetoAceito'] == 1) {
-                                echo '<span class="material-icons" style="color: forestgreen;  cursor: pointer;" data-toggle="tooltip" data-placement="top" title="Aprovado" role="alert" data-toggle="tooltip">check_circle</span>';
-                                echo ' ';
-                            }
-                            if ($_SESSION['nivel'] == 99 && $getProjetos['projetoAceito'] == 0) {
-                                echo '<a class="material-icons" style="color: forestgreen;" data-toggle="tooltip" data-placement="top" title="Aprovar Projeto" href="projeto-admin/aprovar.php?codProjeto=' . $getProjetos['codProjeto'] . '">check_circle_outline</a>';
-                                echo ' ';
-                            }
-                            if ($_SESSION['nivel'] == 99 && $getProjetos['projetoAceito'] == 0) {
-                                echo '<span class="material-icons" style="color: #c82333;" data-toggle="tooltip" data-placement="top" title="Desaprovado" role="alert" data-toggle="tooltip">cancel</span>';
-                                echo ' ';
-                            }
-                            if ($_SESSION['nivel'] == 99 && $getProjetos['projetoAceito'] == 1) {
-                                echo '<a class="material-icons" style="color: #c82333; background-color: color: #c82333;" data-toggle="tooltip" data-placement="top" title="Desaprovadar Projeto" href="projeto-admin/desaprovar.php?codProjeto=' . $getProjetos['codProjeto'] . '">check_circle_outline</a>';
-                                echo '</td>';
-                                echo '</tr>';
-                            }
-                        }
-                    }
-
-                    if (!isset($codProjeto)) {
-                        echo '<div class="jumbotron">';
-                        echo '<h2>Não existe projeto</h2>';
-                    }
-                    conectdb::desconectar();
-                    ?>
-                    </tbody>
-                </table>
+                            <br/>
+                            <div class="form-actions">
+                                <a href="../admin.php" type="btn" class="btn btn-default">Voltar</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-<!--            <div>-->
-                <!--    Ajuster img de selo apos subir para produção-->
-<!--            </div>-->
         </div>
     </main>
+</div>
 
-        <!-- page-wrapper -->
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
-                integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-                crossorigin="anonymous"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
-                integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-                crossorigin="anonymous"></script>
+    <!-- page-wrapper -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+            integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+            crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+            integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+            crossorigin="anonymous"></script>
 
 </body>
 </html>
