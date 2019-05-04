@@ -6,6 +6,8 @@
 .well{
     text-align: center;
     font-family: 'Rufina', serif;
+     background-color: grey !important;
+     color: black;
 }
 
 .campoProjeto{
@@ -14,12 +16,12 @@
     margin-left: 21%;
     margin-right: 73px;
 }
-
 .campoOrientador{
     font-family: 'Rufina', serif;
     margin-left: 10%; 
     width: 70%;  
 }
+
 .editandoObjProjeto{
     margin-left: 21%;
     margin-right: 73px;
@@ -40,13 +42,18 @@
     margin-left: 10%;
 
 }
-#editandoTurma{
+.editandoTurma{
     font-family: 'Rufina', serif;
     margin-bottom: 10px;
-    width: 5%;
     margin-left: 10%;
+    margin-right: 84%;
     
     
+}
+
+
+.col{
+    margin-left: 80%;
 }
 .btn{
     padding-top: 40%;

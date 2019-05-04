@@ -175,14 +175,15 @@ if (isset($_POST['cadastrar'])) {
                         <div class="col-sm-5" class="tamanho-campoLogin">
                             <div class="form-group">
                                 <label id="teste" for="login" style="">Login</label>
-                                <input type="text" class="form-control" id="login" name="login" required autofocus>
+                                <input type="text" class="form-control" id="login" name="login:" required autofocus placeholder="Login">
                             </div>
                         </div>
-
+ 
+ 
                         <div class="col-sm-5" class="tamanho-campoNome">
                             <div class="form-group ">
                                 <label for="nome">Nome: </label>
-                                <input id="nome" type="text" class="form-control" name="nome" required>
+                                <input id="nome" type="text" class="form-control" name="nome" required placeholder="nome"> 
                             </div>
                         </div>
                         <div class="col-sm-5" class="tamanho-campoSenha">
@@ -207,7 +208,7 @@ if (isset($_POST['cadastrar'])) {
                                 <label for="cpf">CPF:</label>
                                 <input size=30 maxlength="14"
                                        onblur="validarCPF(this)" onkeyup="formatar(this,'000.000.000-00')" type="text"
-                                       class="form-control" id="cpf" name="cpf">
+                                       class="form-control" id="cpf" name="cpf" placeholder="CPF">
                             </div>
                         </div>
 
@@ -216,7 +217,7 @@ if (isset($_POST['cadastrar'])) {
                                 <label for="email">E-mail:</label>
                                 <div class="input-group">
                                     <div class="input-group-addon">@</div>
-                                    <input type="email" class="form-control" id="email" name="email" required>
+                                    <input type="email" class="form-control" id="email" name="email" required placeholder="Seu email">
 
                                 </div>
                             </div>

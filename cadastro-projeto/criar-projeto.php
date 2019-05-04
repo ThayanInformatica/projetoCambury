@@ -191,6 +191,8 @@ if (isset($_POST['cadastrar'])) {
                     <option value="03">03</option>
                     <option value="04">04</option>
                     <option value="05">05</option>
+                    <option value="06">06</option>
+                    <option value="07">07</option>
                 </select>
             </div>
 

@@ -127,7 +127,8 @@ if (!empty($_POST)) {
     <div class="span10 offset1">
         <div class="card">
             <div class="card-header">
-                <h3 class="well"> Editar Projeto </h3>
+                
+            <h3 class="well"> Editar Projeto </h3>
             </div>
             <div class="card-body">
                 <form class="form-horizontal" action="editar-projeto.php?codProjeto=<?php echo $codProjeto ?>"
@@ -188,8 +189,9 @@ if (!empty($_POST)) {
                     
                     
                     <div id="editandoCursos" >
-                        <label>Curso:</label>
-                        <select class="form-control " name="curso">
+          
+                    <label>Curso:</label>
+                        <select class="form-control " name="cursoProjeto">
                             <option value="TI">GESTÃO DA TECNOLOGIA DA INFORMAÇÃO</option>
                             <option value="CIÊNCIAS CONTÁBEIS">CIÊNCIAS CONTÁBEIS</option>
                             <option value="ADMINISTRAÇÃO">ADMINISTRAÇÃO</option>
@@ -199,19 +201,19 @@ if (!empty($_POST)) {
                         </select>
                     </div>
 
-                    <div id="editandoTurma">
-                        <label>Turma:</label>
-                        <select class="form-control " name="turma">
-                            <option value="01">01</option>
-                            <option value="02">02</option>
-                            <option value="03">03</option>
-                            <option value="04">04</option>
-                            <option value="05">05</option>
-                            <option value="06">06</option>
-                            <option value="07">07</option>
-                        </select>
-                    </div>
-
+                  
+                   <div class="editandoTurma">
+                    <label>Turma:</label>
+                    <select class="form-control" name="turmaProjeto" >
+                    <option value="01">01</option>
+                    <option value="02">02</option>
+                    <option value="03">03</option>
+                    <option value="04">04</option>
+                    <option value="05">05</option>
+                    <option value="06">06</option>
+                    <option value="07">07</option>
+                </select>
+            </div>
                     <br/>
                     <br> 
 
