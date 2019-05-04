@@ -89,10 +89,12 @@ endif;
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
           rel="stylesheet">
     <link href="../../components/css/footer.css">
+    <link href="https://fonts.googleapis.com/css?family=Marcellus+SC|Prompt|Rufina" rel="stylesheet">
 
 </head>
 
 <body>
+<div style="font-family: 'Rufina', serif;">
 <div class="page-wrapper chiller-theme toggled">
     <a id="show-sidebar" class="btn btn-sm btn-dark" href="#" style="height: 100% !important;">
         <i class="material-icons">
@@ -335,7 +337,7 @@ endif;
 
 
                 <table class="table table-striped">
-                    <h2>Lista de Projetos</h2>
+                    <h2>Lista Notas dos Projetos</h2>
                     <thead>
                     <?php
                     if (isset($codProjeto)) {
@@ -345,6 +347,7 @@ endif;
                             <th scope="col">Nome do Projeto</th>
                             <th scope="col">Nome do Orientador</th>
                             <th scope="col">Curso e Turma</th>
+                            <th scope="col">Nota Total</th>
                             <th scope="col">Ações</th>
                         </tr>
                         <?php
@@ -359,37 +362,17 @@ endif;
                     $pdo = conectdb::conectar();
                     $sql = 'SELECT DISTINCT tb_projeto.codProjeto,tb_projeto.nomeProjeto, tb_projeto.nomeProfessor, tb_projeto.curso,tb_projeto.turma,tb_projeto.projetoAceito, (SELECT (tb_avaliacao.nota_1 + tb_avaliacao.nota_2 + tb_avaliacao.nota_3 + tb_avaliacao.nota_4)) as Total FROM tb_projeto LEFT JOIN tb_avaliacao ON tb_projeto.codProjeto = tb_avaliacao.codProjeto WHERE tb_projeto.projetoAceito = 1 ORDER BY Total Desc;';
 
-                    foreach ($pdo->query($sql) as $getProjetos) {
-                        if (isset($codProjeto)) {
+                        foreach ($pdo->query($sql) as $getProjetos) {
+                        if (isset($codProjeto ) && isset($getProjetos['Total'])) {
                             echo '<tr id="filterProjeto" class="projetos-admin">';
                             echo '<td  style="display: none;">' . $getProjetos['codProjeto'] . '</td>'; // get id do projeto deixar com display none
                             echo '<td >' . $getProjetos['nomeProjeto'] . '</td>';
                             echo '<td>' . $getProjetos['nomeProfessor'] . '</td>';
                             echo '<td>' . $getProjetos['curso'] . ' / ' . $getProjetos['turma'] . '</td>';
+                            echo '<td>' . $getProjetos['Total'] . '</td>';
                             echo '<td width=200>';
-                            echo '<a class="material-icons" data-toggle="tooltip" data-placement="top" title="Informações do Projeto" href="projeto-admin/ler-projeto.php?codProjeto=' . $getProjetos['codProjeto'] . '">info</a>';
+                            echo '<a class="material-icons" data-toggle="tooltip" data-placement="top" title="Informações do Projeto" href="ler-projetos-com-notas.php?codProjeto=' . $getProjetos['codProjeto'] . '">info</a>';
                             echo ' ';
-                            if ($_SESSION['nivel'] == 100) { // RN: Administrador não pode editar projeto
-                                echo '<a class="btn btn-warning" data-toggle="tooltip" data-placement="top" title="Após ser aceito, não poderá mais editar" href="editar.php?id=' . $getProjetos['codProjeto'] . '">Editar</a>';
-                                echo ' ';
-                            }
-                            if ($_SESSION['nivel'] == 99 && $getProjetos['projetoAceito'] == 1) {
-                                echo '<span class="material-icons" style="color: forestgreen;  cursor: pointer;" data-toggle="tooltip" data-placement="top" title="Aprovado" role="alert" data-toggle="tooltip">check_circle</span>';
-                                echo ' ';
-                            }
-                            if ($_SESSION['nivel'] == 99 && $getProjetos['projetoAceito'] == 0) {
-                                echo '<a class="material-icons" style="color: forestgreen;" data-toggle="tooltip" data-placement="top" title="Aprovar Projeto" href="projeto-admin/aprovar.php?codProjeto=' . $getProjetos['codProjeto'] . '">check_circle_outline</a>';
-                                echo ' ';
-                            }
-                            if ($_SESSION['nivel'] == 99 && $getProjetos['projetoAceito'] == 0) {
-                                echo '<span class="material-icons" style="color: #c82333;" data-toggle="tooltip" data-placement="top" title="Desaprovado" role="alert" data-toggle="tooltip">cancel</span>';
-                                echo ' ';
-                            }
-                            if ($_SESSION['nivel'] == 99 && $getProjetos['projetoAceito'] == 1) {
-                                echo '<a class="material-icons" style="color: #c82333; background-color: color: #c82333;" data-toggle="tooltip" data-placement="top" title="Desaprovadar Projeto" href="projeto-admin/desaprovar.php?codProjeto=' . $getProjetos['codProjeto'] . '">check_circle_outline</a>';
-                                echo '</td>';
-                                echo '</tr>';
-                            }
                         }
                     }
 
@@ -407,6 +390,7 @@ endif;
             <!--            </div>-->
         </div>
     </main>
+</div>
 
     <!-- page-wrapper -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>

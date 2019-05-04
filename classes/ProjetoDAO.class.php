@@ -71,6 +71,20 @@ class ProjetoDAO
         return $existeNota;
     }
 
+    public function aprovarValidacaoDeUser($codUsuario,$codProjeto)
+    {
+
+        $sql = "select codProjeto,codUsuario from tb_avaliacao where codUsuario = '$codUsuario' and codProjeto = '$codProjeto';";
+
+        $executa = mysqli_query($this->conexao->getCon(), $sql);
+
+        if (mysqli_affected_rows($this->conexao->getCon()) > 0) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
 }
 
 //SELECT tb_projeto.codProjeto, tb_projeto.nomeProjeto, tb_projeto.nomeProfessor, tb_projeto.curso,tb_projeto.turma, (SELECT SUM(tb_avaliacao.nota_1 + tb_avaliacao.nota_2 + tb_avaliacao.nota_3 + tb_avaliacao.nota_4)) as Total FROM tb_projeto JOIN tb_avaliacao ON tb_projeto.codProjeto = tb_avaliacao.codProjeto where tb_projeto.codProjeto = 127 ORDER BY Total DESC;
