@@ -83,9 +83,6 @@ if (!empty($_POST)) {
 </head>
 
 <body>
-<div id="header"></div>
-
-
 <div class="modal fade" id="myModal" role="dialog">
         <div class="modal-dialog">
 

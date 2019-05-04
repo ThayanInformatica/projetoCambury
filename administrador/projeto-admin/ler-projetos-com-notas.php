@@ -29,7 +29,31 @@ if (null == $codProjeto) {
 } else {
     $pdo = conectdb::conectar();
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    $sql = "SELECT DISTINCT tb_projeto.codProjeto,tb_projeto.nomeProjeto, tb_projeto.objetivo, tb_projeto.resumo, tb_projeto.nomeProfessor, tb_projeto.curso, tb_projeto.turma, tb_projeto.projetoAceito, tb_avaliacao.nota_1, tb_avaliacao.nota_2, tb_avaliacao.nota_3, tb_avaliacao.nota_4, (SELECT (tb_avaliacao.nota_1 + tb_avaliacao.nota_2 + tb_avaliacao.nota_3 + tb_avaliacao.nota_4)) as Total FROM tb_projeto LEFT JOIN tb_avaliacao ON tb_avaliacao.codProjeto = tb_projeto.codProjeto WHERE tb_projeto.codProjeto = ? and tb_projeto.projetoAceito = 1 ORDER BY Total Desc;";
+    $sql = "SELECT
+    tb_avaliacao.codProjeto,
+    tb_avaliacao.codUsuario,
+    tb_projeto.nomeProjeto,
+    tb_projeto.nomeProfessor,
+    tb_projeto.objetivo,
+    tb_projeto.resumo,
+    tb_projeto.curso,
+    tb_projeto.turma,
+    SUM(tb_avaliacao.nota_1) AS nota1,
+    SUM(tb_avaliacao.nota_2) AS nota2,
+    SUM(tb_avaliacao.nota_3) AS nota3,
+    SUM(tb_avaliacao.nota_4) AS nota4,
+    SUM(
+        tb_avaliacao.nota_1 + tb_avaliacao.nota_2 + tb_avaliacao.nota_3 + tb_avaliacao.nota_4
+    ) AS Total
+FROM
+    tb_avaliacao
+LEFT JOIN tb_projeto ON tb_avaliacao.codProjeto = tb_projeto.codProjeto
+GROUP BY
+    tb_avaliacao.codProjeto
+ORDER BY
+    Total
+DESC
+    ;";
     $q = $pdo->prepare($sql);
     $q->execute(array($codProjeto));
     $projeto = $q->fetch(PDO::FETCH_ASSOC);
@@ -402,7 +426,7 @@ if (null == $codProjeto) {
                                 <label class="control-label" style="font-weight: bold;">Contribuição do projeto para instituições envolvidas e/ou sociedade</label>
                                 <div class="controls">
                                     <label class="carousel-inner">
-                                        Nota: <?php echo $projeto['nota_1']; ?>
+                                        Nota: <?php echo $projeto['nota1']; ?>
                                     </label>
                                 </div>
                             </div>
@@ -412,7 +436,7 @@ if (null == $codProjeto) {
                                 </label>
                                 <div class="controls">
                                     <label class="carousel-inner">
-                                        Nota: <?php echo $projeto['nota_2']; ?>
+                                        Nota: <?php echo $projeto['nota2']; ?>
                                     </label>
                                 </div>
                             </div>
@@ -421,7 +445,7 @@ if (null == $codProjeto) {
                                 <label class="control-label" style="font-weight: bold;">Domínio nas explicações e dinâmica do projeto</label>
                                 <div class="controls">
                                     <label class="carousel-inner">
-                                        Nota: <?php echo $projeto['nota_3']; ?>
+                                        Nota: <?php echo $projeto['nota3']; ?>
                                     </label>
                                 </div>
                             </div>
@@ -430,7 +454,7 @@ if (null == $codProjeto) {
                                 <label class="control-label" style="font-weight: bold;">Resultados obtidos com o projeto</label>
                                 <div class="controls">
                                     <label class="carousel-inner">
-                                        Nota: <?php echo $projeto['nota_4']; ?>
+                                        Nota: <?php echo $projeto['nota4']; ?>
                                     </label>
                                 </div>
                             </div>
@@ -454,6 +478,7 @@ if (null == $codProjeto) {
             </div>
         </div>
     </main>
+
 </div>
 
     <!-- page-wrapper -->

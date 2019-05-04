@@ -69,6 +69,12 @@ endif;
     });
 </script>
 
+<script>
+    $(function () {
+        $("#footer").load("../../components/footer.php");
+    });
+</script>
+
 
 <!------ Include the above in your HEAD tag ---------->
 
@@ -88,309 +94,357 @@ endif;
     <link href="../css/all.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
           rel="stylesheet">
-    <link href="../../components/css/footer.css">
+    <link rel="stylesheet" href="../../components/css/footer.css"/>
     <link href="https://fonts.googleapis.com/css?family=Marcellus+SC|Prompt|Rufina" rel="stylesheet">
 
 </head>
 
 <body>
 <div style="font-family: 'Rufina', serif;">
-<div class="page-wrapper chiller-theme toggled">
-    <a id="show-sidebar" class="btn btn-sm btn-dark" href="#" style="height: 100% !important;">
-        <i class="material-icons">
-            menu
-        </i>
-    </a>
-    <nav id="sidebar" class="sidebar-wrapper">
-        <div class="sidebar-content">
-            <div class="sidebar-brand">
-                <a href="#">Cambury PCA</a>
-                <div id="close-sidebar">
-                    <i class="material-icons">
-                        keyboard_arrow_left
-                    </i>
+    <div<div class="page-wrapper chiller-theme toggled">
+        <a id="show-sidebar" class="btn btn-sm btn-dark" href="#">
+            <i class="material-icons">
+                menu
+            </i>
+        </a>
+        <nav id="sidebar" class="sidebar-wrapper">
+            <div class="sidebar-content">
+                <div class="sidebar-brand">
+                    <a href="../../index.php">Cambury PCA</a>
+                    <div id="close-sidebar">
+                        <i class="material-icons">
+                            keyboard_arrow_left
+                        </i>
+                    </div>
                 </div>
-            </div>
-            <div class="sidebar-header">
-                <div class="user-pic">
-                    <img class="img-responsive img-rounded"
-                         src="../../images/User.png"
-                         alt="User picture">
-                </div>
-                <div class="user-info">
+                <div class="sidebar-header">
+                    <div class="user-pic">
+                        <img class="img-responsive img-rounded"
+                             src="../../images/User.png"
+                             alt="User picture">
+                    </div>
+                    <div class="user-info">
           <span class="user-name">André
               <!--            <strong>Smith</strong>-->
           </span>
-                    <span class="user-role">Administrator</span>
-                    <span class="user-status">
+                        <span class="user-role">Administrator</span>
+                        <span class="user-status">
             <i class="material-icons" style="color: forestgreen; background: forestgreen; border-radius: 20px;">
                         radio_button_unchecked
                         </i>
             <span>Online</span>
           </span>
+                    </div>
                 </div>
-            </div>
-            <!-- sidebar-header  -->
-            <div class="sidebar-search">
-                <div>
-                    <!--                    <div class="input-group">-->
-                    <!--                        <input type="text" id="searchProjeto" onkeyup="mySearch() class="form-control search-menu" placeholder="Pesquise por Projeto">-->
-                    <!--                        <div class="input-group-append">-->
-                    <!--              <span class="input-group-text">-->
-                    <!--                <i class="fa fa-search" aria-hidden="true"></i>-->
-                    <!--              </span>-->
-                    <!--                        </div>-->
-                    <!--                    </div>-->
+                <!-- sidebar-header  -->
+                <div class="sidebar-search">
+                    <div>
+                        <!--                    <div class="input-group">-->
+                        <!--                        <input type="text" id="searchProjeto" onkeyup="mySearch() class="form-control search-menu" placeholder="Pesquise por Projeto">-->
+                        <!--                        <div class="input-group-append">-->
+                        <!--              <span class="input-group-text">-->
+                        <!--                <i class="fa fa-search" aria-hidden="true"></i>-->
+                        <!--              </span>-->
+                        <!--                        </div>-->
+                        <!--                    </div>-->
+                    </div>
                 </div>
-            </div>
-            <!-- sidebar-search  -->
-            <div class="sidebar-menu">
-                <ul>
-                    <li class="header-menu">
-                        <span>Menu</span>
-                    </li>
-                    <li class="sidebar-dropdown">
-                        <a href="#">
-                            <i class="fa fa-tachometer-alt"></i>
-                            <span>Meu Perfil</span>
-                            <span class="badge badge-pill badge-warning">Novo</span>
-                        </a>
-                        <div class="sidebar-submenu">
-                            <ul>
-                                <li>
-                                    <a <?php echo 'href="../editar-perfil.php?codUsuario=' . $codUsuario . '"' ?> >Editar
-                                        Perfil
-                                        <span class="badge badge-pill badge-success">Pro</span>
-                                    </a>
-                                </li>
-                                <!--                                <li>-->
-                                <!--                                    <a href="#">Dashboard 2</a>-->
-                                <!--                                </li>-->
-                                <!--                                <li>-->
-                                <!--                                    <a href="#">Dashboard 3</a>-->
-                                <!--                                </li>-->
-                            </ul>
-                        </div>
-                    </li>
-                    <li class="sidebar-dropdown">
-                        <a href="#">
-                            <i class="fa fa-shopping-cart"></i>
-                            <span>Usuários</span>
-                            <!--                            <span class="badge badge-pill badge-danger">3</span>-->
-                        </a>
-                        <div class="sidebar-submenu">
-                            <ul>
-                                <li>
-                                    <a href="listar-usuario.php">Listar Usuários
-
-                                    </a>
+                <!-- sidebar-search  -->
+                <div class="sidebar-menu">
+                    <ul>
+                        <li class="header-menu">
+                            <span>Menu</span>
+                        </li>
+                        <li class="sidebar-dropdown">
+                            <a href="#">
+                                <i class="fa fa-tachometer-alt"></i>
+                                <span>Meu Perfil</span>
+                                <span class="badge badge-pill badge-warning">Novo</span>
+                            </a>
+                            <div class="sidebar-submenu">
+                                <ul>
+                                    <li>
+                                        <a <?php echo 'href="../editar-perfil.php?codUsuario=' . $codUsuario . '"' ?> >Editar
+                                            Perfil
+                                            <span class="badge badge-pill badge-success">Pro</span>
+                                        </a>
+                                    </li>
+                                    <!--                                <li>-->
+                                    <!--                                    <a href="#">Dashboard 2</a>-->
                                     <!--                                </li>-->
                                     <!--                                <li>-->
-                                    <!--                                    <a href="#">Orders</a>-->
+                                    <!--                                    <a href="#">Dashboard 3</a>-->
+                                    <!--                                </li>-->
+                                </ul>
+                            </div>
+                        </li>
+
+                        <li class="sidebar-dropdown">
+                            <a href="#">
+                                <i class="fa fa-shopping-cart"></i>
+                                <span>Resultados de Projetos</span>
+                                <!--                            <span class="badge badge-pill badge-danger">3</span>-->
+                            </a>
+                            <div class="sidebar-submenu">
+                                <ul>
+                                    <li>
+                                        <a href="../projeto-admin/resultado-avaliacoes.php">Listar Projetos Avaliados
+
+                                        </a>
+                                        <!--                                </li>-->
+                                        <!--                                <li>-->
+                                        <!--                                    <a href="#">Orders</a>-->
+                                        <!--                                </li>-->
+                                        <!--                                <li>-->
+                                        <!--                                    <a href="#">Credit cart</a>-->
+                                        <!--                                </li>-->
+                                </ul>
+                            </div>
+                        </li>
+
+                        <li class="sidebar-dropdown">
+                            <a href="#">
+                                <i class="fa fa-shopping-cart"></i>
+                                <span>Usuários</span>
+                                <!--                            <span class="badge badge-pill badge-danger">3</span>-->
+                            </a>
+                            <div class="sidebar-submenu">
+                                <ul>
+                                    <li>
+                                        <a href="../listar-usuario.php">Listar Usuários
+
+                                        </a>
+                                        <!--                                </li>-->
+                                        <!--                                <li>-->
+                                        <!--                                    <a href="#">Orders</a>-->
+                                        <!--                                </li>-->
+                                        <!--                                <li>-->
+                                        <!--                                    <a href="#">Credit cart</a>-->
+                                        <!--                                </li>-->
+                                </ul>
+                            </div>
+                        </li>
+                        <li class="sidebar-dropdown">
+                            <a href="#">
+                                <i class="far fa-gem"></i>
+                                <span>Avaliadores</span>
+                            </a>
+                            <div class="sidebar-submenu">
+                                <ul>
+                                    <li>
+                                        <a href="../usuario-avaliador/validar-usuario-avaliador.php">Aceitar Avaliador</a>
+                                    </li>
+                                    <li>
+                                        <a href="../usuario-avaliador/listar-avaliadores.php">Listar Avaliadores</a>
+                                    </li>
+                                    <!--                                <li>-->
+                                    <!--                                    <a href="#">Tables</a>-->
                                     <!--                                </li>-->
                                     <!--                                <li>-->
-                                    <!--                                    <a href="#">Credit cart</a>-->
+                                    <!--                                    <a href="#">Icons</a>-->
                                     <!--                                </li>-->
-                            </ul>
-                        </div>
-                    </li>
-                    <li class="sidebar-dropdown">
-                        <a href="#">
-                            <i class="far fa-gem"></i>
-                            <span>Avaliadores</span>
-                        </a>
-                        <div class="sidebar-submenu">
-                            <ul>
-                                <li>
-                                    <a href="../usuario-avaliador/validar-usuario-avaliador.php">Aceitar Avaliador</a>
-                                </li>
-                                <li>
-                                    <a href="../usuario-avaliador/listar-avaliadores.php">Listar Avaliadores</a>
-                                </li>
-                                <!--                                <li>-->
-                                <!--                                    <a href="#">Tables</a>-->
-                                <!--                                </li>-->
-                                <!--                                <li>-->
-                                <!--                                    <a href="#">Icons</a>-->
-                                <!--                                </li>-->
-                                <!--                                <li>-->
-                                <!--                                    <a href="#">Forms</a>-->
-                                <!--                                </li>-->
-                            </ul>
-                        </div>
-                    </li>
-                    <!--                    <li class="sidebar-dropdown">-->
-                    <!--                        <a href="#">-->
-                    <!--                            <i class="fa fa-chart-line"></i>-->
-                    <!--                            <span>Charts</span>-->
-                    <!--                        </a>-->
-                    <!--                        <div class="sidebar-submenu">-->
-                    <!--                            <ul>-->
-                    <!--                                <li>-->
-                    <!--                                    <a href="#">Pie chart</a>-->
-                    <!--                                </li>-->
-                    <!--                                <li>-->
-                    <!--                                    <a href="#">Line chart</a>-->
-                    <!--                                </li>-->
-                    <!--                                <li>-->
-                    <!--                                    <a href="#">Bar chart</a>-->
-                    <!--                                </li>-->
-                    <!--                                <li>-->
-                    <!--                                    <a href="#">Histogram</a>-->
-                    <!--                                </li>-->
-                    <!--                            </ul>-->
-                    <!--                        </div>-->
-                    <!--                    </li>-->
-                    <!--                    <li class="sidebar-dropdown">-->
-                    <!--                        <a href="#">-->
-                    <!--                            <i class="fa fa-globe"></i>-->
-                    <!--                            <span>Maps</span>-->
-                    <!--                        </a>-->
-                    <!--                        <div class="sidebar-submenu">-->
-                    <!--                            <ul>-->
-                    <!--                                <li>-->
-                    <!--                                    <a href="#">Google maps</a>-->
-                    <!--                                </li>-->
-                    <!--                                <li>-->
-                    <!--                                    <a href="#">Open street map</a>-->
-                    <!--                                </li>-->
-                    <!--                            </ul>-->
-                    <!--                        </div>-->
-                    <!--                    </li>-->
-                    <!--                    <li class="header-menu">-->
-                    <!--                        <span>Extra</span>-->
-                    <!--                    </li>-->
-                    <!--                    <li>-->
-                    <!--                        <a href="#">-->
-                    <!--                            <i class="fa fa-book"></i>-->
-                    <!--                            <span>Documentation</span>-->
-                    <!--                            <span class="badge badge-pill badge-primary">Beta</span>-->
-                    <!--                        </a>-->
-                    <!--                    </li>-->
-                    <!--                    <li>-->
-                    <!--                        <a href="#">-->
-                    <!--                            <i class="fa fa-calendar"></i>-->
-                    <!--                            <span>Calendar</span>-->
-                    <!--                        </a>-->
-                    <!--                    </li>-->
-                    <!--                    <li>-->
-                    <!--                        <a href="#">-->
-                    <!--                            <i class="fa fa-folder"></i>-->
-                    <!--                            <span>Examples</span>-->
-                    <!--                        </a>-->
-                    <!--                    </li>-->
-                    <!--                </ul>-->
+                                    <!--                                <li>-->
+                                    <!--                                    <a href="#">Forms</a>-->
+                                    <!--                                </li>-->
+                                </ul>
+                            </div>
+                        </li>
+                        <!--                    <li class="sidebar-dropdown">-->
+                        <!--                        <a href="#">-->
+                        <!--                            <i class="fa fa-chart-line"></i>-->
+                        <!--                            <span>Charts</span>-->
+                        <!--                        </a>-->
+                        <!--                        <div class="sidebar-submenu">-->
+                        <!--                            <ul>-->
+                        <!--                                <li>-->
+                        <!--                                    <a href="#">Pie chart</a>-->
+                        <!--                                </li>-->
+                        <!--                                <li>-->
+                        <!--                                    <a href="#">Line chart</a>-->
+                        <!--                                </li>-->
+                        <!--                                <li>-->
+                        <!--                                    <a href="#">Bar chart</a>-->
+                        <!--                                </li>-->
+                        <!--                                <li>-->
+                        <!--                                    <a href="#">Histogram</a>-->
+                        <!--                                </li>-->
+                        <!--                            </ul>-->
+                        <!--                        </div>-->
+                        <!--                    </li>-->
+                        <!--                    <li class="sidebar-dropdown">-->
+                        <!--                        <a href="#">-->
+                        <!--                            <i class="fa fa-globe"></i>-->
+                        <!--                            <span>Maps</span>-->
+                        <!--                        </a>-->
+                        <!--                        <div class="sidebar-submenu">-->
+                        <!--                            <ul>-->
+                        <!--                                <li>-->
+                        <!--                                    <a href="#">Google maps</a>-->
+                        <!--                                </li>-->
+                        <!--                                <li>-->
+                        <!--                                    <a href="#">Open street map</a>-->
+                        <!--                                </li>-->
+                        <!--                            </ul>-->
+                        <!--                        </div>-->
+                        <!--                    </li>-->
+                        <!--                    <li class="header-menu">-->
+                        <!--                        <span>Extra</span>-->
+                        <!--                    </li>-->
+                        <!--                    <li>-->
+                        <!--                        <a href="#">-->
+                        <!--                            <i class="fa fa-book"></i>-->
+                        <!--                            <span>Documentation</span>-->
+                        <!--                            <span class="badge badge-pill badge-primary">Beta</span>-->
+                        <!--                        </a>-->
+                        <!--                    </li>-->
+                        <!--                    <li>-->
+                        <!--                        <a href="#">-->
+                        <!--                            <i class="fa fa-calendar"></i>-->
+                        <!--                            <span>Calendar</span>-->
+                        <!--                        </a>-->
+                        <!--                    </li>-->
+                        <!--                    <li>-->
+                        <!--                        <a href="#">-->
+                        <!--                            <i class="fa fa-folder"></i>-->
+                        <!--                            <span>Examples</span>-->
+                        <!--                        </a>-->
+                        <!--                    </li>-->
+                        <!--                </ul>-->
+                </div>
+                <!-- sidebar-menu  -->
             </div>
-            <!-- sidebar-menu  -->
-        </div>
-        <!-- sidebar-content  -->
-        <div class="sidebar-footer">
-            <a href="../../logout.php">
-                <i class="material-icons" style="color: #c82333;" data-toggle="tooltip" data-placement="top"
-                   title="Deslogar" role="alert" data-toggle="tooltip">power_settings_new</i>
-            </a>
-            <!--            <a href="#">-->
-            <!--                <i class="fa fa-envelope"></i>-->
-            <!--                <span class="badge badge-pill badge-success notification">7</span>-->
-            <!--            </a>-->
-            <!--            <a href="#">-->
-            <!--                <i class="fa fa-cog"></i>-->
-            <!--                <span class="badge-sonar"></span>-->
-            <!--            </a>-->
-            <!--            <a href="#">-->
-            <!--                <i class="fa fa-power-off"></i>-->
-            <!--            </a>-->
-        </div>
-    </nav>
-    <!-- sidebar-wrapper  -->
-    <main class="page-content">
-        <div class="container">
-            </br>
-            <div class="row">
-                <!--        <p>-->
-                <!--            --><?php //if ($_SESSION['nivel'] == 99) {
-                //                echo '<a href="cadastro-projeto/criar-projeto.php" class="btn btn-success">Aceitar Avaliador</a>';
-                //            }
-                //            ?>
-                <!---->
-                <?php
-
-                include('../../classes/Conexao.class.php');
-                include('../../classes/ProjetoDAO.class.php');
-                include('../../classes/UsuarioDAO.class.php');
-
-                $usuario = new UsuarioDAO();
-                $usuarioProjeto = new ProjetoDAO();
-
-                $login = $_SESSION['login'];
-
-                $codUsuario = $usuario->CodDoUsuario($login);
-                $_SESSION['codUsuario'] = $codUsuario;
-
-                // Pegar ID de projetos de usuários
-
-                $codProjeto = $usuario->recuperarProjetos($codUsuario);
-
-                ?>
-                <!---->
-                <!--        </p>-->
-
-
-                <table class="table table-striped">
-                    <h2>Lista Notas dos Projetos</h2>
-                    <thead>
+            <!-- sidebar-content  -->
+            <div class="sidebar-footer">
+                <a href="../../logout.php">
+                    <i class="material-icons" style="color: #c82333;" data-toggle="tooltip" data-placement="top"
+                       title="Deslogar" role="alert" data-toggle="tooltip">power_settings_new</i>
+                </a>
+                <!--            <a href="#">-->
+                <!--                <i class="fa fa-envelope"></i>-->
+                <!--                <span class="badge badge-pill badge-success notification">7</span>-->
+                <!--            </a>-->
+                <!--            <a href="#">-->
+                <!--                <i class="fa fa-cog"></i>-->
+                <!--                <span class="badge-sonar"></span>-->
+                <!--            </a>-->
+                <!--            <a href="#">-->
+                <!--                <i class="fa fa-power-off"></i>-->
+                <!--            </a>-->
+            </div>
+        </nav>
+        <!-- sidebar-wrapper  -->
+        <main class="page-content">
+            <div class="container">
+                </br>
+                <div class="row">
+                    <!--        <p>-->
+                    <!--            --><?php //if ($_SESSION['nivel'] == 99) {
+                    //                echo '<a href="cadastro-projeto/criar-projeto.php" class="btn btn-success">Aceitar Avaliador</a>';
+                    //            }
+                    //            ?>
+                    <!---->
                     <?php
-                    if (isset($codProjeto)) {
 
-                        ?>
-                        <tr>
-                            <th scope="col">Nome do Projeto</th>
-                            <th scope="col">Nome do Orientador</th>
-                            <th scope="col">Curso e Turma</th>
-                            <th scope="col">Nota Total</th>
-                            <th scope="col">Ações</th>
-                        </tr>
-                        <?php
-                    }
+                    include('../../classes/Conexao.class.php');
+                    include('../../classes/ProjetoDAO.class.php');
+                    include('../../classes/UsuarioDAO.class.php');
+
+                    $usuario = new UsuarioDAO();
+                    $usuarioProjeto = new ProjetoDAO();
+
+                    $login = $_SESSION['login'];
+
+                    $codUsuario = $usuario->CodDoUsuario($login);
+                    $_SESSION['codUsuario'] = $codUsuario;
+
+                    // Pegar ID de projetos de usuários
+
+                    $codProjeto = $usuario->recuperarProjetos($codUsuario);
+
                     ?>
-                    </thead>
-                    <tbody>
+                    <!---->
+                    <!--        </p>-->
 
-                    <?php
 
-                    include '../../classes/conectdb.php';
-                    $pdo = conectdb::conectar();
-                    $sql = 'SELECT DISTINCT tb_projeto.codProjeto,tb_projeto.nomeProjeto, tb_projeto.nomeProfessor, tb_projeto.curso,tb_projeto.turma,tb_projeto.projetoAceito, (SELECT (tb_avaliacao.nota_1 + tb_avaliacao.nota_2 + tb_avaliacao.nota_3 + tb_avaliacao.nota_4)) as Total FROM tb_projeto LEFT JOIN tb_avaliacao ON tb_projeto.codProjeto = tb_avaliacao.codProjeto WHERE tb_projeto.projetoAceito = 1 ORDER BY Total Desc;';
+                    <table class="table table-striped">
+                        <div class="projetos">
+                        <h2>Lista Notas dos Projetos</h2>
+                        </div>
+                        <thead>
+                        <?php
+                        if (isset($codProjeto)) {
+
+                            ?>
+                            <tr class="colunas-projetos">
+                                <th scope="col">Nome do Projeto</th>
+                                <th scope="col">Nome do Orientador</th>
+                                <th scope="col">Curso e Turma</th>
+                                <th scope="col">Nota Total</th>
+                                <th scope="col">Ações</th>
+                            </tr>
+                            <?php
+                        }
+                        ?>
+                        </thead>
+                        <tbody>
+
+                        <?php
+
+                        include '../../classes/conectdb.php';
+                        $pdo = conectdb::conectar();
+                        $sql = 'SELECT
+    tb_avaliacao.codProjeto,
+    tb_avaliacao.codUsuario,
+    tb_projeto.nomeProjeto,
+    tb_projeto.nomeProfessor,
+    tb_projeto.curso,
+    tb_projeto.turma,
+    SUM(tb_avaliacao.nota_1) AS nota1,
+    SUM(tb_avaliacao.nota_2) AS nota2,
+    SUM(tb_avaliacao.nota_3) AS nota3,
+    SUM(tb_avaliacao.nota_4) AS nota4,
+    SUM(
+        tb_avaliacao.nota_1 + tb_avaliacao.nota_2 + tb_avaliacao.nota_3 + tb_avaliacao.nota_4
+    ) AS Total
+FROM
+    tb_avaliacao
+LEFT JOIN tb_projeto ON tb_avaliacao.codProjeto = tb_projeto.codProjeto
+GROUP BY
+    tb_avaliacao.codProjeto
+ORDER BY
+    Total
+DESC
+    ;';
 
                         foreach ($pdo->query($sql) as $getProjetos) {
-                        if (isset($codProjeto ) && isset($getProjetos['Total'])) {
-                            echo '<tr id="filterProjeto" class="projetos-admin">';
-                            echo '<td  style="display: none;">' . $getProjetos['codProjeto'] . '</td>'; // get id do projeto deixar com display none
-                            echo '<td >' . $getProjetos['nomeProjeto'] . '</td>';
-                            echo '<td>' . $getProjetos['nomeProfessor'] . '</td>';
-                            echo '<td>' . $getProjetos['curso'] . ' / ' . $getProjetos['turma'] . '</td>';
-                            echo '<td>' . $getProjetos['Total'] . '</td>';
-                            echo '<td width=200>';
-                            echo '<a class="material-icons" data-toggle="tooltip" data-placement="top" title="Informações do Projeto" href="ler-projetos-com-notas.php?codProjeto=' . $getProjetos['codProjeto'] . '">info</a>';
-                            echo ' ';
+                            if (isset($codProjeto) && isset($getProjetos['Total'])) {
+                                echo '<tr id="filterProjeto" class="projetos-admin">';
+                                echo '<td  style="display: none;">' . $getProjetos['codProjeto'] . '</td>'; // get id do projeto deixar com display none
+                                echo '<td >' . $getProjetos['nomeProjeto'] . '</td>';
+                                echo '<td>' . $getProjetos['nomeProfessor'] . '</td>';
+                                echo '<td>' . $getProjetos['curso'] . ' / ' . $getProjetos['turma'] . '</td>';
+                                echo '<td>' . $getProjetos['Total'] . '</td>';
+                                echo '<td width=200>';
+                                echo '<a class="material-icons" data-toggle="tooltip" data-placement="top" title="Informações do Projeto" href="ler-projetos-com-notas.php?codProjeto=' . $getProjetos['codProjeto'] . '">info</a>';
+                                echo ' ';
+                            }
                         }
-                    }
 
-                    if (!isset($codProjeto)) {
-                        echo '<div class="jumbotron">';
-                        echo '<h2>Não existe projeto</h2>';
-                    }
-                    conectdb::desconectar();
-                    ?>
-                    </tbody>
-                </table>
+                        if (!isset($codProjeto)) {
+                            echo '<div class="jumbotron">';
+                            echo '<h2>Não existe projeto</h2>';
+                        }
+                        conectdb::desconectar();
+                        ?>
+                        </tbody>
+                    </table>
+                </div>
+                <!--            <div>-->
+                <!--    Ajuster img de selo apos subir para produção-->
+                <!--            </div>-->
             </div>
-            <!--            <div>-->
-            <!--    Ajuster img de selo apos subir para produção-->
-            <!--            </div>-->
-        </div>
-    </main>
-</div>
+        </main>
+    </div>
 
     <!-- page-wrapper -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -402,4 +456,5 @@ endif;
             crossorigin="anonymous"></script>
 
 </body>
+<div style="margin-top: 10%;" id="footer"></div>
 </html>

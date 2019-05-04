@@ -93,7 +93,8 @@ endif;
 <body>
 <div class="page-wrapper chiller-theme toggled">
 
-    <a id="show-sidebar" class="btn btn-sm btn-dark" href="#" style="height: 100% !important;">
+    <a id="sh<div class="page-wrapper chiller-theme toggled">
+    <a id="show-sidebar" class="btn btn-sm btn-dark" href="#">
         <i class="material-icons">
             menu
         </i>
@@ -110,9 +111,9 @@ endif;
             </div>
             <div class="sidebar-header">
                 <div class="user-pic">
-                    <!--                    <img class="img-responsive img-rounded"-->
-                    <!--                         src="https://raw.githubusercontent.com/azouaoui-med/pro-sidebar-template/gh-pages/src/img/user.jpg"-->
-                    <!--                         alt="User picture">-->
+                    <img class="img-responsive img-rounded"
+                         src="../images/User.png"
+                         alt="User picture">
                 </div>
                 <div class="user-info">
           <span class="user-name">André
@@ -169,6 +170,30 @@ endif;
                             </ul>
                         </div>
                     </li>
+
+                    <li class="sidebar-dropdown">
+                        <a href="#">
+                            <i class="fa fa-shopping-cart"></i>
+                            <span>Resultados de Projetos</span>
+                            <!--                            <span class="badge badge-pill badge-danger">3</span>-->
+                        </a>
+                        <div class="sidebar-submenu">
+                            <ul>
+                                <li>
+                                    <a href="projeto-admin/resultado-avaliacoes.php">Listar Projetos Avaliados
+
+                                    </a>
+                                    <!--                                </li>-->
+                                    <!--                                <li>-->
+                                    <!--                                    <a href="#">Orders</a>-->
+                                    <!--                                </li>-->
+                                    <!--                                <li>-->
+                                    <!--                                    <a href="#">Credit cart</a>-->
+                                    <!--                                </li>-->
+                            </ul>
+                        </div>
+                    </li>
+
                     <li class="sidebar-dropdown">
                         <a href="#">
                             <i class="fa fa-shopping-cart"></i>
@@ -330,9 +355,11 @@ endif;
             <!--        </p>-->
 
             <table class="table table-striped">
-                <h2>Lista de Usuarios</h2>
+                <div class="projetos">
+                    <h2>Lista de Usuários</h2>
+                </div>
                 <thead>
-                <tr>
+                <tr class="colunas-projetos">
                     <th scope="col">Nome do Usuário</th>
                     <th scope="col">CPF</th>
                     <th scope="col">Email</th>
@@ -347,7 +374,7 @@ endif;
                 $sql = 'SELECT codUsuario,nomeUsuario,cpfUsuario,emailUsuario,nivelUsuario,avaliador from tb_usuario where nivelUsuario <= 50 ORDER BY avaliador DESC ';
 
                 foreach ($pdo->query($sql) as $getUsuarios) {
-                    echo '<tr>';
+                    echo '<tr class="projetos-admin">';
                     echo '<td  style="display: none;">' . $getUsuarios['codUsuario'] . '</td>'; // get id do usuario
                     echo '<td >' . $getUsuarios['nomeUsuario'] . '</td>';
                     echo '<td>' . $getUsuarios['cpfUsuario'] . '</td>';
@@ -359,7 +386,7 @@ endif;
                         echo '<td>Avaliador</td>';
                     }
 
-                    echo '<td width=350>';
+                    echo '<td width=200>';
 //                echo '<a class="btn btn-info" data-toggle="tooltip" data-placement="top" title="Informações do Projeto" href="ler-projeto.php?codProjeto=' . $getProjetos['codProjeto'] . '">Info</a>';
 //                echo ' ';
 //                if ($_SESSION['nivel'] == 99 && $getProjetos['projetoAceito'] == 0) {

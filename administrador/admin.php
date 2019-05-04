@@ -69,6 +69,11 @@ endif;
     });
 </script>
 
+<script>
+    $(function () {
+        $("#footer").load("../components/footer.php");
+    });
+</script>
 
 <!------ Include the above in your HEAD tag ---------->
 
@@ -78,6 +83,7 @@ endif;
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" href="../components/css/footer.css"/>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description"
           content="Responsive sidebar template with sliding effect and dropdown menu based on bootstrap 3">
@@ -94,7 +100,7 @@ endif;
 
 <body>
 <div class="page-wrapper chiller-theme toggled">
-    <a id="show-sidebar" class="btn btn-sm btn-dark" href="#" style="height: 100% !important;">
+    <a id="show-sidebar" class="btn btn-sm btn-dark" href="#">
         <i class="material-icons">
             menu
         </i>
@@ -111,9 +117,9 @@ endif;
             </div>
             <div class="sidebar-header">
                 <div class="user-pic">
-                                        <img class="img-responsive img-rounded"
-                                             src="../images/User.png"
-                                             alt="User picture">
+                    <img class="img-responsive img-rounded"
+                         src="../images/User.png"
+                         alt="User picture">
                 </div>
                 <div class="user-info">
           <span class="user-name">André
@@ -156,7 +162,8 @@ endif;
                         <div class="sidebar-submenu">
                             <ul>
                                 <li>
-                                    <a <?php echo 'href="editar-perfil.php?codUsuario=' . $codUsuario . '"' ?> >Editar Perfil
+                                    <a <?php echo 'href="editar-perfil.php?codUsuario=' . $codUsuario . '"' ?> >Editar
+                                        Perfil
                                         <span class="badge badge-pill badge-success">Pro</span>
                                     </a>
                                 </li>
@@ -307,7 +314,8 @@ endif;
         <!-- sidebar-content  -->
         <div class="sidebar-footer">
             <a href="../logout.php">
-                <i class="material-icons" style="color: #c82333;" data-toggle="tooltip" data-placement="top" title="Deslogar" role="alert" data-toggle="tooltip">power_settings_new</i>
+                <i class="material-icons" style="color: #c82333;" data-toggle="tooltip" data-placement="top"
+                   title="Deslogar" role="alert" data-toggle="tooltip">power_settings_new</i>
             </a>
             <!--            <a href="#">-->
             <!--                <i class="fa fa-envelope"></i>-->
@@ -327,117 +335,125 @@ endif;
         <div class="container">
             </br>
             <div class="row">
-                <!--        <p>-->
-                <!--            --><?php //if ($_SESSION['nivel'] == 99) {
-                //                echo '<a href="cadastro-projeto/criar-projeto.php" class="btn btn-success">Aceitar Avaliador</a>';
-                //            }
-                //            ?>
-                <!---->
-                <?php
-
-                include('../classes/Conexao.class.php');
-                include('../classes/ProjetoDAO.class.php');
-                include('../classes/UsuarioDAO.class.php');
-
-                $usuario = new UsuarioDAO();
-                $usuarioProjeto = new ProjetoDAO();
-
-                $login = $_SESSION['login'];
-
-                $codUsuario = $usuario->CodDoUsuario($login);
-                $_SESSION['codUsuario'] = $codUsuario;
-
-                // Pegar ID de projetos de usuários
-
-                $codProjeto = $usuario->recuperarProjetos($codUsuario);
-
-                ?>
-                <!---->
-                <!--        </p>-->
-
-
-                <table class="table table-striped">
-                    <h2>Lista de Projetos</h2>
-                    <thead>
+                <div class="col">
+                    <!--        <p>-->
+                    <!--            --><?php //if ($_SESSION['nivel'] == 99) {
+                    //                echo '<a href="cadastro-projeto/criar-projeto.php" class="btn btn-success">Aceitar Avaliador</a>';
+                    //            }
+                    //            ?>
+                    <!---->
                     <?php
-                    if (isset($codProjeto)) {
 
-                        ?>
-                        <tr>
-                            <th scope="col">Nome do Projeto</th>
-                            <th scope="col">Nome do Orientador</th>
-                            <th scope="col">Curso e Turma</th>
-                            <th scope="col">Ações</th>
-                        </tr>
-                        <?php
-                    }
+                    include('../classes/Conexao.class.php');
+                    include('../classes/ProjetoDAO.class.php');
+                    include('../classes/UsuarioDAO.class.php');
+
+                    $usuario = new UsuarioDAO();
+                    $usuarioProjeto = new ProjetoDAO();
+
+                    $login = $_SESSION['login'];
+
+                    $codUsuario = $usuario->CodDoUsuario($login);
+                    $_SESSION['codUsuario'] = $codUsuario;
+
+                    // Pegar ID de projetos de usuários
+
+                    $codProjeto = $usuario->recuperarProjetos($codUsuario);
+
                     ?>
-                    </thead>
-                    <tbody>
+                    <!---->
+                    <!--        </p>-->
 
-                    <?php
 
-                    include '../classes/conectdb.php';
-                    $pdo = conectdb::conectar();
-                    $sql = 'SELECT codUsuario,codProjeto,nomeProjeto,nomeProfessor,objetivo,resumo,curso,turma,projetoAceito FROM tb_projeto ORDER BY projetoAceito DESC ';
-
-                    foreach ($pdo->query($sql) as $getProjetos) {
+                    <table class="table table-striped">
+                        <div class="projetos">
+                        <h2>Lista de Projetos</h2>
+                        </div>
+                        <thead>
+                        <?php
                         if (isset($codProjeto)) {
-                            echo '<tr id="filterProjeto" class="projetos-admin">';
-                            echo '<td  style="display: none;">' . $getProjetos['codProjeto'] . '</td>'; // get id do projeto deixar com display none
-                            echo '<td >' . $getProjetos['nomeProjeto'] . '</td>';
-                            echo '<td>' . $getProjetos['nomeProfessor'] . '</td>';
-                            echo '<td>' . $getProjetos['curso'] . ' / ' . $getProjetos['turma'] . '</td>';
-                            echo '<td width=200>';
-                            echo '<a class="material-icons" data-toggle="tooltip" data-placement="top" title="Informações do Projeto" href="projeto-admin/ler-projeto.php?codProjeto=' . $getProjetos['codProjeto'] . '">info</a>';
-                            echo ' ';
-                            if ($_SESSION['nivel'] == 100) { // RN: Administrador não pode editar projeto
-                                echo '<a class="btn btn-warning" data-toggle="tooltip" data-placement="top" title="Após ser aceito, não poderá mais editar" href="editar.php?id=' . $getProjetos['codProjeto'] . '">Editar</a>';
+
+                            ?>
+                            <tr class="colunas-projetos">
+                                <th scope="col">Nome do Projeto</th>
+                                <th scope="col">Nome do Orientador</th>
+                                <th scope="col">Curso e Turma</th>
+                                <th scope="col">Ações</th>
+                            </tr>
+                            <?php
+                        }
+                        ?>
+                        </thead>
+                        <tbody>
+
+                        <?php
+
+                        include '../classes/conectdb.php';
+                        $pdo = conectdb::conectar();
+                        $sql = 'SELECT codUsuario,codProjeto,nomeProjeto,nomeProfessor,objetivo,resumo,curso,turma,projetoAceito FROM tb_projeto ORDER BY projetoAceito DESC ';
+
+                        foreach ($pdo->query($sql) as $getProjetos) {
+                            if (isset($codProjeto)) {
+                                echo '<tr id="filterProjeto" class="projetos-admin">';
+                                echo '<td  style="display: none;">' . $getProjetos['codProjeto'] . '</td>'; // get id do projeto deixar com display none
+                                echo '<td >' . $getProjetos['nomeProjeto'] . '</td>';
+                                echo '<td>' . $getProjetos['nomeProfessor'] . '</td>';
+                                echo '<td>' . $getProjetos['curso'] . ' / ' . $getProjetos['turma'] . '</td>';
+                                echo '<td width=200>';
+                                echo '<a class="material-icons" data-toggle="tooltip" data-placement="top" title="Informações do Projeto" href="projeto-admin/ler-projeto.php?codProjeto=' . $getProjetos['codProjeto'] . '">info</a>';
                                 echo ' ';
-                            }
-                            if ($_SESSION['nivel'] == 99 && $getProjetos['projetoAceito'] == 1) {
-                                echo '<span class="material-icons" style="color: forestgreen;  cursor: pointer;" data-toggle="tooltip" data-placement="top" title="Aprovado" role="alert" data-toggle="tooltip">check_circle</span>';
-                                echo ' ';
-                            }
-                            if ($_SESSION['nivel'] == 99 && $getProjetos['projetoAceito'] == 0) {
-                                echo '<a class="material-icons" style="color: forestgreen;" data-toggle="tooltip" data-placement="top" title="Aprovar Projeto" href="projeto-admin/aprovar.php?codProjeto=' . $getProjetos['codProjeto'] . '">check_circle_outline</a>';
-                                echo ' ';
-                            }
-                            if ($_SESSION['nivel'] == 99 && $getProjetos['projetoAceito'] == 0) {
-                                echo '<span class="material-icons" style="color: #c82333;" data-toggle="tooltip" data-placement="top" title="Desaprovado" role="alert" data-toggle="tooltip">cancel</span>';
-                                echo ' ';
-                            }
-                            if ($_SESSION['nivel'] == 99 && $getProjetos['projetoAceito'] == 1) {
-                                echo '<a class="material-icons" style="color: #c82333; background-color: color: #c82333;" data-toggle="tooltip" data-placement="top" title="Desaprovadar Projeto" href="projeto-admin/desaprovar.php?codProjeto=' . $getProjetos['codProjeto'] . '">check_circle_outline</a>';
-                                echo '</td>';
-                                echo '</tr>';
+                                if ($_SESSION['nivel'] == 100) { // RN: Administrador não pode editar projeto
+                                    echo '<a class="btn btn-warning" data-toggle="tooltip" data-placement="top" title="Após ser aceito, não poderá mais editar" href="editar.php?id=' . $getProjetos['codProjeto'] . '">Editar</a>';
+                                    echo ' ';
+                                }
+                                if ($_SESSION['nivel'] == 99 && $getProjetos['projetoAceito'] == 1) {
+                                    echo '<span class="material-icons" style="color: forestgreen;  cursor: pointer;" data-toggle="tooltip" data-placement="top" title="Aprovado" role="alert" data-toggle="tooltip">check_circle</span>';
+                                    echo ' ';
+                                }
+                                if ($_SESSION['nivel'] == 99 && $getProjetos['projetoAceito'] == 0) {
+                                    echo '<a class="material-icons" style="color: forestgreen;" data-toggle="tooltip" data-placement="top" title="Aprovar Projeto" href="projeto-admin/aprovar.php?codProjeto=' . $getProjetos['codProjeto'] . '">check_circle_outline</a>';
+                                    echo ' ';
+                                }
+                                if ($_SESSION['nivel'] == 99 && $getProjetos['projetoAceito'] == 0) {
+                                    echo '<span class="material-icons" style="color: #c82333;" data-toggle="tooltip" data-placement="top" title="Desaprovado" role="alert" data-toggle="tooltip">cancel</span>';
+                                    echo ' ';
+                                }
+                                if ($_SESSION['nivel'] == 99 && $getProjetos['projetoAceito'] == 1) {
+                                    echo '<a class="material-icons" style="color: #c82333; background-color: color: #c82333;" data-toggle="tooltip" data-placement="top" title="Desaprovadar Projeto" href="projeto-admin/desaprovar.php?codProjeto=' . $getProjetos['codProjeto'] . '">check_circle_outline</a>';
+                                    echo '</td>';
+                                    echo '</tr>';
+                                }
                             }
                         }
-                    }
 
-                    if (!isset($codProjeto)) {
-                        echo '<div class="jumbotron">';
-                        echo '<h2>Não existe projeto</h2>';
-                    }
-                    conectdb::desconectar();
-                    ?>
-                    </tbody>
-                </table>
+                        if (!isset($codProjeto)) {
+                            echo '<div class="jumbotron">';
+                            echo '<h2>Não existe projeto</h2>';
+                        }
+                        conectdb::desconectar();
+                        ?>
+                        </tbody>
+                    </table>
+                </div>
             </div>
-<!--            <div>-->
-                <!--    Ajuster img de selo apos subir para produção-->
-<!--            </div>-->
+            <!--            <div>-->
+            <!--    Ajuster img de selo apos subir para produção-->
+            <!--            </div>-->
         </div>
     </main>
 
-        <!-- page-wrapper -->
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
-                integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-                crossorigin="anonymous"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
-                integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-                crossorigin="anonymous"></script>
+    <!-- page-wrapper -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+            integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+            crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+            integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+            crossorigin="anonymous"></script>
 
 </body>
+
+<div style="margin-top: 10%;" id="footer"></div>
+
+
 </html>
