@@ -92,16 +92,16 @@ endif;
 
 <body>
 <div class="page-wrapper chiller-theme toggled">
-
-    <a id="show-sidebar" class="btn btn-sm btn-dark" href="#" style="height: 100% !important;">
+    <a id="show-sidebar" class="btn btn-sm btn-dark" href="#">
         <i class="material-icons">
             menu
         </i>
     </a>
+
     <nav id="sidebar" class="sidebar-wrapper">
         <div class="sidebar-content">
             <div class="sidebar-brand">
-                <a href="../admin.php">Cambury PCA</a>
+                <a href="#">Cambury PCA</a>
                 <div id="close-sidebar">
                     <i class="material-icons">
                         keyboard_arrow_left
@@ -110,9 +110,9 @@ endif;
             </div>
             <div class="sidebar-header">
                 <div class="user-pic">
-                    <!--                    <img class="img-responsive img-rounded"-->
-                    <!--                         src="https://raw.githubusercontent.com/azouaoui-med/pro-sidebar-template/gh-pages/src/img/user.jpg"-->
-                    <!--                         alt="User picture">-->
+                    <img class="img-responsive img-rounded"
+                         src="../../images/User.png"
+                         alt="User picture">
                 </div>
                 <div class="user-info">
           <span class="user-name">André
@@ -169,6 +169,30 @@ endif;
                             </ul>
                         </div>
                     </li>
+
+                    <li class="sidebar-dropdown">
+                        <a href="#">
+                            <i class="fa fa-shopping-cart"></i>
+                            <span>Resultados de Projetos</span>
+                            <!--                            <span class="badge badge-pill badge-danger">3</span>-->
+                        </a>
+                        <div class="sidebar-submenu">
+                            <ul>
+                                <li>
+                                    <a href="../projeto-admin/resultado-avaliacoes.php">Listar Projetos Avaliados
+
+                                    </a>
+                                    <!--                                </li>-->
+                                    <!--                                <li>-->
+                                    <!--                                    <a href="#">Orders</a>-->
+                                    <!--                                </li>-->
+                                    <!--                                <li>-->
+                                    <!--                                    <a href="#">Credit cart</a>-->
+                                    <!--                                </li>-->
+                            </ul>
+                        </div>
+                    </li>
+
                     <li class="sidebar-dropdown">
                         <a href="#">
                             <i class="fa fa-shopping-cart"></i>
@@ -202,7 +226,7 @@ endif;
                                     <a href="../usuario-avaliador/validar-usuario-avaliador.php">Aceitar Avaliador</a>
                                 </li>
                                 <li>
-                                    <a href="#">Listar Avaliadores</a>
+                                    <a href="../usuario-avaliador/listar-avaliadores.php">Listar Avaliadores</a>
                                 </li>
                                 <!--                                <li>-->
                                 <!--                                    <a href="#">Tables</a>-->
