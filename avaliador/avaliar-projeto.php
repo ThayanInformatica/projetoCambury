@@ -88,19 +88,6 @@ if (null == $codProjeto) {
     $projeto = $q->fetch(PDO::FETCH_ASSOC);
     conectdb::desconectar();
 }
-
-
-include('../classes/Conexao.class.php');
-include('../classes/ProjetoDAO.class.php');
-
-$usuarioProjeto = new ProjetoDAO();
-
-$validarSeProjetoTemNota = $usuarioProjeto->recuperarProjetosAvaliados($codProjeto);
-
-if (isset($validarSeProjetoTemNota)) {
-    header("Location: ../usuario-logado.php");
-}
-
 ?>
 
 
