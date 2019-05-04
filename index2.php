@@ -55,6 +55,7 @@
         
         <div class="container-fluid">
             <div class="d-flex align-items-center">
+
             <img id="cambury-logo" src="components/img/logo-cambury.png" alt="Logo cambury" >
                 <div class="site-logo mr-auto w-25"><a href="index.html">Cambury</a></div>
 
