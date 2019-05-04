@@ -45,6 +45,7 @@ if (!empty($_POST)) {
     <meta charset="utf-8">
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="../css/admin-page.css"/>
+    <link rel="stylesheet" href="../css/desaprovarProjeto.css"/>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
@@ -71,11 +72,22 @@ if (!empty($_POST)) {
     </script>
 
     <title>Projeto | Faculdades Cambury</title>
+
+    <script type="text/javascript">
+
+        $(document).ready(function () {
+            $('#myModal').modal('show');
+        })
+        </script>
+
 </head>
 
 <body>
 <div id="header"></div>
-<div id="menu"></div>
+
+
+<div class="modal fade" id="myModal" role="dialog">
+        <div class="modal-dialog">
 
 <div class="modals-page">
     <div class="container">
@@ -85,7 +97,7 @@ if (!empty($_POST)) {
             </div>
             <form class="form-horizontal" action="#" method="post">
                 <input type="hidden" name="codProjeto" value="<?php echo $codProjeto; ?>"/>
-                <div class="alert alert-danger"> Deseja desaprovar o projeto?
+                <div class="alert alert-danger"> Realmente deseja desaprovar o seu projeto ?
                 </div>
                 <div class="form actions">
                     <button type="submit" class="btn btn-danger">Sim</button>
@@ -95,7 +107,6 @@ if (!empty($_POST)) {
         </div>
     </div>
 </div>
-<div id="footer"></div>
 </body>
 
 </html>
