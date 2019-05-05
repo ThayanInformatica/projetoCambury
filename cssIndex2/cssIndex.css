@@ -3,4 +3,19 @@
     margin-right: 10px !important;
 }
 
+#Cadastrar{
+    margin-left: 40%;
+   
+}
+@media (max-width: 990px){
 
+    #Cadastrar{
+        margin-left: 8%;
+        margin-top: 30%;
+    }
+}
+
+
+.from .Cadastrar{
+    margin-top: 30%;
+}

@@ -92,9 +92,9 @@
                             <div class="col-lg-6 mb-4">
                                 <h1  data-aos="fade-up" data-aos-delay="100"> Resumo   </h1>
                                 <p class="mb-4"  data-aos="fade-up" data-aos-delay="200">Este projeto veio para facilitar o processo de avaliação de projetos PCA,
-                                 com o intuito de deixar tudo mais facil e rapido. Ele tem um sistema de avaliação feito em php , Bootstrap , JavaScript. </p>
+                                 com o intuito de deixar tudo mais facil e rapido.</p>
 
-                                 
+
                             </div>
 
                             <div class="col-lg-5 ml-auto" data-aos="fade-up" data-aos-delay="500">
@@ -109,7 +109,11 @@
                                   
                                     <div class="form-group">
                                         <input type="submit" class="btn btn-primary btn-pill" value="Enviar">
-                                    </div>
+                                        <a  href="cadastro-usuario.php" id="Cadastrar">Cadastre-se</a>
+                                    </div>           
+                                    
+                                   
+                                
                                 </form>
                             </div>
                         </div>
