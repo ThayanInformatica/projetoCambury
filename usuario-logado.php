@@ -72,7 +72,6 @@ endif;
     });
 </script>
 
-
 <!------ Include the above in your HEAD tag ---------->
 
 <!DOCTYPE html>
@@ -84,15 +83,21 @@ endif;
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description"
           content="Responsive sidebar template with sliding effect and dropdown menu based on bootstrap 3">
-    <title>Administrador | Cambury</title>
+    <title>Bem-Vindo | Faculdades Cambury</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
           integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
           crossorigin="anonymous">
     <link href="administrador/css/all.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
           rel="stylesheet">
-    <link href="../../components/css/footer.css">
+    <link href="components/css/footer.css">
     <link href="https://fonts.googleapis.com/css?family=Marcellus+SC|Prompt|Rufina" rel="stylesheet">
+
+    <script>
+        $(function () {
+            $("#footer").load("components/footer.php");
+        });
+    </script>
 
 </head>
 
@@ -463,7 +468,7 @@ DESC;';
                             echo '
                 <td width=300>';
                             if ($ProjetosCheck == false) {
-                                echo '<a class="material-icons" style="color: #33B0FF;" data-toggle="tooltip" data-placement="top" title="Avaliar Projeto" href="avaliador/avaliar-projeto.php?codProjeto=' . $getProjeto['codProjeto'] . '#avaliar">check_circle_outline</a>';
+                                echo '<a class="material-icons" style="color: #33B0FF;" data-toggle="tooltip" data-placement="top" title="Avaliar Projeto" href="avaliador/avaliar-projeto.php?codProjeto=' . $getProjeto['codProjeto'] . '">check_circle_outline</a>';
                             }
                             echo ' ';
 
@@ -481,6 +486,30 @@ DESC;';
 </div>
 
 </main>
+
+<div>
+    <!--    Ajuster img de selo apos subir para produção-->
+    <div class="barra-footer" style="  margin-top: 3%;
+  text-align: center;
+  padding-top: 20px;
+  background-color: #132d3f;
+  height: 185px;
+  color: #FFFFFF;
+  font-family: 'Open Sans','Arial';">
+        <img src="http://localhost/projeto/components/img/selos.png" alt="Selos Cambury" style="  width: 300px;
+  margin: 40px 0 0 0;" class="selos_footer">
+    </div>
+    <div class="direitos-reservados" style="  background: black;
+  text-align: center;
+  height: 30px;
+  color: #FFFFFF;
+  font-family: 'Open Sans','Arial';">
+        <h1 style="  font-weight: 500;
+  margin: 0 0 0 0;
+  padding-top: 8px;
+  font-size: 12px;
+  color: #999;">Copyright © 2019 Faculdades Cambury - Todos os direitos reservados</h1>
+    </div>
 </div>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -491,5 +520,7 @@ DESC;';
         integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
         crossorigin="anonymous"></script>
 </body>
+
+
 
 </html>
