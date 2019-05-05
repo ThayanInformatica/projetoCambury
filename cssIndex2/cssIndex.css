@@ -3,4 +3,13 @@
     margin-right: 10px !important;
 }
 
+#btn-cadastra {
+    position: relative;
+    padding: 10px 15px;
+}
+
+#btn-login {
+    padding: 14px 20px;
+    margin-right: 7px;
+}
 

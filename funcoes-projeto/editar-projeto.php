@@ -191,7 +191,7 @@ if (!empty($_POST)) {
                     <div id="editandoCursos" >
           
                     <label>Curso:</label>
-                        <select class="form-control " name="cursoProjeto">
+                        <select class="form-control " name="curso">
                             <option value="TI">GESTÃO DA TECNOLOGIA DA INFORMAÇÃO</option>
                             <option value="CIÊNCIAS CONTÁBEIS">CIÊNCIAS CONTÁBEIS</option>
                             <option value="ADMINISTRAÇÃO">ADMINISTRAÇÃO</option>
@@ -204,7 +204,7 @@ if (!empty($_POST)) {
                   
                    <div class="editandoTurma">
                     <label>Turma:</label>
-                    <select class="form-control" name="turmaProjeto" >
+                    <select class="form-control" name="turma" >
                     <option value="01">01</option>
                     <option value="02">02</option>
                     <option value="03">03</option>

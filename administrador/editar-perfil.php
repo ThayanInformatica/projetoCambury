@@ -85,8 +85,7 @@ if (!empty($_POST)) {
 
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script>
-    jQuery(function ($) {
+
 
 <head>
     <meta charset="utf-8">
@@ -94,7 +93,10 @@ if (!empty($_POST)) {
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="../administrador/css/edita-perfil-adm.css"/>
-        $(".sidebar-dropdown > a").click(function () {
+       
+    <script>
+    jQuery(function ($) {
+    $(".sidebar-dropdown > a").click(function () {
             $(".sidebar-submenu").slideUp(200);
             if (
                 $(this)

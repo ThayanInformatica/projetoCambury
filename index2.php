@@ -108,9 +108,12 @@
                                     </div>
                                   
                                     <div class="form-group">
-                                        <input type="submit" class="btn btn-primary btn-pill" value="Enviar">
-                                        <a  href="cadastro-usuario.php" id="Cadastrar">Cadastre-se</a>
-                                    </div>        
+                                        <input type="submit" id="btn-login" class="btn btn-primary btn-pill" value="Enviar">
+                                        <!-- <a  href="cadastro-usuario.php" id="Cadastrar">Cadastre-se</a> -->
+                                        <a id="btn-cadastra" href="cadastro-usuario.php" class="btn btn-primary btn-pill">Cadastrar
+                                            </a>
+                                    </div>  
+                                      
                                    
                                 
 

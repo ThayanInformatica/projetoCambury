@@ -93,6 +93,7 @@ if (null == $codProjeto) {
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script>
+
     jQuery(function ($) {
 
         $(".sidebar-dropdown > a").click(function () {
@@ -134,6 +135,22 @@ if (null == $codProjeto) {
     });
 
 </script>
+
+<script>
+        function alteraPonto(valorInput) {
+            $(valorInput).val(valorInput.val().replace(",", "."));
+        }
+    </script>
+
+    <script>
+        function maxValor(valorInput) {
+            $(valorInput).on('keyup', function (event) {
+                const valorMaximo = 10;
+                if (event.target.value > valorMaximo)
+                    return event.target.value = valorMaximo;
+            });
+        }
+    </script>
 
 <script>
     $(document).ready(function () { //Função para que o script comece quando a página carregar
