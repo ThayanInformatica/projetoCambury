@@ -23,7 +23,8 @@ CREATE TABLE IF NOT EXISTS `tb_avaliacao` (
   `nota_1` real NOT NULL,
   `nota_2` real NOT NULL,
   `nota_3` real NOT NULL,
-  `nota_4` real NOT NULL
+  `nota_4` real NOT NULL,
+  `user_avaliou` varchar(2) null
 ) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=latin1;
 
 --

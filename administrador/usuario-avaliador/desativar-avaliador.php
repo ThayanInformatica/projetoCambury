@@ -44,6 +44,8 @@ if (!empty($_POST)) {
 
 <head>
     <meta charset="utf-8">
+    <title>Desativar Avaliador | Faculdades Cambury</title>
+
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="../css/admin-page.css"/>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">

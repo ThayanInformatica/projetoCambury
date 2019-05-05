@@ -41,7 +41,7 @@ if (!empty($_POST)) {
 
 <head>
     <meta charset="UTF-8">
-    <title>Projeto | Faculdades Cambury</title>
+    <title>Aprovar Projeto | Faculdades Cambury</title>
 
     <link rel="stylesheet" href="../css/admin-page.css"/>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">

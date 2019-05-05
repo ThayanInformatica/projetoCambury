@@ -72,7 +72,7 @@ endif;
 <script>
     $(function () {
         $("#footer").load("../../components/footer.php");
-    });
+});
 </script>
 
 
@@ -87,7 +87,7 @@ endif;
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description"
           content="Responsive sidebar template with sliding effect and dropdown menu based on bootstrap 3">
-    <title>Administrador | Cambury</title>
+    <title>Resultado Projetos | Cambury</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
           integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
           crossorigin="anonymous">
@@ -456,5 +456,5 @@ DESC
             crossorigin="anonymous"></script>
 
 </body>
-<div style="margin-top: 10%;" id="footer"></div>
+<div style="margin-top: 14%;" id="footer"></div>
 </html>

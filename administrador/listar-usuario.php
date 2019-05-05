@@ -71,6 +71,12 @@ endif;
     });
 </script>
 
+<script>
+    $(function () {
+        $("#footer").load("../components/footer.php");
+    });
+</script>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -80,7 +86,8 @@ endif;
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description"
           content="Responsive sidebar template with sliding effect and dropdown menu based on bootstrap 3">
-    <title>Sidebar template</title>
+    <title>Listar Usuários | Faculdades Cambury</title>
+    <link rel="stylesheet" href="../components/css/footer.css"/>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
           integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
           crossorigin="anonymous">
@@ -89,6 +96,7 @@ endif;
           rel="stylesheet">
 
 </head>
+
 
 <body>
 <div class="page-wrapper chiller-theme toggled">
@@ -419,5 +427,7 @@ endif;
             crossorigin="anonymous"></script>
 </body>
 </body>
+
+<div style="margin-top: 10%;" id="footer"></div>
 
 </html>

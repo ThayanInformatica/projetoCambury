@@ -42,6 +42,9 @@ if (!empty($_POST)) {
 <html lang="pt-br">
 
 <head>
+
+    <title>Desativar Projeto | Faculdades Cambury</title>
+
     <meta charset="utf-8">
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="../css/admin-page.css"/>

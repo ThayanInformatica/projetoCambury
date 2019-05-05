@@ -463,12 +463,12 @@ DESC;';
                             echo '
                 <td width=300>';
                             if ($ProjetosCheck == false) {
-                                echo '<a class="btn btn-primary" href="avaliador/avaliar-projeto.php?codProjeto=' . $getProjeto['codProjeto'] . '#avaliar">Avaliar Projeto</a>';
+                                echo '<a class="material-icons" style="color: #33B0FF;" data-toggle="tooltip" data-placement="top" title="Avaliar Projeto" href="avaliador/avaliar-projeto.php?codProjeto=' . $getProjeto['codProjeto'] . '#avaliar">check_circle_outline</a>';
                             }
                             echo ' ';
 
                             if ($ProjetosCheck == true) {
-                                echo '<span class="alert alert-success glyphicon glyphicon-ok" role="alert" data-toggle="tooltip">Já Avaliado</span>';
+                                echo '<span class="material-icons" style="color: #33B0FF;" data-toggle="tooltip" data-placement="top" title="Avaliado !" >check_circle</span>';
                             }
                         }
                     }
