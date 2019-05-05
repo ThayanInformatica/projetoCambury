@@ -88,6 +88,12 @@ if (!empty($_POST)) {
 <script>
     jQuery(function ($) {
 
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="../administrador/css/edita-perfil-adm.css"/>
         $(".sidebar-dropdown > a").click(function () {
             $(".sidebar-submenu").slideUp(200);
             if (
@@ -165,6 +171,8 @@ if (!empty($_POST)) {
 </head>
 
 <body>
+<div id="header"></div>
+
 <div style="font-family: 'Rufina', serif;">
     <div class="page-wrapper chiller-theme toggled">
         <a id="show-sidebar" class="btn btn-sm btn-dark" href="#" style="height: 100% !important;">
@@ -386,7 +394,7 @@ if (!empty($_POST)) {
                       method="post">
 
                     <div class="control-group <?php echo !empty($login) ? 'error' : ''; ?>">
-                        <label class="control-label">Login</label>
+                        <label class="control-label">Login:</label>
                         <div class="controls">
                             <input name="login" id="login" class="form-control" size="50" type="text"
                                    value="<?php echo !empty($login) ? $login : ''; ?>" readonly="readonly">
@@ -394,7 +402,7 @@ if (!empty($_POST)) {
                     </div>
 
                     <div class="control-group <?php echo !empty($nome) ? 'error' : ''; ?>">
-                        <label class="control-label">Nome do Usuário</label>
+                        <label class="control-label">Nome do Usuário:</label>
                         <div class="controls">
                             <input name="nome" class="form-control" size="80" type="text" placeholder="Nome do Usuário"
                                    value="<?php echo !empty($nome) ? $nome : ''; ?>" minlength="5">
@@ -407,7 +415,7 @@ if (!empty($_POST)) {
                     </div>
 
                     <div class="control-group <?php echo !empty($senha) ? 'error' : ''; ?>">
-                        <label class="control-label">Senha</label>
+                        <label class="control-label">Senha:</label>
                         <div class="controls">
                             <input name="senha" class="form-control" size="30" type="password"
                                    placeholder="Digite sua senha"
@@ -420,7 +428,7 @@ if (!empty($_POST)) {
                     </div>
 
                     <div class="control-group <?php echo !empty($rep_senha) ? 'error' : ''; ?>">
-                        <label class="control-label">Repetir Senha</label>
+                        <label class="control-label">Repetir Senha:</label>
                         <div class="controls">
                             <input name="rep_senha" class="form-control" size="40" type="password"
                                    placeholder="Repita a senha"
@@ -433,7 +441,7 @@ if (!empty($_POST)) {
                     </div>
 
                     <div class="control-group <?php echo !empty($cpf) ? 'error' : ''; ?>">
-                        <label class="control-label">CPF</label>
+                        <label class="control-label">CPF:</label>
                         <div class="controls">
                             <input name="cpf" class="form-control" size="14" type="text"
                                    value="<?php echo !empty($cpf) ? $cpf : ''; ?>" readonly="readonly">
@@ -441,7 +449,7 @@ if (!empty($_POST)) {
                     </div>
 
                     <div class="control-group <?php echo !empty($email) ? 'error' : ''; ?>">
-                        <label class="control-label">E-mail</label>
+                        <label class="control-label">E-mail:</label>
                         <div class="controls">
                             <input name="email" class="form-control" size="40" type="email"
                                    placeholder="Digite seu Email"

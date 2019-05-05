@@ -109,7 +109,12 @@
                                   
                                     <div class="form-group">
                                         <input type="submit" class="btn btn-primary btn-pill" value="Enviar">
-                                    </div>
+                                        <a  href="cadastro-usuario.php" id="Cadastrar">Cadastre-se</a>
+                                    </div>        
+                                   
+                                
+
+                                
                                 </form>
                             </div>
                         </div>
