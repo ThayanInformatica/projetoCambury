@@ -174,8 +174,8 @@ if (isset($_POST['cadastrar'])) {
                     <div class="centralizandoFormulario">
                         <div class="col-sm-5" class="tamanho-campoLogin">
                             <div class="form-group">
-                                <label id="teste" for="login" style="">Login</label>
-                                <input type="text" class="form-control" id="login" name="login:" required autofocus placeholder="Login">
+                                <label id="login" for="login" style="">Login: </label>
+                                <input type="text" class="form-control" id="login" name="login" required autofocus placeholder="Login">
                             </div>
                         </div>
  

@@ -590,12 +590,12 @@ if (null == $codProjeto) {
 
             $(document).ready(function() {
 
-                const nuvemAnimada = function(){
+                const arrowAnimado = function(){
                     $("#arrow").animate({"top": "+=10px"}, 500);
                     $("#arrow").animate({"top": "-=10"}, 500);
-                    nuvemAnimada();
+                    arrowAnimado();
                 }
-                nuvemAnimada();
+                arrowAnimado();
             });
 
             // $( "#arrow").animate({ "top": "+=10px" }, "slow");
