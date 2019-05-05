@@ -90,8 +90,9 @@
                     <div class="col-12">
                         <div class="row align-items-center">
                             <div class="col-lg-6 mb-4">
-                                <h1  data-aos="fade-up" data-aos-delay="100">Faculdade Cambury</h1>
-                                <p class="mb-4"  data-aos="fade-up" data-aos-delay="200">Oferece uma profissão e prepara o aluno para o mercado de trabalho.</p>
+                                <h1  data-aos="fade-up" data-aos-delay="100"> Nome Projeto </h1>
+                                <p class="mb-4"  data-aos="fade-up" data-aos-delay="200">Este projeto veio para facilitar o processo de avaliação de projetos PCA,
+                                 com o intuito de deixar tudo mais facil e rapido. Ele tem um sistema de avaliação feito em php , Bootstrap , JavaScript. </p>
 
                             </div>
 
