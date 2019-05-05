@@ -30,11 +30,11 @@ if (!empty($_POST)) {
     //Delete do banco:
     $pdo = conectdb::conectar();
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    $sql = "UPDATE tb_usuario SET avaliador = 0 WHERE codUsuario = ?";
+    $sql = "UPDATE tb_usuario SET avaliador = 1 WHERE codUsuario = ?";
     $q = $pdo->prepare($sql);
-    $q->execute(array($codProjeto));
+    $q->execute(array($codUsuario));
     conectdb::desconectar();
-    header("Location: ../admin.php?=sucess");
+    header("Location: validar-usuario-avaliador.php?=sucess");
     echo '<div class="alert alert-success">Usuário desativado como avaliador</div>';
 }
 ?>
@@ -71,32 +71,55 @@ if (!empty($_POST)) {
         });
     </script>
 
+    <script type="text/javascript">
+
+        $(document).ready(function () {
+            $('#myModal').modal('show');
+        })
+    </script>
+
+
     <title>Desativar Avaliador | Faculdades Cambury</title>
 </head>
 
 <body>
-<div id="header"></div>
-<div id="menu"></div>
+<div class="container">
+    <!--    <h2>Modal Example</h2>-->
+    <!-- Trigger the modal with a button -->
+    <!--    <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Open Modal</button>-->
 
-<div class="modals-page">
-    <div class="container">
-        <div class="span10 offset1">
-            <div class="row">
-                <h3 class="well">Desativar Avaliador</h3>
+    <!-- Modal -->
+    <div class="modal fade" id="myModal" role="dialog">
+        <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Desativar Avaliador</h4>
+                </div>
+
+                <form class="form-horizontal" action="#" method="post">
+
+                    <div class="modal-body">
+                        <input type="hidden" name="codUsuario" value="<?php echo $codUsuario; ?>"/>
+                        <div class="alert alert-danger"> Deseja Desativar o avaliador?
+                        </div>
+
+                    </div>
+
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-danger">Sim</button>
+                        <a href="validar-usuario-avaliador.php" type="btn" class="btn btn-default">Voltar</a>
+                    </div>
+                </form>
             </div>
-            <form class="form-horizontal" action="#" method="post">
-                <input type="hidden" name="codProjeto" value="<?php echo $codUsuario; ?>"/>
-                <div class="alert alert-danger"> Deseja desativar o avaliador?
-                </div>
-                <div class="form actions">
-                    <button type="submit" class="btn btn-danger">Sim</button>
-                    <a href="../admin.php" type="btn" class="btn btn-default">Voltar</a>
-                </div>
-            </form>
+
+
         </div>
     </div>
+
 </div>
-<div id="footer"></div>
 </body>
 
 </html>
