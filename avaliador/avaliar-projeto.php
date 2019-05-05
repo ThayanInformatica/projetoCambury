@@ -67,7 +67,7 @@ if (!empty($_POST)) {
     if ($validacao) {
         $pdo = conectdb::conectar();
         $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        $sql = "INSERT INTO tb_avaliacao (codProjeto,codUsuario,nota_1,nota_2,nota_3,nota_4) values (?,?,?,?,?,?)";
+        $sql = "INSERT INTO tb_avaliacao (codProjeto,codUsuario,nota_1,nota_2,nota_3,nota_4,user_avaliou) values (?,?,?,?,?,?,1)";
         $q = $pdo->prepare($sql);
         $q->execute(array($codProjeto, $codUsuario, $nota1, $nota2, $nota3, $nota4));
         conectdb::desconectar();
