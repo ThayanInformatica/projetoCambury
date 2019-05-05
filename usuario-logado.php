@@ -421,7 +421,7 @@ DESC;';
                                 echo ' ';
                             }
                             if ($getProjetos['projetoAceito'] == 0) {
-                                echo '<a class="material-icons" style="color: #c82333;" data-toggle="tooltip" data-placement="top" title="Desaprovado" role="alert" data-toggle="tooltip"
+                                echo '<a class="material-icons" style="color: #c82333;" data-toggle="tooltip" data-placement="top" title="Excluir Projeto" role="alert" data-toggle="tooltip"
                              href="funcoes-projeto/deletar-projeto.php?codProjeto=' . $getProjetos['codProjeto'] . '">delete</a>';
                                 echo '
                 </td>
