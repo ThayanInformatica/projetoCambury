@@ -5,45 +5,38 @@
 }
 .well{
     text-align: center;
-    font-family: 'Rufina', serif;
+    font-family: 'Questrial', sans-serif !important;
      background-color: grey !important;
      color: black;
 }
 
 .campoProjeto{
     margin-right: 20%;
-    font-family: 'Rufina', serif;
     margin-left: 21%;
     margin-right: 73px;
 }
 .campoOrientador{
-    font-family: 'Rufina', serif;
     margin-left: 10%; 
     width: 70%;  
 }
 
 .editandoObjProjeto{
     margin-left: 21%;
-    margin-right: 73px;
-    font-family: 'Rufina', serif;
-    
+    margin-right: 73px;   
 }
 .editandoResumo{
     margin-right: 20%;
-    font-family: 'Rufina', serif;
     margin-left: 10%; 
     margin-top: 0px;
 }
 
 #editandoCursos{
-    font-family: 'Rufina', serif;
     margin-bottom: 30px;
     width: 31%;
     margin-left: 10%;
 
 }
 .editandoTurma{
-    font-family: 'Rufina', serif;
     margin-bottom: 10px;
     margin-left: 10%;
     margin-right: 84%;

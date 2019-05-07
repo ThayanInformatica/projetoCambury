@@ -50,17 +50,17 @@ if (!empty($_POST)) {
     }
 
     if (empty($nomeProfessor)) {
-        $nomeProfessorErro = 'Por favor digite o email!';
+        $nomeProfessorErro = 'Por favor digite o Orientador!';
         $validacao = false;
     }
 
     if (empty($objetivo)) {
-        $objetivoErro = 'Por favor digite o endereço!';
+        $objetivoErro = 'Por favor digite o Objetivo!';
         $validacao = false;
     }
 
     if (empty($resumo)) {
-        $resumoErro = 'Por favor digite o telefone!';
+        $resumoErro = 'Por favor digite o Resumo!';
         $validacao = false;
     }
 
@@ -97,10 +97,13 @@ if (!empty($_POST)) {
     <meta charset="utf-8">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="../funcoes-projeto/css/editarProjeto.css">
+    <link rel="stylesheet" href="../css/style.css">
     <link href="https://fonts.googleapis.com/css?family=Marcellus+SC|Prompt|Rufina" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
-
+    <style>
+    @import url('https://fonts.googleapis.com/css?family=Questrial');
+    </style>
 
     <!--    footer e header para páginas-->
     <link rel="stylesheet" href="../components/css/header.css"/>

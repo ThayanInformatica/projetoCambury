@@ -90,8 +90,10 @@ endif;
     <link href="administrador/css/all.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
           rel="stylesheet">
+    <link href="css/style.css">
     <link href="components/css/footer.css">
     <link href="https://fonts.googleapis.com/css?family=Marcellus+SC|Prompt|Rufina" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Questrial" rel="stylesheet">
 
     <script>
         $(function () {
@@ -102,7 +104,7 @@ endif;
 </head>
 
 <body>
-<div style="font-family: 'Rufina', serif;">
+<div style="font-family: 'Questrial', sans-serif;">
     <div class="page-wrapper chiller-theme toggled">
         <a id="show-sidebar" class="btn btn-sm btn-dark" href="#" style="height: 100% !important;">
             <i class="material-icons">
