@@ -234,12 +234,11 @@ if (!empty($_POST)) {
                             <a href="#">
                                 <i class="fa fa-tachometer-alt"></i>
                                 <span>Meu Perfil</span>
-                                <span class="badge badge-pill badge-warning">Novo</span>
                             </a>
                             <div class="sidebar-submenu">
                                 <ul>
                                     <li>
-                                        <a <?php echo 'href="funcoes-usuario/editar-usuario.php?codUsuario=' . $codUsuario . '"' ?> >Editar
+                                        <a <?php echo 'href="editar-perfil.php?codUsuario=' . $codUsuario . '"' ?> >Editar
                                             Perfil
                                             <!--                                            <span class="badge badge-pill badge-success">Pro</span>-->
                                         </a>
@@ -366,7 +365,7 @@ if (!empty($_POST)) {
             </div>
             <!-- sidebar-content  -->
             <div class="sidebar-footer">
-                <a href="logout.php">
+                <a href="../logout.php">
                     <i class="material-icons" style="color: #c82333;" data-toggle="tooltip" data-placement="top"
                        title="Deslogar" role="alert" data-toggle="tooltip">power_settings_new</i>
                 </a>
@@ -407,7 +406,7 @@ if (!empty($_POST)) {
                         <label class="control-label">Nome do Usuário:</label>
                         <div class="controls">
                             <input name="nome" class="form-control" size="80" type="text" placeholder="Nome do Usuário"
-                                   value="<?php echo !empty($nome) ? $nome : ''; ?>" minlength="5">
+                                   value="<?php echo !empty($nome) ? $nome : ''; ?>" minlength="5" required>
                             <?php if (!empty($nomeErro)): ?>
                                 <br/>
                                 <div class="alert alert-danger"><?php echo $nomeErro; ?></div>
@@ -421,7 +420,7 @@ if (!empty($_POST)) {
                         <div class="controls">
                             <input name="senha" class="form-control" size="30" type="password"
                                    placeholder="Digite sua senha"
-                                   value="<?php echo !empty($senha) ? $senha : ''; ?>" minlength="6">
+                                   value="<?php echo !empty($senha) ? $senha : ''; ?>" minlength="6" required>
                             <?php if (!empty($senhaErro)): ?>
                                 <br/>
                                 <div class="alert alert-danger"><?php echo $senhaErro; ?></div>
@@ -434,7 +433,7 @@ if (!empty($_POST)) {
                         <div class="controls">
                             <input name="rep_senha" class="form-control" size="40" type="password"
                                    placeholder="Repita a senha"
-                                   value="<?php echo !empty($rep_senha) ? $rep_senha : ''; ?>" minlength="6">
+                                   value="<?php echo !empty($rep_senha) ? $rep_senha : ''; ?>" minlength="6" required>
                             <?php if (!empty($rep_senhaErro)): ?>
                                 <br/>
                                 <div class="alert alert-danger"><?php echo $rep_senhaErro; ?></div>
@@ -455,7 +454,7 @@ if (!empty($_POST)) {
                         <div class="controls">
                             <input name="email" class="form-control" size="40" type="email"
                                    placeholder="Digite seu Email"
-                                   value="<?php echo !empty($email) ? $email : ''; ?>">
+                                   value="<?php echo !empty($email) ? $email : ''; ?>" required>
                             <?php if (!empty($emailErro)): ?>
                                 <br/>
                                 <div class="alert alert-danger"><?php echo $emailErro; ?></div>

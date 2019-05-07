@@ -91,7 +91,7 @@ endif;
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
           integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
           crossorigin="anonymous">
-    <link href="../css/all.css" rel="stylesheet">
+    <link href="../css/listar-resultados.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
           rel="stylesheet">
     <link rel="stylesheet" href="../../components/css/footer.css"/>
@@ -159,7 +159,6 @@ endif;
                             <a href="#">
                                 <i class="fa fa-tachometer-alt"></i>
                                 <span>Meu Perfil</span>
-                                <span class="badge badge-pill badge-warning">Novo</span>
                             </a>
                             <div class="sidebar-submenu">
                                 <ul>

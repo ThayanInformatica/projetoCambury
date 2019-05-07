@@ -44,7 +44,7 @@ if (isset($_POST['cadastrar'])) {
             $insere = $cadastrar->cadastra($login, $senha, $nome, $cpf, $email, $avaliador);
             // caso o usuario seja cadastrado, exibir mensagem de sucesso
             if ($insere == true) {
-                header('location:index.php?success=cadastrado');
+                header('location:index.php?sucesso');
             }
         }
 
@@ -61,7 +61,7 @@ if (isset($_POST['cadastrar'])) {
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Login PHP OO</title>
 
     <link rel="stylesheet" href="css/projeto/projeto.css"/>
@@ -159,7 +159,7 @@ if (isset($_POST['cadastrar'])) {
             echo '<div class="alert alert-danger">Este Login ou CPF já foi escolhido por outra pessoa!</div>';
         }
         // mensagem de sucesso caso o usuario seja cadastrado corretamente
-        if (isset($_GET['success'])) {
+        if (isset($_GET['sucesso'])) {
             echo '<div class="alert alert-success">Usuario cadastrado!</div>';
         }
 
@@ -223,7 +223,10 @@ if (isset($_POST['cadastrar'])) {
                             </div>
                             <div class="checkbox">
                                 <label>
-                                    <input type="checkbox" id="avaliador" name="avaliador" value="1"> Quero ser Avaliador
+                                    <input type="checkbox" id="avaliador" name="avaliador" value="1"> Avaliador
+                                </label>
+                                <label>
+                                    <input type="checkbox" id="avaliador" name="avaliador" value="0">Orientador
                                 </label>
                             </div>
                         </div>

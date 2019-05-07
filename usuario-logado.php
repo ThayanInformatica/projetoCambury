@@ -476,6 +476,7 @@ DESC;';
 
                             if ($ProjetosCheck == true) {
                                 echo '<span class="material-icons" style="color: #33B0FF;" data-toggle="tooltip" data-placement="top" title="Avaliado !" >check_circle</span>';
+                                echo '<a class="material-icons" data-toggle="tooltip" data-placement="top" title="Informações da minha Avaliação" href="funcoes-usuario/ler-projetos-com-notas.php?codProjeto=' . $getProjeto['codProjeto'] . '">info</a>';
                             }
                         }
                     }

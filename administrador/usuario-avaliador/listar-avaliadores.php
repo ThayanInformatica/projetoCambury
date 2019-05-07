@@ -157,7 +157,6 @@ endif;
                         <a href="#">
                             <i class="fa fa-tachometer-alt"></i>
                             <span>Meu Perfil</span>
-                            <span class="badge badge-pill badge-warning">Novo</span>
                         </a>
                         <div class="sidebar-submenu">
                             <ul>
@@ -353,8 +352,8 @@ endif;
 
                     foreach ($pdo->query($sql) as $getUsuarios) {
                         if ($_SESSION['nivel'] == 99 && $getUsuarios['avaliador'] == 2) {
-                            echo '<tr>';
-                            echo '<td  style="display: none;">' . $getUsuarios['codUsuario'] . '</td>'; // get id do usuario
+                            echo '<tr class="projetos-admin">';
+                            echo '<td  style="display: none;" >' . $getUsuarios['codUsuario'] . '</td>'; // get id do usuario
                             echo '<td >' . $getUsuarios['nomeUsuario'] . '</td>';
                             echo '<td>' . $getUsuarios['cpfUsuario'] . '</td>';
                             echo '<td>' . $getUsuarios['emailUsuario'] . '</td>';

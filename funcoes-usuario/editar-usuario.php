@@ -88,7 +88,7 @@ if (!empty($_POST)) {
 <html lang="pt-br">
 
 <head>
-    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
@@ -141,7 +141,7 @@ if (!empty($_POST)) {
                         <label class="control-label">Nome do Usuário:</label>
                         <div class="controls">
                             <input name="nome" class="form-control" size="80" type="text" placeholder="Nome do Usuário"
-                                   value="<?php echo !empty($nome) ? $nome : ''; ?>" minlength="5">
+                                   value="<?php echo !empty($nome) ? $nome : ''; ?>" minlength="5" required>
                             <?php if (!empty($nomeErro)): ?>
                         <br/>
                                 <div class="alert alert-danger"><?php echo $nomeErro; ?></div>
@@ -154,7 +154,7 @@ if (!empty($_POST)) {
                         <label class="control-label">Senha:</label>
                         <div class="controls">
                             <input name="senha" class="form-control" size="30" type="password" placeholder="Digite sua senha"
-                                   value="<?php echo !empty($senha) ? $senha : ''; ?>" minlength="6">
+                                   value="<?php echo !empty($senha) ? $senha : ''; ?>" minlength="6" required>
                             <?php if (!empty($senhaErro)): ?>
                                 <br/>
                                 <div class="alert alert-danger"><?php echo $senhaErro; ?></div>
@@ -166,7 +166,7 @@ if (!empty($_POST)) {
                         <label class="control-label">Repetir Senha:</label>
                         <div class="controls">
                             <input name="rep_senha" class="form-control" size="40" type="password" placeholder="Repita a senha"
-                                   value="<?php echo !empty($rep_senha) ? $rep_senha : ''; ?>" minlength="6">
+                                   value="<?php echo !empty($rep_senha) ? $rep_senha : ''; ?>" minlength="6" required>
                             <?php if (!empty($rep_senhaErro)): ?>
                                 <br/>
                                 <div class="alert alert-danger"><?php echo $rep_senhaErro; ?></div>
@@ -186,7 +186,7 @@ if (!empty($_POST)) {
                         <label class="control-label">E-mail:</label>
                         <div class="controls">
                             <input name="email" class="form-control" size="40" type="email" placeholder="Digite seu Email"
-                                   value="<?php echo !empty($email) ? $email : ''; ?>">
+                                   value="<?php echo !empty($email) ? $email : ''; ?>" required>
                             <?php if (!empty($emailErro)): ?>
                                 <br/>
                                 <div class="alert alert-danger"><?php echo $emailErro; ?></div>

@@ -42,7 +42,7 @@ if (!empty($_POST)) {
 <html lang="pt-br">
 
 <head>
-    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Deletar Projeto | Faculdades Cambury</title>
     <link rel="stylesheet" href="../administrador/css/admin-page.css"/>
     <link rel="stylesheet" href="../funcoes-projeto/css/TelaDelete.css">

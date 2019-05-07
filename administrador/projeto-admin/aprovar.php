@@ -43,7 +43,7 @@ if (!empty($_POST)) {
     <meta charset="UTF-8">
     <title>Aprovar Projeto | Faculdades Cambury</title>
 
-    <link rel="stylesheet" href="../css/admin-page.css"/>
+    <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>

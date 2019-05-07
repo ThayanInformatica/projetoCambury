@@ -16,7 +16,7 @@
 <div>
 <!--    Ajuster img de selo apos subir para produção-->
 <div class="barra-footer">
-    <img src="http://localhost/projeto/components/img/selos.png" alt="Selos Cambury" class="selos_footer">
+    <img src="http://172.20.0.91/projeto/components/img/selos.png" alt="Selos Cambury" class="selos_footer">
 </div>
 <div class="direitos-reservados">
     <h1>Copyright © 2019 Faculdades Cambury - Todos os direitos reservados</h1>

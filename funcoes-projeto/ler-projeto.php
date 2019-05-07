@@ -39,7 +39,7 @@ if (null == $codProjeto) {
 <html lang="pt-br">
 
 <head>
-    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Latest compiled and minified CSS -->
     <title>Informações do Projeto | Faculdades Cambury</title>
 

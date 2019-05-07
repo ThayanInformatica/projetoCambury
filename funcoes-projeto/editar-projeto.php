@@ -94,7 +94,7 @@ if (!empty($_POST)) {
 <html lang="pt-br">
 
 <head>
-    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="../funcoes-projeto/css/editarProjeto.css">
     <link rel="stylesheet" href="../css/style.css">
@@ -196,11 +196,11 @@ if (!empty($_POST)) {
                     <label>Curso:</label>
                         <select class="form-control " name="curso">
                             <option value="TI">GESTÃO DA TECNOLOGIA DA INFORMAÇÃO</option>
-                            <option value="CIÊNCIAS CONTÁBEIS">CIÊNCIAS CONTÁBEIS</option>
+                            <option value="C. CONTÁBEIS">CIÊNCIAS CONTÁBEIS</option>
                             <option value="ADMINISTRAÇÃO">ADMINISTRAÇÃO</option>
-                            <option value="ESTÉTICA E COSMÉTIC">ESTÉTICA E COSMÉTICA</option>
+                            <option value="E. E COSMÉTIC">ESTÉTICA E COSMÉTICA</option>
                             <option value="MARKETING">MARKETING</option>
-                            <option value="TECNOLOGIA EM PROCESSOS GERENCIAIS">TECNOLOGIA EM PROCESSOS GERENCIAIS</option>
+                            <option value="TPGS">TECNOLOGIA EM PROCESSOS GERENCIAIS</option>
                         </select>
                     </div>
 

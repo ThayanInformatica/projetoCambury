@@ -512,7 +512,7 @@ body {
 }
 
 
-@media screen and (max-width: 543px) {
+@media screen and (max-width: 715px) {
     .projetos h2 {
         font-size: 18px !important;
     }
@@ -520,7 +520,7 @@ body {
     .colunas-projetos th {
         font-size: 9px;
         padding: 2px !important;
-        }
+    }
 
     .projetos-admin td {
         font-size: calc( 8px + (24 - 16) * (100vw - 400px) / (800 - 400) );

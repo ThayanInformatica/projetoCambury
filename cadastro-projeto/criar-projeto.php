@@ -55,7 +55,7 @@ if (isset($_POST['cadastrar'])) {
 <html lang="pt-br">
 
 <head>
-    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Latest compiled and minified CSS -->
     <title>Cambury | Cadastro de Projeto</title>
 
@@ -175,11 +175,11 @@ if (isset($_POST['cadastrar'])) {
                 <label>Curso:</label>
                 <select class="form-control" name="cursoProjeto">
                     <option value="TI">GESTÃO DA TECNOLOGIA DA INFORMAÇÃO</option>
-                    <option value="CIÊNCIAS CONTÁBEIS">CIÊNCIAS CONTÁBEIS</option>
+                    <option value="C. CONTÁBEIS">CIÊNCIAS CONTÁBEIS</option>
                     <option value="ADMINISTRAÇÃO">ADMINISTRAÇÃO</option>
-                    <option value="ESTÉTICA E COSMÉTIC">ESTÉTICA E COSMÉTICA</option>
+                    <option value="E. E COSMÉTIC">ESTÉTICA E COSMÉTICA</option>
                     <option value="MARKETING">MARKETING</option>
-                    <option value="TECNOLOGIA EM PROCESSOS GERENCIAIS">TECNOLOGIA EM PROCESSOS GERENCIAIS</option>
+                    <option value="TPGS">TECNOLOGIA EM PROCESSOS GERENCIAIS</option>
                 </select>
             </div>
 

@@ -137,20 +137,42 @@ if (null == $codProjeto) {
 </script>
 
 <script>
-        function alteraPonto(valorInput) {
-            $(valorInput).val(valorInput.val().replace(",", "."));
-        }
-    </script>
+    function alteraPonto(valorInput) {
+        $(valorInput).val(valorInput.val().replace(",", "."));
+    }
+</script>
 
-    <script>
-        function maxValor(valorInput) {
-            $(valorInput).on('keyup', function (event) {
-                const valorMaximo = 10;
-                if (event.target.value > valorMaximo)
-                    return event.target.value = valorMaximo;
-            });
-        }
-    </script>
+<script>
+    function maxValor(valorInput) {
+        $(valorInput).on('keyup', function (event) {
+            const valorMaximo = 10;
+            if (event.target.value > valorMaximo)
+                return event.target.value = valorMaximo;
+        });
+    }
+</script>
+
+<!--<script>-->
+<!--minValor($(this));-->
+<!--    function minValor(valorInputMin) {-->
+<!--        $(valorInputMin).on('keyup', function (event) {-->
+<!--            const valorMinimo = 0;-->
+<!--            if (event.target.value < valorMinimo)-->
+<!--                return event.target.value = valorMinimo;-->
+<!--        });-->
+<!--    }-->
+<!--</script>-->
+
+<script>
+    function somenteNumeros(obj, e) {
+        var tecla = (window.event) ? e.keyCode : e.which;
+        if (tecla == 8 || tecla == 0)
+            return true;
+        if (tecla != 44 && tecla != 46 && tecla < 48 || tecla > 57)
+            return false;
+    }
+
+</script>
 
 <script>
     $(document).ready(function () { //Função para que o script comece quando a página carregar
@@ -483,11 +505,16 @@ if (null == $codProjeto) {
                                         instituições envolvidas e/ou sociedade
                                     </label>
                                     <div class="controls">
-                                        <input onchange="alteraPonto($(this));" onkeyup="maxValor($(this))" name="nota1"
-                                               class="form-control" size="10" type="text"
-                                               placeholder="Ex: 9.6"
-                                               value="<?php echo !empty($nota1) ? $nota1 : ''; ?>" maxlength="3"
-                                               required>
+                                        <input
+                                                onkeyup="maxValor($(this));" onchange="alteraPonto($(this));"
+                                                pattern="[0-9]+([,\.][0-9]+)?"
+                                                onkeypress="return somenteNumeros( this , event ) ;" name="nota1"
+                                                ng-model="numero.valor"
+                                                class="form-control" size="10" type="text"
+                                                placeholder="Ex: 9.6"
+                                                value="<?php echo !empty($nota1) ? $nota1 : ''; ?>" maxlength="3"
+                                                minlength="0"
+                                                required>
                                         <?php if (!empty($nota1Erro)): ?>
                                             <br/>
                                             <div class="alert alert-danger"><?php echo $nota1Erro; ?></div>
@@ -500,10 +527,12 @@ if (null == $codProjeto) {
                                         projeto
                                     </label>
                                     <div class="controls">
-                                        <input onchange="alteraPonto($(this));" onkeyup="maxValor($(this))" name="nota2"
+                                        <input onkeyup="maxValor($(this))" onchange="alteraPonto($(this));"
+                                               pattern="[0-9]+([,\.][0-9]+)?"
+                                               onkeypress="return somenteNumeros( this , event ) ;" name="nota2"
                                                class="form-control" size="40" type="text"
                                                placeholder="Ex: 10"
-                                               value="<?php echo !empty($nota2) ? $nota2 : ''; ?>" maxlength="3"
+                                               value="<?php echo !empty($nota2) ? $nota2 : ''; ?>" maxlength="3" min="0"
                                                required>
                                         <?php if (!empty($nota2Erro)): ?>
                                             <br/>
@@ -517,11 +546,15 @@ if (null == $codProjeto) {
                                         dinâmica do projeto
                                     </label>
                                     <div class="controls">
-                                        <input onchange="alteraPonto($(this));" onkeyup="maxValor($(this))" name="nota3"
-                                               class="form-control" size="40" type="text"
-                                               placeholder="Ex: 1.2"
-                                               value="<?php echo !empty($nota3) ? $nota3 : ''; ?>" maxlength="3"
-                                               required>
+                                        <input
+                                                onkeyup="maxValor($(this));" onchange="alteraPonto($(this));"
+                                                pattern="[0-9]+([,\.][0-9]+)?"
+                                                onkeypress="return somenteNumeros( this , event ) ;" name="nota3"
+                                                class="form-control" size="40" type="text"
+                                                placeholder="Ex: 1.2"
+                                                value="<?php echo !empty($nota3) ? $nota3 : ''; ?>" maxlength="3"
+                                                min="0"
+                                                required>
                                         <?php if (!empty($nota3Erro)): ?>
                                             <br/>
                                             <div class="alert alert-danger"><?php echo $nota3Erro; ?></div>
@@ -534,11 +567,15 @@ if (null == $codProjeto) {
                                         projeto
                                     </label>
                                     <div class="controls">
-                                        <input onchange="alteraPonto($(this));" onkeyup="maxValor($(this))" name="nota4"
-                                               class="form-control" size="40" type="text"
-                                               placeholder="Ex: 5.9"
-                                               value="<?php echo !empty($nota4) ? $nota4 : ''; ?>" maxlength="3"
-                                               required>
+                                        <input
+                                                onkeyup="maxValor($(this));" onchange="alteraPonto($(this));"
+                                                pattern="[0-9]+([,\.][0-9]+)?"
+                                                onkeypress="return somenteNumeros( this , event ) ;" name="nota4"
+                                                class="form-control" size="40" type="text"
+                                                placeholder="Ex: 5.9"
+                                                value="<?php echo !empty($nota4) ? $nota4 : ''; ?>" maxlength="3"
+                                                min="0"
+                                                required>
                                         <?php if (!empty($nota4Erro)): ?>
                                             <br/>
                                             <div class="alert alert-danger"><?php echo $nota4Erro; ?></div>
@@ -569,8 +606,8 @@ if (null == $codProjeto) {
 
         </main>
         <script>
-            $(document).ready(function(){
-                $("a").on('click', function(event) {
+            $(document).ready(function () {
+                $("a").on('click', function (event) {
 
                     if (this.hash !== "") {
                         event.preventDefault();
@@ -578,7 +615,7 @@ if (null == $codProjeto) {
                         var hash = this.hash;
                         $('html, body').animate({
                             scrollTop: $(hash).offset().top
-                        }, 600, function(){
+                        }, 600, function () {
 
                             window.location.hash = hash;
                         });
@@ -588,9 +625,9 @@ if (null == $codProjeto) {
         </script>
         <script>
 
-            $(document).ready(function() {
+            $(document).ready(function () {
 
-                const arrowAnimado = function(){
+                const arrowAnimado = function () {
                     $("#arrow").animate({"top": "+=10px"}, 500);
                     $("#arrow").animate({"top": "-=10"}, 500);
                     arrowAnimado();
