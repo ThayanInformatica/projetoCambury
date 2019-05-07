@@ -167,8 +167,8 @@ if (!empty($_POST)) {
                         <div  class="editandoObjProjeto" class="control-group <?php echo !empty($objetivo) ? 'error' : ''; ?>">
                             <label  class="control-label">Objetivo do Projeto:</label>
                             <div class="controls">
-                                <input name="objetivo" class="form-control" size="30" type="text" placeholder="Objetivo"
-                                    value="<?php echo !empty($objetivo) ? $objetivo : ''; ?>">
+                                <textarea name="objetivo" class="form-control" size="30" type="text" placeholder="Objetivo"
+                                          value="<?php echo !empty($objetivo) ? $objetivo : ''; ?>"> </textarea>
                                 <?php if (!empty($objetivoErro)): ?>
                                     <span class="help-inline"><?php echo $objetivoErro; ?></span>
                                 <?php endif; ?>
@@ -180,8 +180,8 @@ if (!empty($_POST)) {
                         <div class="editandoResumo" class="control-group <?php echo !empty($resumo) ? 'error' : ''; ?>">
                             <label  class="control-label">Resumo do Projeto:</label>
                             <div class="controls">
-                                <input  name="resumo" class="form-control" size="40" type="text" placeholder="Resumo do Projeto"
-                                class="areaDoInput"    value="<?php echo !empty($resumo) ? $resumo : ''; ?>">
+                                <textarea  name="resumo" class="form-control" size="40" type="text" placeholder="Resumo do Projeto"
+                                           class="areaDoInput"    value="<?php echo !empty($resumo) ? $resumo : ''; ?>"> </textarea>
                                 <?php if (!empty($resumoErro)): ?>
                                     <span class="help-inline"><?php echo $resumoErro; ?></span>
                                 <?php endif; ?>
