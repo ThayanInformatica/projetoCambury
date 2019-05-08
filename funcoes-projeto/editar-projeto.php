@@ -131,7 +131,7 @@ if (!empty($_POST)) {
         <div class="card">
             <div class="card-header">
                 
-            <h3 class="well"> Editar Projeto </h3>
+            <h3 class="titulo"> Editar Projeto </h3>
             </div>
             <div class="card-body">
                 <form class="form-horizontal" action="editar-projeto.php?codProjeto=<?php echo $codProjeto ?>"

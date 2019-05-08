@@ -72,7 +72,6 @@ if (null == $codProjeto) {
 
 <body>
 <div id="header"></div>
-<div id="menu"></div>
 
 <div class="container">
     <div class="span10 offset1">

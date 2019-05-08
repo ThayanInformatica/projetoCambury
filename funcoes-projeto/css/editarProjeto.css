@@ -3,11 +3,13 @@
     background-color: #eee;
     padding-bottom: 80px;
 }
-.well{
-    text-align: center;
+.titulo{
+    margin-left: 10%;
     font-family: 'Questrial', sans-serif !important;
-     background-color: grey !important;
-     color: black;
+    color: black;
+    margin-bottom: 3%;
+  
+
 }
 
 .campoProjeto{

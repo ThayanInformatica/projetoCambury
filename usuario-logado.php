@@ -104,7 +104,7 @@ endif;
 </head>
 
 <body>
-<div style="font-family: 'Questrial', sans-serif;">
+<div style="font-family: 'Questrial', sans-serif;   ">
     <div class="page-wrapper chiller-theme toggled">
         <a id="show-sidebar" class="btn btn-sm btn-dark" href="#" style="height: 100% !important;">
             <i class="material-icons">

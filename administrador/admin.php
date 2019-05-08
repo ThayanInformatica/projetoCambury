@@ -96,10 +96,14 @@ endif;
           rel="stylesheet">
     <link href="../components/css/footer.css">
     <link href="https://fonts.googleapis.com/css?family=Marcellus+SC|Prompt|Rufina" rel="stylesheet">
+    <style>
+    @import url('https://fonts.googleapis.com/css?family=Questrial');
+    </style>
+
 
 </head>
 
-<body style="font-family: 'Rufina', serif;">
+<body style="font-family: 'Questrial', sans-serif;">
 <div class="page-wrapper chiller-theme toggled">
     <a id="show-sidebar" class="btn btn-sm btn-dark" href="#">
         <i class="material-icons">
