@@ -4,3 +4,8 @@
 .well{
     text-align: center;
 }
+
+body {
+    font-family: 'Rufina', serif;
+    font-size: 0.9rem;
+}

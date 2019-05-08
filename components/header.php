@@ -15,7 +15,7 @@
 <body>
 
 <div class="barra-header">
-    <h1 >Faculdades Cambury</h1>
+    <h1 >Faculdades Cambury &mdash; Projeto PCA</h1>
 </div>
 
 </body>

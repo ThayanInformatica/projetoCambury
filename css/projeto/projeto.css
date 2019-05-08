@@ -31,7 +31,7 @@ font-family: 'Source Serif Pro', serif;
 }
 .campoTituloCambury{
   margin-left: 40%;
-  width:20px; 
+  width:20px;
 }
 .h1Cambury{
   box-sizing: border-box;
@@ -39,10 +39,14 @@ font-family: 'Source Serif Pro', serif;
   margin: 0px;
   padding: 20px;
   background-color: #132d3f;
-  padding-left: 44%;
-  height: 99px;
+  height: 150px;
   color: #FFFFFF;
-  font-family: 'Open Sans','Arial'
+  text-align: center;
+}
+
+.h1Cambury h1{
+  margin-top: 40px;
+  font-size: 25px;
 }
 
 

@@ -8,9 +8,6 @@ endif;
 if (isset($_SESSION['login']) && isset($_SESSION['senha']) && isset($_SESSION['nivel']) && isset($_SESSION['codUsuario'])):
     if (isset($_SESSION['nivel'])) {
         $nivel = $_SESSION['nivel'];
-        if ($nivel != 99) {
-            header('location: ../../usuario-logado.php');
-        }
     }
     $codUsuario = $_SESSION['codUsuario'];
 
@@ -29,8 +26,8 @@ if (null == $codProjeto) {
 } else {
     $pdo = conectdb::conectar();
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    $sql = "SELECT
-    tb_avaliacao.codProjeto,
+    $sql = "SELECT DISTINCT 
+    tb_projeto.codProjeto,
     tb_avaliacao.codUsuario,
     tb_projeto.nomeProjeto,
     tb_projeto.nomeProfessor,
@@ -47,7 +44,8 @@ if (null == $codProjeto) {
     ) AS Total
 FROM
     tb_avaliacao
-LEFT JOIN tb_projeto ON tb_avaliacao.codProjeto = tb_projeto.codProjeto
+LEFT JOIN tb_projeto ON tb_projeto.codProjeto = tb_avaliacao.codProjeto 
+where tb_projeto.codProjeto = ?
 GROUP BY
     tb_avaliacao.codProjeto
 ORDER BY

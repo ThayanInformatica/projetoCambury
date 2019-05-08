@@ -57,7 +57,8 @@ if (!empty($_POST)) {
     <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
 
     <!--    footer e header para páginas-->
-    <link rel="stylesheet" href="../../components/css/header.css"/>
+    <link rel="stylesheet" href="../../components/css/header.css"/
+    <link href="https://fonts.googleapis.com/css?family=Marcellus+SC|Prompt|Rufina" rel="stylesheet">>
     <link rel="stylesheet" href="../../components/css/footer.css"/>
     <script>
         $(function () {

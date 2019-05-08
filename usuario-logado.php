@@ -375,7 +375,7 @@ endif;
                     include 'classes/conectdb.php';
 
                     $pdo = conectdb::conectar();
-                    $sql = 'SELECT
+                    $sql = 'SELECT DISTINCT
     tb_projeto.codProjeto,
     tb_projeto.codUsuario,
     tb_projeto.nomeProjeto,
@@ -388,10 +388,10 @@ endif;
     tb_avaliacao.user_avaliou
 FROM
     tb_projeto
-LEFT JOIN tb_avaliacao ON tb_projeto.codProjeto = tb_avaliacao.codProjeto
+LEFT JOIN tb_avaliacao ON tb_projeto.codProjeto = tb_avaliacao.codProjeto left Join tb_usuario on tb_projeto.codUsuario = tb_usuario.codUsuario
 ORDER BY
-    tb_projeto.projetoAceito
-DESC;';
+    tb_avaliacao.user_avaliou DESC , tb_projeto.projetoAceito
+DESC ;';
 
                     // FORMULÁRIO DE PROJETO PARARA ORIENTADOR
 
@@ -424,7 +424,7 @@ DESC;';
                                 echo ' ';
                             }
                             if ($getProjetos['projetoAceito'] == 1 && $getProjetos['user_avaliou'] == 1) {
-                                echo '<span class="material-icons" style="color: #fd7e14;  cursor: pointer;" data-toggle="tooltip" data-placement="top" title="Avaliado!" role="alert" data-toggle="tooltip">event_available</span>';
+                                echo '<a class="material-icons" style="color: #fd7e14;  cursor: pointer;" data-toggle="tooltip" data-placement="top" title="Veja notas deste projeto!" role="alert" data-toggle="tooltip" href="administrador/projeto-admin/ler-projetos-com-notas.php?codProjeto=' . $getProjetos['codProjeto'] . '">event_available</a>';
                                 echo ' ';
                             }
                             if ($getProjetos['projetoAceito'] == 0) {
@@ -443,7 +443,7 @@ DESC;';
                     //            FORMULÁRIO DE TELA PARA AVALIADOR
 
 
-                    $query = 'SELECT DISTINCT tb_projeto.codProjeto,tb_projeto.nomeProjeto,tb_projeto.nomeProfessor,tb_projeto.objetivo,tb_projeto.resumo,tb_projeto.curso,tb_projeto.turma,tb_projeto.projetoAceito FROM tb_projeto where tb_projeto.projetoAceito = 1';
+                    $query = 'SELECT DISTINCT tb_projeto.codProjeto,tb_projeto.nomeProjeto,tb_projeto.nomeProfessor,tb_projeto.objetivo,tb_projeto.resumo,tb_projeto.curso,tb_projeto.turma,tb_projeto.projetoAceito FROM tb_projeto where tb_projeto.projetoAceito = 1 ';
                     $q2 = $pdo->prepare($query);
                     $q2->execute(array($codUsuario));
 

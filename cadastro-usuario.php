@@ -62,7 +62,7 @@ if (isset($_POST['cadastrar'])) {
 
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Login PHP OO</title>
+    <title>Cadastro Usuário - Faculdades Cambury</title>
 
     <link rel="stylesheet" href="css/projeto/projeto.css"/>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
@@ -143,9 +143,9 @@ if (isset($_POST['cadastrar'])) {
 </head>
 <body>
 
-
-<h1 class='h1Cambury'>Cambury</h1>
-
+<div class='h1Cambury'>
+<h1>Faculdades Cambury &mdash; Projeto PCA</h1>
+</div>
 <div class="centralizandoCadastro">
     <div class="container jumbotron">
 
@@ -167,7 +167,6 @@ if (isset($_POST['cadastrar'])) {
 
         <div class="container">
             <div class="row">
-                <h2 class="espacoCadastro">Cadastro</h2>
                 <hr>
                 <form action="#" method="post">
 

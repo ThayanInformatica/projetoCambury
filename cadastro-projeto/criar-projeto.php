@@ -52,7 +52,7 @@ if (isset($_POST['cadastrar'])) {
 
 
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-br" xmlns="http://www.w3.org/1999/html">
 
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -87,7 +87,7 @@ if (isset($_POST['cadastrar'])) {
 </head>
 
 
-    <div id="header"></div>
+    <div id="header">Cadastro Projeto</div>
 <body>
 
 
@@ -135,8 +135,9 @@ if (isset($_POST['cadastrar'])) {
            
         <div  class="editandoCadastro"  class="container">
             <div class="row">
-                <h2 class="editandoh1"> Cadastre seu Projeto </h2>
-                    
+            </br>
+            </br>
+
                     <div class="card-body">
 
                     <form action="#" method="post">

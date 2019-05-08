@@ -95,10 +95,11 @@ endif;
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
           rel="stylesheet">
     <link href="../components/css/footer.css">
+    <link href="https://fonts.googleapis.com/css?family=Marcellus+SC|Prompt|Rufina" rel="stylesheet">
 
 </head>
 
-<body>
+<body style="font-family: 'Rufina', serif;">
 <div class="page-wrapper chiller-theme toggled">
     <a id="show-sidebar" class="btn btn-sm btn-dark" href="#">
         <i class="material-icons">
