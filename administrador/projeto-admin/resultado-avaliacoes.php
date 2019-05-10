@@ -96,6 +96,10 @@ endif;
           rel="stylesheet">
     <link rel="stylesheet" href="../../components/css/footer.css"/>
     <link href="https://fonts.googleapis.com/css?family=Marcellus+SC|Prompt|Rufina" rel="stylesheet">
+    <link href="../css/listarNotasProjetos.css">
+    <style>
+    @import url('https://fonts.googleapis.com/css?family=Questrial');
+    </style>
 
 </head>
 
@@ -153,19 +157,19 @@ endif;
                 <div class="sidebar-menu">
                     <ul>
                         <li class="header-menu">
-                            <span>Menu</span>
+                            <span style="font-family: 'Questrial', sans-serif;">Menu</span>
                         </li>
                         <li class="sidebar-dropdown">
                             <a href="#">
                                 <i class="fa fa-tachometer-alt"></i>
-                                <span>Meu Perfil</span>
+                                <span style="font-family: 'Questrial', sans-serif;">Meu Perfil</span>
                             </a>
                             <div class="sidebar-submenu">
                                 <ul>
                                     <li>
-                                        <a <?php echo 'href="../editar-perfil.php?codUsuario=' . $codUsuario . '"' ?> >Editar
+                                        <a <?php echo 'href="../editar-perfil.php?codUsuario=' . $codUsuario . '"' ?> style="font-family: 'Questrial', sans-serif;">Editar
                                             Perfil
-                                            <span class="badge badge-pill badge-success">Pro</span>
+                            
                                         </a>
                                     </li>
                                     <!--                                <li>-->
@@ -181,13 +185,13 @@ endif;
                         <li class="sidebar-dropdown">
                             <a href="#">
                                 <i class="fa fa-shopping-cart"></i>
-                                <span>Resultados de Projetos</span>
+                                <span style="font-family: 'Questrial', sans-serif;" >Resultados de Projetos</span>
                                 <!--                            <span class="badge badge-pill badge-danger">3</span>-->
                             </a>
                             <div class="sidebar-submenu">
                                 <ul>
                                     <li>
-                                        <a href="../projeto-admin/resultado-avaliacoes.php">Listar Projetos Avaliados
+                                        <a href="../projeto-admin/resultado-avaliacoes.php" style="font-family: 'Questrial', sans-serif;">Listar Projetos Avaliados
 
                                         </a>
                                         <!--                                </li>-->
@@ -204,13 +208,13 @@ endif;
                         <li class="sidebar-dropdown">
                             <a href="#">
                                 <i class="fa fa-shopping-cart"></i>
-                                <span>Usuários</span>
+                                <span style="font-family: 'Questrial', sans-serif;">Usuários</span>
                                 <!--                            <span class="badge badge-pill badge-danger">3</span>-->
                             </a>
                             <div class="sidebar-submenu">
                                 <ul>
                                     <li>
-                                        <a href="../listar-usuario.php">Listar Usuários
+                                        <a href="../listar-usuario.php" style="font-family: 'Questrial', sans-serif;">Listar Usuários
 
                                         </a>
                                         <!--                                </li>-->
@@ -226,15 +230,15 @@ endif;
                         <li class="sidebar-dropdown">
                             <a href="#">
                                 <i class="far fa-gem"></i>
-                                <span>Avaliadores</span>
+                                <span style="font-family: 'Questrial', sans-serif;">Avaliadores</span>
                             </a>
                             <div class="sidebar-submenu">
                                 <ul>
                                     <li>
-                                        <a href="../usuario-avaliador/validar-usuario-avaliador.php">Aceitar Avaliador</a>
+                                        <a href="../usuario-avaliador/validar-usuario-avaliador.php" style="font-family: 'Questrial', sans-serif;">Aceitar Avaliador</a>
                                     </li>
                                     <li>
-                                        <a href="../usuario-avaliador/listar-avaliadores.php">Listar Avaliadores</a>
+                                        <a href="../usuario-avaliador/listar-avaliadores.php" style="font-family: 'Questrial', sans-serif;">Listar Avaliadores</a>
                                     </li>
                                     <!--                                <li>-->
                                     <!--                                    <a href="#">Tables</a>-->
@@ -367,14 +371,14 @@ endif;
 
                     <table class="table table-striped">
                         <div class="projetos">
-                        <h2>Lista Notas dos Projetos</h2>
+                        <h2 style="font-family: 'Questrial', sans-serif;">Lista Notas dos Projetos</h2>
                         </div>
                         <thead>
                         <?php
                         if (isset($codProjeto)) {
 
                             ?>
-                            <tr class="colunas-projetos">
+                            <tr style="font-family: 'Questrial', sans-serif;" class="colunas-projetos teste">
                                 <th scope="col">Nome do Projeto</th>
                                 <th scope="col">Nome do Orientador</th>
                                 <th scope="col">Curso e Turma</th>

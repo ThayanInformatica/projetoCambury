@@ -68,6 +68,10 @@ if (null == $codProjeto) {
             $("#menu").load("../../components/menu-administrador-topage.php");
         });
     </script>
+    <style>
+    @import url('https://fonts.googleapis.com/css?family=Questrial');
+    </style>
+
 </head>
 
 <body>
@@ -77,7 +81,7 @@ if (null == $codProjeto) {
     <div class="span10 offset1">
         <div class="card">
             <div class="card-header">
-                <h3 class="well">Informações do Projeto</h3>
+                <h3 class="editandoTitulo">Informações do Projeto</h3>
             </div>
             <div class="container">
                 <div class="form-horizontal">
@@ -127,7 +131,7 @@ if (null == $codProjeto) {
                     </div>
                     <br/>
                     <div class="form-actions">
-                        <a href="../admin.php" type="btn" class="btn btn-default">Voltar</a>
+                        <a href="../admin.php" type="btn" id="teste"class="btn btn-default">Voltar</a>
                     </div>
                 </div>
             </div>

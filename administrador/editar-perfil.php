@@ -169,7 +169,10 @@ if (!empty($_POST)) {
           rel="stylesheet">
     <link rel="stylesheet" href="../components/css/footer.css"/>
     <link href="https://fonts.googleapis.com/css?family=Marcellus+SC|Prompt|Rufina" rel="stylesheet">
-
+    <link href="../css/edita-perfil-adm.css">
+    <style>
+    @import url('https://fonts.googleapis.com/css?family=Questrial');
+    </style>
 </head>
 
 <body>
@@ -388,7 +391,7 @@ if (!empty($_POST)) {
     <div class="span10 offset1">
         <div class="card">
             <div class="card-header">
-                <h3 class="well"> Meu Perfil </h3>
+                <h3 class="editandoTitulo"> Meu Perfil </h3>
             </div>
             <div class="card-body">
                 <form class="form-horizontal" action="#"

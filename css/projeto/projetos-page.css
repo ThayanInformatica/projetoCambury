@@ -18,3 +18,15 @@
     margin: auto;
     max-width: 300px;
 }
+.container{
+    font-family: 'Questrial', sans-serif;
+    background-color: #eee;
+}
+.editandoTitulo{
+    color: black;
+    margin-left: 1%;
+    font-size: 33px;
+}
+#teste{
+    margin-bottom: 2%; 
+}

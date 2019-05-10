@@ -9,3 +9,11 @@ body {
     font-family: 'Rufina', serif;
     font-size: 0.9rem;
 }
+.editandoTitulo{
+    font-family: 'Questrial', sans-serif;
+    font-size: 33px;
+    color: black;
+}
+.editandoCorpo{
+    margin-right: 30%;
+}

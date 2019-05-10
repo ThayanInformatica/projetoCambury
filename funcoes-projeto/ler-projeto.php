@@ -61,6 +61,11 @@ if (null == $codProjeto) {
         });
     </script>
     <!--    copiar e colar isto para as demais novas paginas-->
+
+    <style>
+    @import url('https://fonts.googleapis.com/css?family=Questrial');
+    </style>
+
 </head>
 
 <body>
@@ -70,7 +75,7 @@ if (null == $codProjeto) {
     <div class="span10 offset1">
         <div class="card">
             <div class="card-header">
-                <h3 class="well">Informações do Projeto</h3>
+                <h3 class="editandoTitulo">Informações do Projeto</h3>
             </div>
             <div class="container">
                 <div class="form-horizontal">

@@ -212,6 +212,9 @@ if (null == $codProjeto) {
           rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Marcellus+SC|Prompt|Rufina" rel="stylesheet">
     <link href="../components/css/footer.css">
+    <style>
+    @import url('https://fonts.googleapis.com/css?family=Questrial');
+    </style>
 
 </head>
 
@@ -432,12 +435,12 @@ if (null == $codProjeto) {
                     <div class="span10 offset1">
                         <div class="card">
                             <div class="card-header">
-                                <h3 class="well" style="font-weight: bold" id="info">Informações do Projeto</h3>
+                                <h3 class="well" style="font-family: 'Questrial', sans-serif;" id="info">Informações do Projeto</h3>
                             </div>
                             <div class="container">
                                 <div class="form-horizontal">
                                     <div class="control-group">
-                                        <label class="control-label" style="font-weight: bold">Nome do Projeto</label>
+                                        <label class="control-label" style="font-family: 'Questrial', sans-serif;">Nome do Projeto</label>
                                         <div class="controls">
                                             <label class="carousel-inner">
                                                 <?php echo $projeto['nomeProjeto']; ?>
@@ -446,7 +449,7 @@ if (null == $codProjeto) {
                                     </div>
 
                                     <div class="control-group">
-                                        <label class="control-label" style="font-weight: bold">Nome do
+                                        <label class="control-label" style="font-family: 'Questrial', sans-serif;">Nome do
                                             Orientador</label>
                                         <div class="controls">
                                             <label class="carousel-inner">
@@ -456,7 +459,7 @@ if (null == $codProjeto) {
                                     </div>
 
                                     <div class="control-group">
-                                        <label class="control-label" style="font-weight: bold">Objetivo do
+                                        <label class="control-label" style="font-family: 'Questrial', sans-serif;">Objetivo do
                                             Projeto</label>
                                         <div class="controls">
                                             <label class="carousel-inner">
@@ -466,7 +469,7 @@ if (null == $codProjeto) {
                                     </div>
 
                                     <div class="control-group">
-                                        <label class="control-label" style="font-weight: bold">Resumo do Projeto</label>
+                                        <label class="control-label" style="font-family: 'Questrial', sans-serif;">Resumo do Projeto</label>
                                         <div class="controls">
                                             <label class="carousel-inner">
                                                 <?php echo $projeto['resumo']; ?>
@@ -475,7 +478,7 @@ if (null == $codProjeto) {
                                     </div>
 
                                     <div class="control-group">
-                                        <label class="control-label" style="font-weight: bold">Curso e Turma</label>
+                                        <label class="control-label" style="font-family: 'Questrial', sans-serif;">Curso e Turma</label>
                                         <div class="controls">
                                             <label class="carousel-inner">
                                                 <?php echo $projeto['curso']; ?> / <?php echo $projeto['turma']; ?>
@@ -493,7 +496,7 @@ if (null == $codProjeto) {
                 <div class="span10 offset1" id="avaliar">
                     <div class="card">
                         <div class="card-header">
-                            <h3 class="well" style="font-weight: bold"> Avaliar notas deste Projeto </h3>
+                            <h3 class="well" style="font-family: 'Questrial', sans-serif;"> Avaliar notas deste Projeto </h3>
                         </div>
                         <div class="card-body">
 

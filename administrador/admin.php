@@ -168,7 +168,7 @@ endif;
                                 <li>
                                     <a <?php echo 'href="editar-perfil.php?codUsuario=' . $codUsuario . '"' ?> >Editar
                                         Perfil
-                                        <span class="badge badge-pill badge-success">Pro</span>
+                                 
                                     </a>
                                 </li>
                                 <!--                                <li>-->
