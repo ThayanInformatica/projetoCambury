@@ -352,7 +352,7 @@ WHERE
         </div>
         <!-- sidebar-content  -->
         <div class="sidebar-footer">
-            <a href="../../logout.php">
+            <a href="../logout.php">
                 <i class="material-icons" style="color: #c82333;" data-toggle="tooltip" data-placement="top"
                    title="Deslogar" role="alert" data-toggle="tooltip">power_settings_new</i>
             </a>
