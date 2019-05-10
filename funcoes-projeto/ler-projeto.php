@@ -77,51 +77,58 @@ if (null == $codProjeto) {
                     <div class="control-group">
                         <label class="control-label">Nome do Projeto</label>
                         <div class="controls">
-                            <label class="carousel-inner">
+                            <span class="carousel-inner">
                                 <?php echo $projeto['nomeProjeto']; ?>
-                            </label>
+                            </span>
                         </div>
                     </div>
+                    </br>
 
                     <div class="control-group">
                         <label class="control-label">Nome do Orientador</label>
                         <div class="controls">
-                            <label class="carousel-inner">
+                            <span class="carousel-inner">
                                 <?php echo $projeto['nomeProfessor']; ?>
-                            </label>
+                            </span>
                         </div>
                     </div>
+                    </br>
+
 
                     <div class="control-group">
                         <label class="control-label">Objetivo do Projeto</label>
                         <div class="controls">
-                            <label class="carousel-inner">
+                            <span class="carousel-inner">
                                 <?php echo $projeto['objetivo']; ?>
-                            </label>
+                            </span>
                         </div>
                     </div>
+                    </br>
 
                     <div class="control-group">
                         <label class="control-label">Resumo do Projeto</label>
                         <div class="controls">
-                            <label class="carousel-inner">
+                            <span class="carousel-inner">
                                 <?php echo $projeto['resumo']; ?>
-                            </label>
+                            </span>
                         </div>
                     </div>
+                    </br>
 
                     <div class="control-group">
                         <label class="control-label">Curso e Turma</label>
                         <div class="controls">
-                            <label class="carousel-inner">
+                            <span class="carousel-inner">
                                 <?php echo $projeto['curso']; ?> / <?php echo $projeto['turma']; ?>
-                            </label>
+                            </span>
+                        </br>
                         </div>
                     </div>
                     <br/>
                     <div class="form-actions">
                         <a href="../usuario-logado.php" type="btn" class="btn btn-default">Voltar</a>
                     </div>
+                    </br>
                 </div>
             </div>
         </div>
