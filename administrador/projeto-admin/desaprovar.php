@@ -55,6 +55,7 @@ if (!empty($_POST)) {
     <!--    footer e header para páginas-->
     <link rel="stylesheet" href="../../components/css/header.css"/>
     <link rel="stylesheet" href="../../components/css/footer.css"/>
+    <link rel="icon" href="https://cambury.br/wp-content/themes/cambury/favicon.png"  type="image/ico" />
     <script>
         $(function () {
             $("#header").load("../../components/header.php");

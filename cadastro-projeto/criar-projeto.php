@@ -67,6 +67,7 @@ if (isset($_POST['cadastrar'])) {
     <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="components/css/header.css"/>
     <link rel="stylesheet" href="components/css/footer.css"/>
+    <link rel="icon" href="https://cambury.br/wp-content/themes/cambury/favicon.png"  type="image/ico" />
     <style>
     @import url('https://fonts.googleapis.com/css?family=Questrial');
     </style>

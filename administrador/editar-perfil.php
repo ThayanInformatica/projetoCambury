@@ -9,9 +9,6 @@ endif;
 if (isset($_SESSION['login']) && isset($_SESSION['senha']) && isset($_SESSION['nivel']) && isset($_SESSION['codUsuario'])):
     if (isset($_SESSION['nivel'])) {
         $nivel = $_SESSION['nivel'];
-        if ($nivel != 99) {
-            header('location: ../usuario-logado.php');
-        }
     }
 endif;
 
@@ -93,7 +90,8 @@ if (!empty($_POST)) {
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="../administrador/css/edita-perfil-adm.css"/>
-       
+    <link rel="icon" href="https://cambury.br/wp-content/themes/cambury/favicon.png"  type="image/ico" />
+
     <script>
     jQuery(function ($) {
     $(".sidebar-dropdown > a").click(function () {

@@ -80,6 +80,7 @@ if ($_POST) {
     <link rel="stylesheet" href="css/style.css">
 
     <link rel="stylesheet" href="components/css/footer.css"/>
+    <link rel="icon" href="https://cambury.br/wp-content/themes/cambury/favicon.png"  type="image/ico" />
 
 
     <script>

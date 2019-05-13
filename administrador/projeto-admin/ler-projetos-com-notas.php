@@ -131,11 +131,16 @@ DESC
           rel="stylesheet">
     <link href="../../components/css/footer.css">
     <link href="https://fonts.googleapis.com/css?family=Marcellus+SC|Prompt|Rufina" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+
+    <link rel="icon" href="https://cambury.br/wp-content/themes/cambury/favicon.png"  type="image/ico" />
 
 </head>
 
 <body>
-<div style="font-family: 'Questrial', sans-serif;   ">
+<div style="font-family: 'Questrial', sans-serif;">
     <div class="page-wrapper chiller-theme toggled">
         <a id="show-sidebar" class="btn btn-sm btn-dark" href="#" style="height: 100% !important;">
             <i class="material-icons">
@@ -194,12 +199,11 @@ DESC
                             <a href="#">
                                 <i class="fa fa-tachometer-alt"></i>
                                 <span>Meu Perfil</span>
-                                <span class="badge badge-pill badge-warning">Novo</span>
                             </a>
                             <div class="sidebar-submenu">
                                 <ul>
                                     <li>
-                                        <a <?php echo 'href="funcoes-usuario/editar-usuario.php?codUsuario=' . $codUsuario . '"' ?> >Editar
+                                        <a <?php echo 'href="../editar-perfil.php?codUsuario=' . $codUsuario . '"' ?> >Editar
                                             Perfil
                                             <!--                                            <span class="badge badge-pill badge-success">Pro</span>-->
                                         </a>
@@ -327,14 +331,14 @@ DESC
             <!-- sidebar-content  -->
             <div class="sidebar-footer">
                 <?php if ($_SESSION['nivel'] == 99)
-                    echo'<a href="../../logout.php">'
+                    echo '<a href="../../logout.php">'
                 ?>
 
                 <?php if ($_SESSION['nivel'] < 99)
-                    echo'<a href="../../logout.php">'
+                    echo '<a href="../../logout.php">'
                 ?>
-                    <i class="material-icons" style="color: #c82333;" data-toggle="tooltip" data-placement="top"
-                       title="Deslogar" role="alert" data-toggle="tooltip">power_settings_new</i>
+                <i class="material-icons" style="color: #c82333;" data-toggle="tooltip" data-placement="top"
+                   title="Deslogar" role="alert" data-toggle="tooltip">power_settings_new</i>
                 </a>
                 <!--            <a href="#">-->
                 <!--                <i class="fa fa-envelope"></i>-->
@@ -350,137 +354,143 @@ DESC
             </div>
         </nav>
 
-    <!-- sidebar-wrapper  -->
-    <main class="page-content">
-        <div class="container">
-            <div class="span10 offset1">
-                <div class="card">
-                    <div class="card-header">
-                        <h3 class="well">Informações do Projeto Avaliado</h3>
-                    </div>
-                    <div class="container">
-                        <div class="form-horizontal">
-                            <div class="control-group">
-                                <label class="control-label" style="font-weight: bold;">Nome do Projeto</label>
-                                <div class="controls">
-                                    <label class="carousel-inner">
-                                        <?php echo $projeto['nomeProjeto']; ?>
-                                    </label>
+        <!-- sidebar-wrapper  -->
+        <main class="page-content">
+            <div class="container">
+                <div class="span10 offset1">
+                    <div class="card">
+                        <div class="card-header">
+                            <h3 class="well">Informações do Projeto Avaliado</h3>
+                        </div>
+                        <div class="container">
+                            <div class="form-horizontal">
+                                <div class="control-group">
+                                    <label class="control-label" style="font-weight: bold;">Nome do Projeto</label>
+                                    <div class="controls">
+                                        <label class="carousel-inner">
+                                            <?php echo $projeto['nomeProjeto']; ?>
+                                        </label>
+                                    </div>
                                 </div>
-                            </div>
 
-                            <div class="control-group">
-                                <label class="control-label" style="font-weight: bold;">Nome do Orientador</label>
-                                <div class="controls">
-                                    <label class="carousel-inner">
-                                        <?php echo $projeto['nomeProfessor']; ?>
-                                    </label>
+                                <div class="control-group">
+                                    <label class="control-label" style="font-weight: bold;">Nome do Orientador</label>
+                                    <div class="controls">
+                                        <label class="carousel-inner">
+                                            <?php echo $projeto['nomeProfessor']; ?>
+                                        </label>
+                                    </div>
                                 </div>
-                            </div>
 
-                            <div class="control-group">
-                                <label class="control-label" style="font-weight: bold;">Objetivo do Projeto</label>
-                                <div class="controls">
-                                    <label class="carousel-inner">
-                                        <?php echo $projeto['objetivo']; ?>
-                                    </label>
+                                <div class="control-group">
+                                    <label class="control-label" style="font-weight: bold;">Objetivo do Projeto</label>
+                                    <div class="controls">
+                                        <label class="carousel-inner">
+                                            <?php echo $projeto['objetivo']; ?>
+                                        </label>
+                                    </div>
                                 </div>
-                            </div>
 
-                            <div class="control-group">
-                                <label class="control-label" style="font-weight: bold;">Resumo do Projeto</label>
-                                <div class="controls">
-                                    <label class="carousel-inner" style="font-style: italic;">
-                                        <?php echo $projeto['resumo']; ?>
-                                    </label>
+                                <div class="control-group">
+                                    <label class="control-label" style="font-weight: bold;">Resumo do Projeto</label>
+                                    <div class="controls">
+                                        <label class="carousel-inner" style="font-style: italic;">
+                                            <?php echo $projeto['resumo']; ?>
+                                        </label>
+                                    </div>
                                 </div>
-                            </div>
 
-                            <div class="control-group">
-                                <label class="control-label" style="font-weight: bold;">Curso e Turma</label>
-                                <div class="controls">
-                                    <label class="carousel-inner">
-                                        <?php echo $projeto['curso']; ?> / <?php echo $projeto['turma']; ?>
-                                    </label>
+                                <div class="control-group">
+                                    <label class="control-label" style="font-weight: bold;">Curso e Turma</label>
+                                    <div class="controls">
+                                        <label class="carousel-inner">
+                                            <?php echo $projeto['curso']; ?> / <?php echo $projeto['turma']; ?>
+                                        </label>
+                                    </div>
                                 </div>
-                            </div>
 
-                            <div class="control-group">
-                                <label class="control-label" style="font-weight: bold;">Contribuição do projeto para instituições envolvidas e/ou sociedade</label>
-                                <div class="controls">
-                                    <label class="carousel-inner">
-                                        Nota: <?php echo $projeto['nota1']; ?>
-                                    </label>
+                                <div class="control-group">
+                                    <label class="control-label" style="font-weight: bold;">Contribuição do projeto para
+                                        instituições envolvidas e/ou sociedade</label>
+                                    <div class="controls">
+                                        <label class="carousel-inner">
+                                            Nota: <?php echo $projeto['nota1']; ?>
+                                        </label>
+                                    </div>
                                 </div>
-                            </div>
 
-                            <div class="control-group">
-                                <label class="control-label" style="font-weight: bold;">Ambientação e exposição do projeto
-                                </label>
-                                <div class="controls">
-                                    <label class="carousel-inner">
-                                        Nota: <?php echo $projeto['nota2']; ?>
+                                <div class="control-group">
+                                    <label class="control-label" style="font-weight: bold;">Ambientação e exposição do
+                                        projeto
                                     </label>
+                                    <div class="controls">
+                                        <label class="carousel-inner">
+                                            Nota: <?php echo $projeto['nota2']; ?>
+                                        </label>
+                                    </div>
                                 </div>
-                            </div>
 
-                            <div class="control-group">
-                                <label class="control-label" style="font-weight: bold;">Domínio nas explicações e dinâmica do projeto</label>
-                                <div class="controls">
-                                    <label class="carousel-inner">
-                                        Nota: <?php echo $projeto['nota3']; ?>
-                                    </label>
+                                <div class="control-group">
+                                    <label class="control-label" style="font-weight: bold;">Domínio nas explicações e
+                                        dinâmica do projeto</label>
+                                    <div class="controls">
+                                        <label class="carousel-inner">
+                                            Nota: <?php echo $projeto['nota3']; ?>
+                                        </label>
+                                    </div>
                                 </div>
-                            </div>
 
-                            <div class="control-group">
-                                <label class="control-label" style="font-weight: bold;">Resultados obtidos com o projeto</label>
-                                <div class="controls">
-                                    <label class="carousel-inner">
-                                        Nota: <?php echo $projeto['nota4']; ?>
-                                    </label>
+                                <div class="control-group">
+                                    <label class="control-label" style="font-weight: bold;">Resultados obtidos com o
+                                        projeto</label>
+                                    <div class="controls">
+                                        <label class="carousel-inner">
+                                            Nota: <?php echo $projeto['nota4']; ?>
+                                        </label>
+                                    </div>
                                 </div>
-                            </div>
 
-                            <div class="control-group">
-                                <label class="control-label" style="font-weight: bold;">Total</label>
-                                <div class="controls">
-                                    <label class="carousel-inner" style="font-style: italic;">
-                                        Nota Total: <span style="font-weight: bold; color:#1e7e34;"><?php echo $projeto['Total']; ?></span>
-                                    </label>
+                                <div class="control-group">
+                                    <label class="control-label" style="font-weight: bold;">Total</label>
+                                    <div class="controls">
+                                        <label class="carousel-inner" style="font-style: italic;">
+                                            Nota Total: <span
+                                                    style="font-weight: bold; color:#1e7e34;"><?php echo $projeto['Total']; ?></span>
+                                        </label>
+                                    </div>
                                 </div>
-                            </div>
 
-                            <br/>
-                            <div class="form-actions">
-                                <?php
-                                if ($_SESSION['nivel'] == 99)
-                                echo '<a href="../admin.php" type="btn" class="btn btn-default">Voltar</a>'
-                                ?>
+                                <br/>
+                                <div class="form-actions">
+                                    <?php
+                                    if ($_SESSION['nivel'] == 99)
+                                        echo '<a href="../../index.php" type="btn" class="btn btn-default">Voltar</a>'
+                                    ?>
 
-                                <?php
-                                if ($_SESSION['nivel'] < 99)
-                                    echo '<a href="../../index.php" type="btn" class="btn btn-default">Voltar</a>'
-                                ?>
+                                    <?php
+                                    if ($_SESSION['nivel'] < 99)
+                                        echo '<a href="../../index.php" type="btn" class="btn btn-default">Voltar</a>'
+                                    ?>
 
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </main>
+        </main>
 
+    </div>
 </div>
 
-    <!-- page-wrapper -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
-            integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-            crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
-            integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-            crossorigin="anonymous"></script>
+<!-- page-wrapper -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
 
 </body>
 </html>
