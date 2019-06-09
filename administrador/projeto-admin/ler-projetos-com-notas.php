@@ -20,7 +20,7 @@ if (!empty($_GET['codProjeto'])) {
 }
 
 if (null == $codProjeto) {
-    header("Location: ../../usuario-logado.php");
+    header("Location: ../../index.php");
 } elseif (null == $_SESSION['login']) {
     header("Location: ../../index.php");
 } else {
@@ -462,15 +462,8 @@ DESC
 
                                 <br/>
                                 <div class="form-actions">
-                                    <?php
-                                    if ($_SESSION['nivel'] == 99)
-                                        echo '<a href="../../index.php" type="btn" class="btn btn-default">Voltar</a>'
-                                    ?>
+                            <a href="../../index.php" type="btn" class="btn btn-default">Voltar</a>
 
-                                    <?php
-                                    if ($_SESSION['nivel'] < 99)
-                                        echo '<a href="../../index.php" type="btn" class="btn btn-default">Voltar</a>'
-                                    ?>
 
                                 </div>
                             </div>

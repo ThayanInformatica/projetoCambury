@@ -72,7 +72,6 @@ if (isset($_POST['cadastrar'])) {
     @import url('https://fonts.googleapis.com/css?family=Questrial');
     </style>
     
-    
     <script>
         $(function () {
             $("#header").load("../components/header.php");

@@ -17,6 +17,7 @@ if (isset($_SESSION['login']) && isset($_SESSION['senha']) && isset($_SESSION['n
 
     $codUsuario = $_SESSION['codUsuario'];
 
+
 endif;
 
 ?>
@@ -334,7 +335,6 @@ endif;
 
                     $avaliadorOK = $usuario->recuperarUsuarioAvaliador($codUsuario);
                     $_SESSION['avaliador'] = $avaliadorOK;
-
 
                     ?>
 

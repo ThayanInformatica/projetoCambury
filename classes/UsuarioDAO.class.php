@@ -24,6 +24,30 @@ class UsuarioDAO
         }
     }
 
+    public function logado($login)
+    {
+
+        $sql = "UPDATE tb_usuario SET logado = 1 WHERE loginUsuario = '$login'";
+
+        $executa = mysqli_query($this->conexao->getCon(), $sql);
+
+        if (mysqli_num_rows($executa) > 0) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public function verifyLogger($login)
+    {
+
+        $sql = "SELECT logado FROM tb_usuario WHERE loginUsuario = '$login'";
+
+        $executa = mysqli_query($this->conexao->getCon(), $sql);
+        $userLogado = mysqli_fetch_array($executa);
+        return $userLogado['logado'];
+    }
+
     // verificiar validacao de usuario
     public function nivelDeUsuario($login)
     {
@@ -93,8 +117,11 @@ class UsuarioDAO
     }
 
     // efetua logout
-    public function logout()
+    public function logout($login)
     {
+        $sql = "UPDATE tb_usuario SET logado = 0 WHERE loginUsuario = '$login'";
+
+        $executa = mysqli_query($this->conexao->getCon(), $sql);
 
         session_start();
 

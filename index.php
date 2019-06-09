@@ -2,17 +2,18 @@
 
 session_start();
 if (isset($_SESSION['login']) && isset($_SESSION['senha']) && isset($_SESSION['nivel'])):
-    header('location: usuario-logado.php');
-endif;
 
-if (isset($_SESSION['nivel'])) {
-    $nivel = $_SESSION['nivel'];
-    if ($nivel == 99) {
-        header('location: administrador/admin.php');
+    $nivelUser = $_SESSION['nivel'];
+    if ($_SESSION['nivel'] < 99)
+    {
+        header('location: usuario-logado.php');
     }
 
-}
-
+    if ($_SESSION['nivel'] >= 99)
+    {
+        header('location: administrador/admin.php');
+    }
+endif;
 
 
 if ($_POST) {
@@ -26,6 +27,8 @@ if ($_POST) {
 
     $user = $usuario->login($login, $senha);
 
+    $verificadorLogado = $usuario->verifyLogger($login);
+
     if ($user == true) {
         session_start();
         $_SESSION['login'] = $login;
@@ -35,10 +38,15 @@ if ($_POST) {
         $codUsuario = $usuario->CodDoUsuario($login);
         $_SESSION['codUsuario'] = $codUsuario;
         header('location: usuario-logado.php');
+        $logar = $usuario->logado($login);
+
     } else {
         header('location:index.php?erro=senha');
     }
 
+    if ($verificadorLogado == 1) {
+        header("location: index.php?erro=logado");
+    }
     if ($user == true && $nivel == 99) {
         header('location: administrador/admin.php');
     }
@@ -80,7 +88,7 @@ if ($_POST) {
     <link rel="stylesheet" href="css/style.css">
 
     <link rel="stylesheet" href="components/css/footer.css"/>
-    <link rel="icon" href="https://cambury.br/wp-content/themes/cambury/favicon.png"  type="image/ico" />
+    <link rel="icon" href="https://cambury.br/wp-content/themes/cambury/favicon.png" type="image/ico"/>
 
 
     <script>
@@ -110,7 +118,7 @@ if ($_POST) {
         <div class="container-fluid">
             <div class="d-flex align-items-center">
 
-                <img id="cambury-logo" src="components/img/logo-cambury.png" alt="Logo cambury" >
+                <img id="cambury-logo" src="components/img/logo-cambury.png" alt="Logo cambury">
                 <div class="site-logo mr-auto w-25"><a href="index.html">PCA Cambury</a></div>
 
                 <div class="mx-auto text-center">
@@ -126,10 +134,12 @@ if ($_POST) {
                 <div class="ml-auto w-25">
                     <nav class="site-navigation position-relative text-right" role="navigation">
                         <ul class="site-menu main-menu site-menu-dark js-clone-nav mr-auto d-none d-lg-block m-0 p-0">
-                            <li class="cta"><a href="https://cambury.br/cursos-formosa/" class="nav-link"><span>Contato</span></a></li>
+                            <li class="cta"><a href="https://cambury.br/cursos-formosa/"
+                                               class="nav-link"><span>Contato</span></a></li>
                         </ul>
                     </nav>
-                    <a href="#" class="d-inline-block d-lg-none site-menu-toggle js-menu-toggle text-black float-right"><span class="icon-menu h3"></span></a>
+                    <a href="#" class="d-inline-block d-lg-none site-menu-toggle js-menu-toggle text-black float-right"><span
+                                class="icon-menu h3"></span></a>
                 </div>
             </div>
         </div>
@@ -144,8 +154,9 @@ if ($_POST) {
                     <div class="col-12">
                         <div class="row align-items-center">
                             <div class="col-lg-6 mb-4">
-                                <h1  data-aos="fade-up" data-aos-delay="100"> Resumo  </h1>
-                                <p class="mb-4"  data-aos="fade-up" data-aos-delay="200">Este projeto veio para facilitar o processo de avaliação de projetos PCA,
+                                <h1 data-aos="fade-up" data-aos-delay="100"> Resumo </h1>
+                                <p class="mb-4" data-aos="fade-up" data-aos-delay="200">Este projeto veio para facilitar
+                                    o processo de avaliação de projetos PCA,
                                     com o intuito de deixar tudo mais facil e rapido </p>
 
 
@@ -155,21 +166,21 @@ if ($_POST) {
                                 <form action="" method="post" class="form-box">
                                     <h3 class="h4 text-black mb-4">Login</h3>
                                     <div class="form-group">
-                                        <input type="text" id="entrar" name="login" class="form-control" placeholder="Usuario">
+                                        <input type="text" id="entrar" name="login" class="form-control"
+                                               placeholder="Usuario">
                                     </div>
                                     <div class="form-group">
                                         <input type="password" name="senha" class="form-control" placeholder="senha">
                                     </div>
 
                                     <div class="form-group">
-                                        <input type="submit" id="btn-login" class="btn btn-primary btn-pill" value="Enviar">
+                                        <input type="submit" id="btn-login" class="btn btn-primary btn-pill"
+                                               value="Enviar">
                                         <!-- <a  href="cadastro-usuario.php" id="Cadastrar">Cadastre-se</a> -->
-                                        <a id="btn-cadastra" href="cadastro-usuario.php" class="btn btn-primary btn-pill">Cadastrar
+                                        <a id="btn-cadastra" href="cadastro-usuario.php"
+                                           class="btn btn-primary btn-pill">Cadastrar
                                         </a>
                                     </div>
-
-
-
 
 
                                 </form>

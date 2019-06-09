@@ -85,6 +85,14 @@ if (isset($_POST['cadastrar'])) {
         });
     </script>
 
+    <script>
+        $(document).ready(function () {
+            $('input[type=radio]').change(function() {
+                $('input[type=radio]:checked').not(this).prop('checked', false);
+            });
+        });
+    </script>
+
     <script type="text/javascript">
 
         function _cpf(cpf) {
@@ -223,10 +231,10 @@ if (isset($_POST['cadastrar'])) {
                             </div>
                             <div class="checkbox">
                                 <label>
-                                    <input type="checkbox" id="avaliador" name="avaliador" value="1"> Avaliador
+                                    <input type="radio" id="avaliador" name="avaliador" value="1"> Avaliador
                                 </label>
                                 <label>
-                                    <input type="checkbox" id="avaliador" name="avaliador" value="0">Orientador
+                                    <input type="radio" id="avaliador" name="avaliador" value="0">Orientador
                                 </label>
                             </div>
                         </div>

@@ -116,7 +116,7 @@ if (!empty($_POST)) {
 
                     <div class="modal-footer">
                         <button type="submit" class="btn btn-success">Sim</button>
-                        <a href="../admin.php" type="btn" class="btn btn-default">Voltar</a>
+                        <a href="validar-usuario-avaliador.php" type="btn" class="btn btn-default">Voltar</a>
                     </div>
             </div>
             </form>
