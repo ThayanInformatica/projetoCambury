@@ -367,45 +367,45 @@ DESC
                                 <div class="control-group">
                                     <label class="control-label" style="font-weight: bold;">Nome do Projeto</label>
                                     <div class="controls">
-                                        <label class="carousel-inner">
+                                        <span class="carousel-inner">
                                             <?php echo $projeto['nomeProjeto']; ?>
-                                        </label>
+                                        </span>
                                     </div>
                                 </div>
 
                                 <div class="control-group">
                                     <label class="control-label" style="font-weight: bold;">Nome do Orientador</label>
                                     <div class="controls">
-                                        <label class="carousel-inner">
+                                        <span class="carousel-inner">
                                             <?php echo $projeto['nomeProfessor']; ?>
-                                        </label>
+                                        </span>
                                     </div>
                                 </div>
 
                                 <div class="control-group">
                                     <label class="control-label" style="font-weight: bold;">Objetivo do Projeto</label>
                                     <div class="controls">
-                                        <label class="carousel-inner">
+                                        <span class="carousel-inner">
                                             <?php echo $projeto['objetivo']; ?>
-                                        </label>
+                                        </span>
                                     </div>
                                 </div>
 
                                 <div class="control-group">
                                     <label class="control-label" style="font-weight: bold;">Resumo do Projeto</label>
                                     <div class="controls">
-                                        <label class="carousel-inner" style="font-style: italic;">
+                                        <span class="carousel-inner">
                                             <?php echo $projeto['resumo']; ?>
-                                        </label>
+                                        </span>
                                     </div>
                                 </div>
 
                                 <div class="control-group">
                                     <label class="control-label" style="font-weight: bold;">Curso e Turma</label>
                                     <div class="controls">
-                                        <label class="carousel-inner">
+                                        <span class="carousel-inner">
                                             <?php echo $projeto['curso']; ?> / <?php echo $projeto['turma']; ?>
-                                        </label>
+                                        </span>
                                     </div>
                                 </div>
 
@@ -413,9 +413,9 @@ DESC
                                     <label class="control-label" style="font-weight: bold;">Contribuição do projeto para
                                         instituições envolvidas e/ou sociedade</label>
                                     <div class="controls">
-                                        <label class="carousel-inner">
-                                            Nota: <?php echo $projeto['nota1']; ?>
-                                        </label>
+                                        <span class="carousel-inner">
+                                            Nota: <span style="color: #0d95e8; font-weight: bold;"><?php echo $projeto['nota1']; ?></span>
+                                        </span>
                                     </div>
                                 </div>
 
@@ -424,9 +424,9 @@ DESC
                                         projeto
                                     </label>
                                     <div class="controls">
-                                        <label class="carousel-inner">
-                                            Nota: <?php echo $projeto['nota2']; ?>
-                                        </label>
+                                        <span class="carousel-inner">
+                                            Nota: <span style="color: #0d95e8; font-weight: bold;"><?php echo $projeto['nota2']; ?></span>
+                                        </span>
                                     </div>
                                 </div>
 
@@ -434,9 +434,9 @@ DESC
                                     <label class="control-label" style="font-weight: bold;">Domínio nas explicações e
                                         dinâmica do projeto</label>
                                     <div class="controls">
-                                        <label class="carousel-inner">
-                                            Nota: <?php echo $projeto['nota3']; ?>
-                                        </label>
+                                        <span class="carousel-inner">
+                                            Nota: <span style="color: #0d95e8; font-weight: bold;"><?php echo $projeto['nota3']; ?></span>
+                                        </span>
                                     </div>
                                 </div>
 
@@ -444,19 +444,19 @@ DESC
                                     <label class="control-label" style="font-weight: bold;">Resultados obtidos com o
                                         projeto</label>
                                     <div class="controls">
-                                        <label class="carousel-inner">
-                                            Nota: <?php echo $projeto['nota4']; ?>
-                                        </label>
+                                        <span class="carousel-inner">
+                                            Nota: <span style="color: #0d95e8; font-weight: bold;"><?php echo $projeto['nota4']; ?></span>
+                                        </span>
                                     </div>
                                 </div>
 
                                 <div class="control-group">
                                     <label class="control-label" style="font-weight: bold;">Total</label>
                                     <div class="controls">
-                                        <label class="carousel-inner" style="font-style: italic;">
+                                        <span class="carousel-inner">
                                             Nota Total: <span
                                                     style="font-weight: bold; color:#1e7e34;"><?php echo $projeto['Total']; ?></span>
-                                        </label>
+                                        </span>
                                     </div>
                                 </div>
 

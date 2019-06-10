@@ -83,7 +83,7 @@ if (null == $codProjeto) {
                     <div class="control-group">
                         <label class="control-label">Nome do Projeto</label>
                         <div class="controls">
-                            <span class="carousel-inner">
+                            <span style="font-weight: 200;" class="carousel-inner">
                                 <?php echo $projeto['nomeProjeto']; ?>
                             </span>
                         </div>
@@ -93,7 +93,7 @@ if (null == $codProjeto) {
                     <div class="control-group">
                         <label class="control-label">Nome do Orientador</label>
                         <div class="controls">
-                            <span class="carousel-inner">
+                            <span style="font-weight: 200;" class="carousel-inner">
                                 <?php echo $projeto['nomeProfessor']; ?>
                             </span>
                         </div>
@@ -104,7 +104,7 @@ if (null == $codProjeto) {
                     <div class="control-group">
                         <label class="control-label">Objetivo do Projeto</label>
                         <div class="controls">
-                            <span class="carousel-inner">
+                            <span style="font-weight: 200;" class="carousel-inner">
                                 <?php echo $projeto['objetivo']; ?>
                             </span>
                         </div>
@@ -114,7 +114,7 @@ if (null == $codProjeto) {
                     <div class="control-group">
                         <label class="control-label">Resumo do Projeto</label>
                         <div class="controls">
-                            <span class="carousel-inner">
+                            <span style="font-weight: normal; !important" class="carousel-inner">
                                 <?php echo $projeto['resumo']; ?>
                             </span>
                         </div>
@@ -124,7 +124,7 @@ if (null == $codProjeto) {
                     <div class="control-group">
                         <label class="control-label">Curso e Turma</label>
                         <div class="controls">
-                            <span class="carousel-inner">
+                            <span style="font-weight: 200;" class="carousel-inner">
                                 <?php echo $projeto['curso']; ?> / <?php echo $projeto['turma']; ?>
                             </span>
                         </br>

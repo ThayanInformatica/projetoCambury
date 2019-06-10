@@ -409,7 +409,7 @@ WHERE
                                 <label class="control-label" style="font-weight: bold;">Contribuição do projeto para instituições envolvidas e/ou sociedade</label>
                                 <div class="controls">
                                     <label class="carousel-inner">
-                                        Nota: <?php echo $projetosAvaliador['nota_1']; ?>
+                                        Nota: <span style="color: #0d95e8; font-weight: bold;"><?php echo $projetosAvaliador['nota_1']; ?></span>
                                     </label>
                                 </div>
                             </div>
@@ -419,7 +419,7 @@ WHERE
                                 </label>
                                 <div class="controls">
                                     <label class="carousel-inner">
-                                        Nota: <?php echo $projetosAvaliador['nota_2']; ?>
+                                        Nota: <span style="color: #0d95e8; font-weight: bold;"><?php echo $projetosAvaliador['nota_2']; ?></span>
                                     </label>
                                 </div>
                             </div>
@@ -428,7 +428,7 @@ WHERE
                                 <label class="control-label" style="font-weight: bold;">Domínio nas explicações e dinâmica do projeto</label>
                                 <div class="controls">
                                     <label class="carousel-inner">
-                                        Nota: <?php echo $projetosAvaliador['nota_3']; ?>
+                                        Nota: <span style="color: #0d95e8; font-weight: bold;"><?php echo $projetosAvaliador['nota_3']; ?></span>
                                     </label>
                                 </div>
                             </div>
@@ -437,7 +437,7 @@ WHERE
                                 <label class="control-label" style="font-weight: bold;">Resultados obtidos com o projeto</label>
                                 <div class="controls">
                                     <label class="carousel-inner">
-                                        Nota: <?php echo $projetosAvaliador['nota_4']; ?>
+                                        Nota: <span style="color: #0d95e8; font-weight: bold;"><?php echo $projetosAvaliador['nota_4']; ?></span>
                                     </label>
                                 </div>
                             </div>
@@ -445,7 +445,7 @@ WHERE
                             <div class="control-group">
                                 <label class="control-label" style="font-weight: bold;">Total</label>
                                 <div class="controls">
-                                    <label class="carousel-inner" style="font-style: italic;">
+                                    <label class="carousel-inner">
                                         Nota Total: <span style="font-weight: bold; color:#1e7e34;"><?php echo $projetosAvaliador['Total']; ?></span>
                                     </label>
                                 </div>
