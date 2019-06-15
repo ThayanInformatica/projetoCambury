@@ -86,6 +86,17 @@ class ProjetoDAO
             return false;
         }
     }
+//
+//    public function QuantidadoAvalicoesdoProjeto($codProjeto)
+//    {
+//
+//        $sql = "select count(*) from tb_avaliacao where codProjeto = '$codProjeto';";
+//
+//        $executa = mysqli_query($this->conexao->getCon(), $sql);
+//        $countProjeto = mysqli_fetch_array($executa);
+//
+//        return var_dump($countProjeto['count(*)']);
+//    }
 
 }
 

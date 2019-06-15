@@ -165,7 +165,6 @@ endif;
                             <a href="#">
                                 <i class="fa fa-tachometer-alt"></i>
                                 <span>Meu Perfil</span>
-                                <span class="badge badge-pill badge-warning">Novo</span>
                             </a>
                             <div class="sidebar-submenu">
                                 <ul>

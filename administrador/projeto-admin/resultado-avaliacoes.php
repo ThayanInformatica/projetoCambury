@@ -375,15 +375,18 @@ endif;
 
 
                     <table class="table table-striped">
+
                         <div class="projetos">
                         <h2 style="font-family: 'Questrial', sans-serif;">Lista e Notas dos Projetos</h2>
                         </div>
+
                         <thead>
                         <?php
+
                         if (isset($codProjeto)) {
 
                             ?>
-                            <tr style="font-family: 'Questrial', sans-serif;" class="colunas-projetos teste">
+                            <tr style="font-family: 'Questrial', sans-serif; " class="colunas-projetos teste">
                                 <th scope="col">Nome do Projeto</th>
                                 <th scope="col">Nome do Orientador</th>
                                 <th scope="col">Curso e Turma</th>
@@ -392,6 +395,15 @@ endif;
                             </tr>
                             <?php
                         }
+
+                        if (!isset($codProjeto)) {
+                            echo '</br>';
+                            echo '</br>';
+                            echo '<div class="jumbotron" style="position: relative; width: 100%;">';
+                            echo '<h2 style="text-align: center;">Não possui nenhum projeto</h2>';
+                            echo '</div>';
+                        }
+
                         ?>
                         </thead>
                         <tbody>
@@ -435,13 +447,16 @@ DESC
                                 echo '<td width=200>';
                                 echo '<a class="material-icons" data-toggle="tooltip" data-placement="top" title="Informações do Projeto" href="ler-projetos-com-notas.php?codProjeto=' . $getProjetos['codProjeto'] . '">info</a>';
                                 echo ' ';
+                                echo '</tr>';
                             }
                         }
 
-                        if (!isset($codProjeto)) {
-                            echo '<div class="jumbotron">';
-                            echo '<h2>Não existe projeto</h2>';
-                        }
+//                        if (!isset($codProjeto)) {
+//                            echo '</br>';
+//                            echo '<div class="jumbotron">';
+//                            echo '<h2>Não possui nenhum projeto</h2>';
+//                            echo '</div>';
+//                        }
                         conectdb::desconectar();
                         ?>
                         </tbody>

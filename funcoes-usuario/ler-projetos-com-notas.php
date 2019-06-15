@@ -60,8 +60,15 @@ WHERE
     $q = $pdo->prepare($sql);
     $q->execute(array($codUsuario,$codProjeto));
     $projetosAvaliador = $q->fetch(PDO::FETCH_ASSOC);
-    conectdb::desconectar();
+
 }
+
+//$sql2 = 'select count(*) from tb_avaliacao where codProjeto = ?;';
+//$q2 = $pdo->prepare($sql2);
+//$q2->execute(array($codProjeto));
+//$projetosQuantidadeAvaliador = $q2->fetch(PDO::FETCH_ASSOC);
+//conectdb::desconectar();
+
 ?>
 
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
@@ -129,6 +136,7 @@ WHERE
     <meta name="description"
           content="Responsive sidebar template with sliding effect and dropdown menu based on bootstrap 3">
     <title>Projetos com Nota | Faculdades Cambury</title>
+    <link href="https://fonts.googleapis.com/css?family=Marcellus+SC|Prompt|Rufina" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
           integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
           crossorigin="anonymous">
@@ -136,13 +144,12 @@ WHERE
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
           rel="stylesheet">
     <link href="../components/css/footer.css">
-    <link href="https://fonts.googleapis.com/css?family=Marcellus+SC|Prompt|Rufina" rel="stylesheet">
-    
+
 
 </head>
 
 <body>
-<div style="font-family: 'Rufina', serif;">
+<div>
     <div class="page-wrapper chiller-theme toggled">
         <a id="show-sidebar" class="btn btn-sm btn-dark" href="#" style="height: 100% !important;">
             <i class="material-icons">
@@ -201,7 +208,6 @@ WHERE
                             <a href="#">
                                 <i class="fa fa-tachometer-alt"></i>
                                 <span>Meu Perfil</span>
-                                <span class="badge badge-pill badge-warning">Novo</span>
                             </a>
                             <div class="sidebar-submenu">
                                 <ul>
@@ -450,6 +456,16 @@ WHERE
                                     </label>
                                 </div>
                             </div>
+
+<!--                            <div class="control-group">-->
+<!--                                <label class="control-label" style="font-weight: bold;">Obs: </label>-->
+<!--                                <div class="controls">-->
+<!--                                        <span class="carousel-inner">-->
+<!--                                            Este Projeto foi avaliado por: <span-->
+<!--                                                    style="font-weight: bold; color:#fd7e14;">--><?php //echo $projetosQuantidadeAvaliador['count(*)']; ?><!--</span> avaliador(s)-->
+<!--                                        </span>-->
+<!--                                </div>-->
+<!--                            </div>-->
 
                             <br/>
                             <div class="form-actions">

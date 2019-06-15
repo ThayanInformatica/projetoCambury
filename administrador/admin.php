@@ -437,8 +437,10 @@ endif;
                         }
 
                         if (!isset($codProjeto)) {
-                            echo '<div class="jumbotron">';
-                            echo '<h2>Não existe projeto</h2>';
+                            echo '</br>';
+                            echo '<div class="jumbotron" style="position: relative; width: 100%;">';
+                            echo '<h2 style="text-align: center;">Não possui nenhum projeto</h2>';
+                            echo '</div>';
                         }
                         conectdb::desconectar();
                         ?>

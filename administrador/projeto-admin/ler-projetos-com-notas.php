@@ -55,8 +55,15 @@ DESC
     $q = $pdo->prepare($sql);
     $q->execute(array($codProjeto));
     $projeto = $q->fetch(PDO::FETCH_ASSOC);
-    conectdb::desconectar();
 }
+
+$sql2 = 'select count(*) from tb_avaliacao where codProjeto = ?;';
+$q2 = $pdo->prepare($sql2);
+$q2->execute(array($codProjeto));
+$projetosQuantidadeAvaliador = $q2->fetch(PDO::FETCH_ASSOC);
+conectdb::desconectar();
+
+
 ?>
 
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
@@ -460,6 +467,16 @@ DESC
                                         <span class="carousel-inner">
                                             Nota Total: <span
                                                     style="font-weight: bold; color:#1e7e34;"><?php echo $projeto['Total']; ?></span>
+                                        </span>
+                                    </div>
+                                </div>
+
+                                <div class="control-group">
+                                    <label class="control-label" style="font-weight: bold;">Obs: </label>
+                                    <div class="controls">
+                                        <span class="carousel-inner">
+                                            Este Projeto foi avaliado por: <span
+                                                    style="font-weight: bold; color:#fd7e14;"><?php echo $projetosQuantidadeAvaliador['count(*)']; ?></span> avaliador(es)
                                         </span>
                                     </div>
                                 </div>
