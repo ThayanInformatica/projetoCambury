@@ -141,12 +141,11 @@ if ($_POST) {
             <div class="d-flex align-items-center">
 
                 <img id="cambury-logo" src="components/img/logo-cambury.png" alt="Logo cambury">
-                <div class="site-logo mr-auto w-25"><a href="index.html">PCA Cambury</a></div>
+                <div class="site-logo mr-auto w-25"><a href="index.php">PCA Cambury</a></div>
 
                 <div class="mx-auto text-center">
                     <nav class="site-navigation position-relative text-right" role="navigation">
                         <ul class="site-menu main-menu js-clone-nav mx-auto d-none d-lg-block  m-0 p-0">
-                            <li><a href="#entrar" class="nav-link">Entrar</a></li>
                             <li><a href="http://pcacambury.com/cadastro-usuario.php" onclick="ClickGoCadastro()" id="link" class="nav-link">Cadastrar</a></li>
                             <li><a href="https://cambury.br/" onclick="ClickGoCambury()" id="cambury"  class="nav-link">Site Cambury</a></li>
                         </ul>
