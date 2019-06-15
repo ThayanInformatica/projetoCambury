@@ -44,8 +44,8 @@ class UsuarioDAO
         $sql = "SELECT logado FROM tb_usuario WHERE loginUsuario = '$login'";
 
         $executa = mysqli_query($this->conexao->getCon(), $sql);
-        $userLogado = mysqli_fetch_array($executa);
-        return $userLogado['logado'];
+        $verifylog = mysqli_fetch_array($executa);
+        return $verifylog['logado'];
     }
 
     // verificiar validacao de usuario
@@ -132,7 +132,18 @@ class UsuarioDAO
         exit();
     }
 
-    function ifsessionExists()
+    public function logoutLogado($login)
+    {
+
+        session_destroy();
+
+        //setcookie("login" , "" , time()-60*5);
+        header('location: index.php?logado=account');
+
+        exit();
+    }
+
+    public function ifsessionExists()
     {
 
         if (isset($_SESSION)) {

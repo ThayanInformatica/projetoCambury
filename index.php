@@ -1,33 +1,36 @@
 <?php
 
 session_start();
+
+include('classes/Conexao.class.php');
+include('classes/UsuarioDAO.class.php');
+
+$usuario = new UsuarioDAO();
+
 if (isset($_SESSION['login']) && isset($_SESSION['senha']) && isset($_SESSION['nivel'])):
 
+    $verificadorLogado = $usuario->verifyLogger($login);
+
     $nivelUser = $_SESSION['nivel'];
-    if ($_SESSION['nivel'] < 99)
-    {
+    if ($_SESSION['nivel'] < 99) {
         header('location: usuario-logado.php');
     }
 
-    if ($_SESSION['nivel'] >= 99)
-    {
+    if ($_SESSION['nivel'] >= 99) {
         header('location: administrador/admin.php');
     }
+
 endif;
 
 
 if ($_POST) {
-    include('classes/Conexao.class.php');
-    include('classes/UsuarioDAO.class.php');
-
-    $usuario = new UsuarioDAO();
 
     $login = addslashes($_POST['login']);
     $senha = addslashes($_POST['senha']);
 
     $user = $usuario->login($login, $senha);
 
-    $verificadorLogado = $usuario->verifyLogger($login);
+    $verificadorLogado2 = $usuario->verifyLogger($login);
 
     if ($user == true) {
         session_start();
@@ -37,19 +40,18 @@ if ($_POST) {
         $_SESSION['nivel'] = $nivel;
         $codUsuario = $usuario->CodDoUsuario($login);
         $_SESSION['codUsuario'] = $codUsuario;
+        $usuario->logado($login);
         header('location: usuario-logado.php');
-        $logar = $usuario->logado($login);
 
-    } else {
-        header('location:index.php?erro=senha');
+        if ($user == true && $nivel == 99) {
+            header('location: administrador/admin.php');
+        }
+
+        if ($user == true && $verificadorLogado2 == 1) {
+            $usuario->logoutLogado($login);
+        }
     }
 
-    if ($verificadorLogado == 1) {
-        header("location: index.php?erro=logado");
-    }
-    if ($user == true && $nivel == 99) {
-        header('location: administrador/admin.php');
-    }
 
     if (!isset($_SESSION['login']) && !isset($_SESSION['senha'])):
         header("location: index.php?erro=senha");
@@ -97,24 +99,24 @@ if ($_POST) {
         });
     </script>
 
-        <script type="text/javascript">
-            function ClickGoCadastro (){
-
-                    window.location.href="http://pcacambury.com/cadastro-usuario.php";
-            }
-    </script>
-
     <script type="text/javascript">
-        function ClickGoCambury (){
+        function ClickGoCadastro() {
 
-            window.location.href="http://cambury.br";
+            window.location.href = "http://pcacambury.com/cadastro-usuario.php";
         }
     </script>
 
     <script type="text/javascript">
-        function ClickGoContato (){
+        function ClickGoCambury() {
 
-            window.location.href="https://cambury.br/cursos-formosa/";
+            window.location.href = "http://cambury.br";
+        }
+    </script>
+
+    <script type="text/javascript">
+        function ClickGoContato() {
+
+            window.location.href = "https://cambury.br/cursos-formosa/";
         }
     </script>
 
@@ -146,8 +148,10 @@ if ($_POST) {
                 <div class="mx-auto text-center">
                     <nav class="site-navigation position-relative text-right" role="navigation">
                         <ul class="site-menu main-menu js-clone-nav mx-auto d-none d-lg-block  m-0 p-0">
-                            <li><a href="http://pcacambury.com/cadastro-usuario.php" onclick="ClickGoCadastro()" id="link" class="nav-link">Cadastrar</a></li>
-                            <li><a href="https://cambury.br/" onclick="ClickGoCambury()" id="cambury"  class="nav-link">Site Cambury</a></li>
+                            <li><a href="http://pcacambury.com/cadastro-usuario.php" onclick="ClickGoCadastro()"
+                                   id="link" class="nav-link">Cadastrar</a></li>
+                            <li><a href="https://cambury.br/" onclick="ClickGoCambury()" id="cambury" class="nav-link">Site
+                                    Cambury</a></li>
                         </ul>
                     </nav>
                 </div>
@@ -200,6 +204,9 @@ if ($_POST) {
                                         echo '<div class="alert alert-success">Usuario cadastrado!</div>';
                                     }
 
+                                    if (isset($_GET['logado'])) {
+                                        echo '<div class="alert alert-warning" style="font-size: 16px;">Existe outra pessoa logado nesta conta!</div>';
+                                    }
                                     ?>
                                     <div class="form-group">
                                         <input type="text" id="entrar" name="login" class="form-control"
