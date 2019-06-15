@@ -1,6 +1,31 @@
 <?php
 session_start();
 
+include('../classes/Conexao.class.php');
+include('../classes/ProjetoDAO.class.php');
+include('../classes/UsuarioDAO.class.php');
+
+$usuario = new UsuarioDAO();
+$usuarioProjeto = new ProjetoDAO();
+
+if ( isset( $_SESSION["sessiontime"] ) ) {
+    $loginOut = $_SESSION['login'];
+    if ($_SESSION["sessiontime"] < time() ) {
+        session_unset();
+        echo "Seu tempo Expirou!";
+        $usuario->logoutOut($loginOut);
+        //Redireciona para login
+    } else {
+        echo 'Logado ainda!';
+        //Seta mais tempo 60 segundos
+        $_SESSION["sessiontime"] = time() + 600;
+    }
+} else {
+    session_unset();
+    $usuario->logout($login);
+    //Redireciona para login
+}
+
 if (!isset($_SESSION['login']) && !isset($_SESSION['senha'])):
     header('location: ../index.php');
 endif;
@@ -353,13 +378,6 @@ endif;
                     //            ?>
                     <!---->
                     <?php
-
-                    include('../classes/Conexao.class.php');
-                    include('../classes/ProjetoDAO.class.php');
-                    include('../classes/UsuarioDAO.class.php');
-
-                    $usuario = new UsuarioDAO();
-                    $usuarioProjeto = new ProjetoDAO();
 
                     $login = $_SESSION['login'];
 

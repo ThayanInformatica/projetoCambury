@@ -36,6 +36,7 @@ if ($_POST) {
         session_start();
         $_SESSION['login'] = $login;
         $_SESSION['senha'] = $senha;
+        $_SESSION["sessiontime"] = time() + 600;
         $nivel = $usuario->nivelDeUsuario($login);
         $_SESSION['nivel'] = $nivel;
         $codUsuario = $usuario->CodDoUsuario($login);
@@ -51,7 +52,6 @@ if ($_POST) {
             $usuario->logoutLogado($login);
         }
     }
-
 
     if (!isset($_SESSION['login']) && !isset($_SESSION['senha'])):
         header("location: index.php?erro=senha");
@@ -206,6 +206,9 @@ if ($_POST) {
 
                                     if (isset($_GET['logado'])) {
                                         echo '<div class="alert alert-warning" style="font-size: 16px;">Existe outra pessoa logado nesta conta!</div>';
+                                    }
+                                    if (isset($_GET['logoutTime'])) {
+                                        echo '<div class="alert alert-info" style="font-size: 14px;">Deslogado por inatividade! <span style="color: #843534; font-weight: bold;">(Session Expired)</span></div>';
                                     }
                                     ?>
                                     <div class="form-group">

@@ -132,6 +132,21 @@ class UsuarioDAO
         exit();
     }
 
+    public function logoutOut($login)
+    {
+        $sql = "UPDATE tb_usuario SET logado = 0 WHERE loginUsuario = '$login'";
+
+        $executa = mysqli_query($this->conexao->getCon(), $sql);
+
+        session_start();
+
+        session_destroy();
+
+        //setcookie("login" , "" , time()-60*5);
+        header("Location:../index.php?logoutTime=sucess");
+        exit();
+    }
+
     public function logoutLogado($login)
     {
 
