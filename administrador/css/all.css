@@ -265,7 +265,7 @@ body {
 .sidebar-wrapper .sidebar-menu .sidebar-dropdown > a:after {
     font-family: 'Material Icons';
     font-weight: 900;
-    content: "\f105";
+    content: "keyboard_arrow_right";
     font-style: normal;
     display: inline-block;
     font-style: normal;
@@ -290,8 +290,8 @@ body {
 }
 
 .sidebar-wrapper .sidebar-menu .sidebar-dropdown .sidebar-submenu li a:before {
-    content: "\f111";
-    font-family: "Font Awesome 5 Free";
+    font-family: "Material Icons";
+    content: "reply";
     font-weight: 400;
     font-style: normal;
     display: inline-block;
