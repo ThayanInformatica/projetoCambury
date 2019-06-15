@@ -36,7 +36,7 @@ if ($_POST) {
         session_start();
         $_SESSION['login'] = $login;
         $_SESSION['senha'] = $senha;
-        $_SESSION["sessiontime"] = time() + 600;
+        $_SESSION["sessiontime"] = time() + 900;
         $nivel = $usuario->nivelDeUsuario($login);
         $_SESSION['nivel'] = $nivel;
         $codUsuario = $usuario->CodDoUsuario($login);

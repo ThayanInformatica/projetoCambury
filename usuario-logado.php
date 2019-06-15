@@ -18,7 +18,7 @@ if ( isset( $_SESSION["sessiontime"] ) ) {
     } else {
         echo 'Logado ainda!';
         //Seta mais tempo 60 segundos
-        $_SESSION["sessiontime"] = time() + 600;
+        $_SESSION["sessiontime"] = time() + 900;
     }
 } else {
     session_unset();
