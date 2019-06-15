@@ -34,32 +34,12 @@ CREATE TABLE IF NOT EXISTS `tb_usuario` (
   `cpfUsuario` varchar(30) NOT NULL,
   `emailUsuario` varchar(30) NOT NULL,
   `nivelUsuario` varchar(2) NULL DEFAULT 0,
-    `avaliador` varchar(2) NULL DEFAULT 0
+    `avaliador` varchar(2) NULL DEFAULT 0,
+        PRIMARY KEY (`codUsuario`)
 ) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=latin1;
 
 --
 -- Extraindo dados da tabela `tb_usuario`
---
-
-INSERT INTO `tb_usuario` (`codUsuario`, `loginUsuario`, `nomeUsuario`,`senhaUsuario`,`cpfUsuario`,`emailUsuario`) VALUES
-(18, '123', '123','123','12','100');
-
---
--- Indexes for dumped tables
---
-
---
--- Indexes for table `tb_usuario`
---
-ALTER TABLE `tb_usuario`
- ADD PRIMARY KEY (`codUsuario`);
-
---
--- AUTO_INCREMENT for dumped tables
---
-
---
--- AUTO_INCREMENT for table `tb_usuario`
 --
 ALTER TABLE `tb_usuario`
 MODIFY `codUsuario` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=19;

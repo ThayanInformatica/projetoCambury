@@ -129,7 +129,7 @@ endif;
                              alt="User picture">
                     </div>
                     <div class="user-info">
-          <span class="user-name">André
+          <span class="user-name">
               <!--            <strong>Smith</strong>-->
           </span>
                         <span class="user-role">Administrator</span>
@@ -159,6 +159,10 @@ endif;
                     <ul>
                         <li class="header-menu">
                             <span style="font-family: 'Questrial', sans-serif;">Menu</span>
+                        </li>
+                        <li>
+                            <a style="cursor: pointer;" href="../../index.php">Lista de Projetos
+                            </a>
                         </li>
                         <li class="sidebar-dropdown">
                             <a href="#">
@@ -319,7 +323,7 @@ endif;
             </div>
             <!-- sidebar-content  -->
             <div class="sidebar-footer">
-                <a href="../../logout.php">
+                <a href="../../logout.php"> Deslogar
                     <i class="material-icons" style="color: #c82333;" data-toggle="tooltip" data-placement="top"
                        title="Deslogar" role="alert" data-toggle="tooltip">power_settings_new</i>
                 </a>
@@ -372,7 +376,7 @@ endif;
 
                     <table class="table table-striped">
                         <div class="projetos">
-                        <h2 style="font-family: 'Questrial', sans-serif;">Lista Notas dos Projetos</h2>
+                        <h2 style="font-family: 'Questrial', sans-serif;">Lista e Notas dos Projetos</h2>
                         </div>
                         <thead>
                         <?php
@@ -427,7 +431,7 @@ DESC
                                 echo '<td >' . $getProjetos['nomeProjeto'] . '</td>';
                                 echo '<td>' . $getProjetos['nomeProfessor'] . '</td>';
                                 echo '<td>' . $getProjetos['curso'] . ' / ' . $getProjetos['turma'] . '</td>';
-                                echo '<td>' . $getProjetos['Total'] . '</td>';
+                                echo '<td style="font-weight: bold; color:#1e7e34;">' . $getProjetos['Total'] . '</td>';
                                 echo '<td width=200>';
                                 echo '<a class="material-icons" data-toggle="tooltip" data-placement="top" title="Informações do Projeto" href="ler-projetos-com-notas.php?codProjeto=' . $getProjetos['codProjeto'] . '">info</a>';
                                 echo ' ';

@@ -27,33 +27,14 @@ CREATE TABLE IF NOT EXISTS `tb_projeto` (
     `resumo` varchar(200)  NULL,
 	    `curso` varchar(50)  NULL,
 		    `turma` varchar(20)  NULL,
-			`projetoAceito` varchar(2)  NULL DEFAULT 0
+			`projetoAceito` varchar(2)  NULL DEFAULT 0,
+			PRIMARY KEY (`codProjeto`)
 ) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=latin1;
 
---
--- Extraindo dados da tabela `tb_projeto`
---
 
-INSERT INTO `tb_projeto` (`codProjeto`,`codUsuario`,`nomeProjeto`, `nomeProfessor`,`objetivo`,`resumo`,`curso`,`turma`) VALUES
-(18, 24, 'Teste','Teste','Teste','Teste','ti','02');
-
---
--- Indexes for dumped tables
---
-
---
--- Indexes for table `tb_projeto`
---
 ALTER TABLE `tb_projeto`
- ADD PRIMARY KEY (`codProjeto`);
+ ADD CONSTRAINT `fk_tb_projeto_tb_usuario_idx` FOREIGN KEY (`codUsuario`) REFERENCES `tb_usuario` (`codUsuario`) ON DELETE CASCADE;
 
---
--- AUTO_INCREMENT for dumped tables
---
-
---
--- AUTO_INCREMENT for table `tb_projeto`
---
 ALTER TABLE `tb_projeto`
 MODIFY `codProjeto` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=19;
  

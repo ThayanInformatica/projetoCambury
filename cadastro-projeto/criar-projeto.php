@@ -99,9 +99,6 @@ if (isset($_POST['cadastrar'])) {
     if (isset($_GET['erro'])) {
         echo '<div class="alert alert-danger">Tente novamente mais tarde</div>';
     }
-    if (isset($_GET['successprojeto'])) {
-        echo '<div class="alert alert-success">Projeto cadastrado!</div>';
-    }
 
     ?>
 
@@ -146,11 +143,11 @@ if (isset($_POST['cadastrar'])) {
                             <div class="form-row">
                     <div  class="form-group col-md-6">
                     <label for="nomeProjeto">Nome do Projeto:</label>
-                    <input name="nomeProjeto" type="text" class="form-control" id="nomeProjeto" placeholder="Digite o nome do projeto">
+                    <input name="nomeProjeto" type="text" class="form-control" id="nomeProjeto" placeholder="Digite o nome do projeto" required>
                     </div>
                     <div  class="form-group col-md-6">
                     <label for="nomeProfessor">Prof° Orientador:</label>
-                    <input type="text" class="form-control" name="nomeProfessor" id="nomeProfessor" placeholder="Digite o nome do Orientador">
+                    <input type="text" class="form-control" name="nomeProfessor" id="nomeProfessor" placeholder="Digite o nome do Orientador" required>
                     </div>
                 </div>
                 
@@ -160,7 +157,7 @@ if (isset($_POST['cadastrar'])) {
                         <label class=" control-label
                     ">Objetivo do Projeto:</label>
                     <div class="controls">
-                                    <textarea size="35" class="form-control"  name="objetivoProjeto" type="text" required=""
+                                    <textarea size="35" class="form-control"  name="objetivoProjeto" type="text" required
                                     > </textarea>
                                     
                     </div>
@@ -170,7 +167,7 @@ if (isset($_POST['cadastrar'])) {
                     <label class=" control-label
                 ">Resumo do Projeto:</label>
                 <div class="controls">
-                                    <textarea size="40" class="form-control" name="resumoProjeto" type="text" required=""
+                                    <textarea size="40" class="form-control" name="resumoProjeto" type="text" required
                                     ></textarea>
                 </div>
             </div>

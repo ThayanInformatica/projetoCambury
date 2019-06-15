@@ -195,6 +195,10 @@ DESC
                         <li class="header-menu">
                             <span>Menu</span>
                         </li>
+                        <li>
+                            <a style="cursor: pointer;" href="../../index.phpphp">Lista de Projetos
+                            </a>
+                        </li>
                         <li class="sidebar-dropdown">
                             <a href="#">
                                 <i class="fa fa-tachometer-alt"></i>
@@ -331,11 +335,11 @@ DESC
             <!-- sidebar-content  -->
             <div class="sidebar-footer">
                 <?php if ($_SESSION['nivel'] == 99)
-                    echo '<a href="../../logout.php">'
+                    echo '<a href="../../logout.php"> Deslogar'
                 ?>
 
                 <?php if ($_SESSION['nivel'] < 99)
-                    echo '<a href="../../logout.php">'
+                    echo '<a href="../../logout.php"> Deslogar'
                 ?>
                 <i class="material-icons" style="color: #c82333;" data-toggle="tooltip" data-placement="top"
                    title="Deslogar" role="alert" data-toggle="tooltip">power_settings_new</i>
@@ -462,8 +466,23 @@ DESC
 
                                 <br/>
                                 <div class="form-actions">
-                            <a href="../../index.php" type="btn" class="btn btn-default">Voltar</a>
+                                    <?php if ($nivel == 99)
+                                    {
+                                        ?>
+                                    <a href="resultado-avaliacoes.php" type="btn" class="btn btn-default">Voltar</a>
 
+                                    <?php
+                                    }
+                                    ?>
+
+                                    <?php if ($nivel != 99)
+                                    {
+                                        ?>
+                                        <a href="../index.php" type="btn" class="btn btn-default">Voltar</a>
+
+                                        <?php
+                                    }
+                                    ?>
 
                                 </div>
                             </div>

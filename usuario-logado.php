@@ -95,7 +95,7 @@ endif;
     <link href="components/css/footer.css">
     <link href="https://fonts.googleapis.com/css?family=Marcellus+SC|Prompt|Rufina" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Questrial" rel="stylesheet">
-    <link rel="icon" href="https://cambury.br/wp-content/themes/cambury/favicon.png"  type="image/ico" />
+    <link rel="icon" href="https://cambury.br/wp-content/themes/cambury/favicon.png" type="image/ico"/>
 
     <script>
         $(function () {
@@ -318,6 +318,17 @@ endif;
         <main class="page-content">
             <div class="container">
                 <br class="row">
+                <?php
+                if (isset($_GET['successprojeto'])) {
+                    echo '<div class="alert alert-success">Projeto cadastrado!</div>';
+                }
+
+                if (isset($_GET['avaliado'])) {
+                    echo '<div class="alert alert-success">Projeto Avaliado com Sucesso!</div>';
+                }
+
+                ?>
+
                 <span>
                     <?php
 
@@ -524,7 +535,6 @@ DESC ;';
         integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
         crossorigin="anonymous"></script>
 </body>
-
 
 
 </html>

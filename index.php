@@ -97,6 +97,28 @@ if ($_POST) {
         });
     </script>
 
+        <script type="text/javascript">
+            function ClickGoCadastro (){
+
+                    window.location.href="http://pcacambury.com/cadastro-usuario.php";
+            }
+    </script>
+
+    <script type="text/javascript">
+        function ClickGoCambury (){
+
+            window.location.href="http://cambury.br";
+        }
+    </script>
+
+    <script type="text/javascript">
+        function ClickGoContato (){
+
+            window.location.href="https://cambury.br/cursos-formosa/";
+        }
+    </script>
+
+
 </head>
 <body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
 
@@ -125,8 +147,8 @@ if ($_POST) {
                     <nav class="site-navigation position-relative text-right" role="navigation">
                         <ul class="site-menu main-menu js-clone-nav mx-auto d-none d-lg-block  m-0 p-0">
                             <li><a href="#entrar" class="nav-link">Entrar</a></li>
-                            <li><a href="cadastro-usuario.php" class="nav-link">Cadastrar</a></li>
-                            <li><a href="https://cambury.br/" class="nav-link">Site Cambury</a></li>
+                            <li><a href="http://pcacambury.com/cadastro-usuario.php" onclick="ClickGoCadastro()" id="link" class="nav-link">Cadastrar</a></li>
+                            <li><a href="https://cambury.br/" onclick="ClickGoCambury()" id="cambury"  class="nav-link">Site Cambury</a></li>
                         </ul>
                     </nav>
                 </div>
@@ -134,8 +156,8 @@ if ($_POST) {
                 <div class="ml-auto w-25">
                     <nav class="site-navigation position-relative text-right" role="navigation">
                         <ul class="site-menu main-menu site-menu-dark js-clone-nav mr-auto d-none d-lg-block m-0 p-0">
-                            <li class="cta"><a href="https://cambury.br/cursos-formosa/"
-                                               class="nav-link"><span>Contato</span></a></li>
+                            <li class="cta"><a href="https://cambury.br/cursos-formosa/" onclick="ClickGoContato()"
+                                               class="nav-link"><span>Contato Cambury</span></a></li>
                         </ul>
                     </nav>
                     <a href="#" class="d-inline-block d-lg-none site-menu-toggle js-menu-toggle text-black float-right"><span
@@ -165,6 +187,21 @@ if ($_POST) {
                             <div class="col-lg-5 ml-auto" data-aos="fade-up" data-aos-delay="50">
                                 <form action="" method="post" class="form-box">
                                     <h3 class="h4 text-black mb-4">Login</h3>
+                                    <?php
+                                    // mensagem de erro caso as senhas não sejam iguais
+                                    if (isset($_GET['erro'])) {
+                                        echo '<div class="alert alert-danger">Usuário ou senha incorreto!</div>';
+                                    }
+                                    // mensagem de erro caso o login escolhido já exista no banco de dados
+                                    if (isset($_GET['logout'])) {
+                                        echo '<div class="alert alert-danger">Usuário deslogado!</div>';
+                                    }
+                                    // mensagem de sucesso caso o usuario seja cadastrado corretamente
+                                    if (isset($_GET['sucesso'])) {
+                                        echo '<div class="alert alert-success">Usuario cadastrado!</div>';
+                                    }
+
+                                    ?>
                                     <div class="form-group">
                                         <input type="text" id="entrar" name="login" class="form-control"
                                                placeholder="Usuario">
@@ -175,7 +212,7 @@ if ($_POST) {
 
                                     <div class="form-group">
                                         <input type="submit" id="btn-login" class="btn btn-primary btn-pill"
-                                               value="Enviar">
+                                               value="Entrar">
                                         <!-- <a  href="cadastro-usuario.php" id="Cadastrar">Cadastre-se</a> -->
                                         <a id="btn-cadastra" href="cadastro-usuario.php"
                                            class="btn btn-primary btn-pill">Cadastrar
@@ -196,7 +233,7 @@ if ($_POST) {
     <div>
         <!--    Ajuster img de selo apos subir para produção-->
         <div class="barra-footer">
-            <img src="http://localhost/projeto/components/img/selos.png" alt="Selos Cambury" class="selos_footer">
+            <img src="http://pcacambury.com/components/img/selos.png" alt="Selos Cambury" class="selos_footer">
         </div>
         <div class="direitos-reservados">
             <h1>Copyright © 2019 Faculdades Cambury - Todos os direitos reservados</h1>

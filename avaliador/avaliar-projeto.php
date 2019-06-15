@@ -71,7 +71,7 @@ if (!empty($_POST)) {
         $q = $pdo->prepare($sql);
         $q->execute(array($codProjeto, $codUsuario, $nota1, $nota2, $nota3, $nota4));
         conectdb::desconectar();
-        header("Location: ../usuario-logado.php");
+        header("Location: ../usuario-logado.php?avaliado=ok");
     }
 }
 

@@ -31,8 +31,9 @@ CREATE TABLE IF NOT EXISTS `tb_avaliacao` (
 -- Extraindo dados da tabela `tb_usuario`
 --
 
-INSERT INTO `tb_avaliacao` (`codAvaliacao`,`codUsuario`, `codProjeto`, `nota_1`,`nota_2`,`nota_3`,`nota_4`) VALUES
-(1,18, 113, 5.0,9.2,9.4,9.1);
+ALTER TABLE `tb_avaliacao`
+ ADD CONSTRAINT `fk_tb_avaliacao_tb_usuario_idx` FOREIGN KEY (`codUsuario`) REFERENCES `tb_usuario` (`codUsuario`) ON DELETE CASCADE,
+ADD CONSTRAINT `fk_tb_avaliacao_tb_projeto_idx` FOREIGN KEY (`codProjeto`) REFERENCES `tb_projeto` (`codProjeto`) ON DELETE CASCADE;
 
 --
 -- Indexes for dumped tables
@@ -49,7 +50,7 @@ ALTER TABLE `tb_avaliacao`
 ALTER TABLE `tb_avaliacao`
 MODIFY `codAvaliacao` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=19;
  
- 
+
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

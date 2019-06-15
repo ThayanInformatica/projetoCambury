@@ -231,6 +231,10 @@ if (!empty($_POST)) {
                         <li class="header-menu">
                             <span>Menu</span>
                         </li>
+                        <li>
+                            <a style="cursor: pointer;" href="../index.php">Lista de Projetos
+                            </a>
+                        </li>
                         <li class="sidebar-dropdown">
                             <a href="#">
                                 <i class="fa fa-tachometer-alt"></i>
@@ -421,7 +425,7 @@ if (!empty($_POST)) {
                         <div class="controls">
                             <input name="senha" class="form-control" size="30" type="password"
                                    placeholder="Digite sua senha"
-                                   value="<?php echo !empty($senha) ? $senha : ''; ?>" minlength="6" required>
+                                   minlength="6" required>
                             <?php if (!empty($senhaErro)): ?>
                                 <br/>
                                 <div class="alert alert-danger"><?php echo $senhaErro; ?></div>

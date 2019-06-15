@@ -44,7 +44,7 @@ if (isset($_POST['cadastrar'])) {
             $insere = $cadastrar->cadastra($login, $senha, $nome, $cpf, $email, $avaliador);
             // caso o usuario seja cadastrado, exibir mensagem de sucesso
             if ($insere == true) {
-                header('location:index.php?sucesso');
+                header('location:index.php?sucesso=account');
             }
         }
 
@@ -167,10 +167,6 @@ if (isset($_POST['cadastrar'])) {
         if (isset($_GET['repetido'])) {
             echo '<div class="alert alert-danger">Este Login ou CPF já foi escolhido por outra pessoa!</div>';
         }
-        // mensagem de sucesso caso o usuario seja cadastrado corretamente
-        if (isset($_GET['sucesso'])) {
-            echo '<div class="alert alert-success">Usuario cadastrado!</div>';
-        }
 
         ?>
 
@@ -231,10 +227,10 @@ if (isset($_POST['cadastrar'])) {
                             </div>
                             <div class="checkbox">
                                 <label>
-                                    <input type="radio" id="avaliador" name="avaliador" value="1"> Avaliador
+                                    <input required type="radio" id="avaliador" name="avaliador" value="1"> Avaliador
                                 </label>
                                 <label>
-                                    <input type="radio" id="avaliador" name="avaliador" value="0">Orientador
+                                    <input required type="radio" id="avaliador" name="avaliador" value="0">Orientador
                                 </label>
                             </div>
                         </div>

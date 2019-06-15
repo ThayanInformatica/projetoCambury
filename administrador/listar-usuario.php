@@ -126,7 +126,7 @@ endif;
                          alt="User picture">
                 </div>
                 <div class="user-info">
-          <span class="user-name">André
+          <span class="user-name">
               <!--            <strong>Smith</strong>-->
           </span>
                     <span class="user-role">Administrator</span>
@@ -156,6 +156,10 @@ endif;
                 <ul>
                     <li class="header-menu">
                         <span>Menu</span>
+                    </li>
+                    <li>
+                        <a style="cursor: pointer;" href="../index.php">Lista de Projetos
+                        </a>
                     </li>
                     <li class="sidebar-dropdown">
                         <a href="#">
@@ -316,8 +320,8 @@ endif;
         </div>
         <!-- sidebar-content  -->
         <div class="sidebar-footer">
-            <a href="../logout.php">
-                <i class="material-icons" style="color: #c82333;" data-toggle="tooltip" data-placement="top"
+            <a href="../logout.php";"> Deslogar
+                <i class="material-icons" style="color: #c82333; margin-left: 2px;" data-toggle="tooltip" data-placement="top"
                    title="Deslogar" role="alert" data-toggle="tooltip">power_settings_new</i>
             </a>
             <!--            <a href="#">-->

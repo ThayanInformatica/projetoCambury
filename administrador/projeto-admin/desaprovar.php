@@ -98,7 +98,7 @@ if (!empty($_POST)) {
             </div>
             <form class="form-horizontal" action="#" method="post">
                 <input type="hidden" name="codProjeto" value="<?php echo $codProjeto; ?>"/>
-                <div class="alert alert-danger"> Realmente deseja desaprovar o seu projeto ?
+                <div class="alert alert-danger"> Realmente deseja desaprovar este projeto ?
                 </div>
                 <div class="form actions">
                     <button type="submit" class="btn btn-danger">Sim</button>

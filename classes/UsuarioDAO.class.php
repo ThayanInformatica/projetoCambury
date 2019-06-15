@@ -128,7 +128,7 @@ class UsuarioDAO
         session_destroy();
 
         //setcookie("login" , "" , time()-60*5);
-        header("Location:index.php?success=logout");
+        header("Location:index.php?logout=sucess");
         exit();
     }
 
