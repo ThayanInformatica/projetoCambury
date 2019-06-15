@@ -28,3 +28,11 @@
   width: 300px;
   margin: 40px 0 0 0;
 }
+
+@media (max-width: 768.98px) {
+  .direitos-reservados h1 {
+    font-size: 8px;
+  }
+}
+
+

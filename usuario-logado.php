@@ -16,7 +16,6 @@ if ( isset( $_SESSION["sessiontime"] ) ) {
         $usuario->logout($loginOut);
         //Redireciona para login
     } else {
-        echo 'Logado ainda!';
         //Seta mais tempo 60 segundos
         $_SESSION["sessiontime"] = time() + 900;
     }

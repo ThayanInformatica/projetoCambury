@@ -1,5 +1,5 @@
 #cambury-logo{
-    width: 10% !important;
+    width: 10%;
     margin-right: 10px !important;
 }
 
@@ -11,5 +11,12 @@
 #btn-login {
     padding: 14px 20px;
     margin-right: 7px;
+}
+
+@media (max-width: 768.98px) {
+    #cambury-logo{
+        width: 40%;
+        margin-right: 10px !important;
+    }
 }
 
