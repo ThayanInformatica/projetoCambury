@@ -664,7 +664,7 @@ if (null == $codProjeto) {
   height: 185px;
   color: #FFFFFF;
   font-family: 'Open Sans','Arial';">
-        <img src="http://localhost/projeto/components/img/selos.png" alt="Selos Cambury" style="  width: 300px;
+        <img src="http://pcacambury.com/components/img/selos.png" alt="Selos Cambury" style="  width: 300px;
   margin: 40px 0 0 0;" class="selos_footer">
     </div>
     <div class="direitos-reservados" style="  background: black;
